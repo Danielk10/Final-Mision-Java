@@ -67,7 +67,7 @@ public class Caja extends Actor {
 
 			poder.setPoder(AGILIDAD_S);
 
-			poder.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("poderS.png"), });
+			poder.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("poderS.png") });
 
 			pantalla.getActores().add(poder);
 		}
@@ -76,7 +76,7 @@ public class Caja extends Actor {
 
 			poder.setPoder(PODER_W);
 
-			poder.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("poderW.png"), });
+			poder.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("poderW.png") });
 
 			pantalla.getActores().add(poder);
 		}
@@ -85,7 +85,7 @@ public class Caja extends Actor {
 
 			poder.setPoder(PODER_L);
 
-			poder.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("poderL.png"), });
+			poder.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("poderL.png") });
 
 			pantalla.getActores().add(poder);
 		}
@@ -94,7 +94,7 @@ public class Caja extends Actor {
 
 			poder.setPoder(PODER_B);
 
-			poder.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("poderB.png"), });
+			poder.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("poderB.png") });
 
 			pantalla.getActores().add(poder);
 		}

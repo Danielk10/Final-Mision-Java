@@ -386,11 +386,13 @@ public class PantallaJuego extends Pantalla {
 
 			fondo[19].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
 
-			fondo[20].setPosicion(2560, 0);
+			fondo[20].setPosicion(3200, 0);
 
 			fondo[20].setVelocidad(1);
 
 			fondo[20].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
+			
+			
 
 		}
 

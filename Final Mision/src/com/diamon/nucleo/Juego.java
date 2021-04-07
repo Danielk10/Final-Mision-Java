@@ -77,8 +77,7 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 
 		BufferedImage cursor = recurso.createCompatible(10, 10, Transparency.BITMASK);
 
-		// cursor.getGraphics().drawImage(recurso.cargarImagen("vida1.png"), 0, 0, 5, 5,
-	// this);
+     //  cursor.getGraphics().drawImage(recurso.cargarImagen("vida1.png"), 0, 0, 5, 5,this);
 
 		Toolkit t = Toolkit.getDefaultToolkit();
 
@@ -118,7 +117,7 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 
 		ventana.setResizable(false);
 
-		ventana.setIconImage(recurso.cargarImagen("jugador1D1.png"));
+		ventana.setIconImage(recurso.cargarImagen("logo.png"));
 
 		ventana.setVisible(true);
 

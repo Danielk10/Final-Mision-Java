@@ -159,7 +159,7 @@ public class MaquinaFinal extends Actor {
 
 		bala.setLado(BalaEnemigo.LADO_IZQUIERDO);
 
-		bala.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("balaParedI.png"), });
+		bala.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("balaParedI.png") });
 
 		if (bala.getX() <= 640) {
 

@@ -130,7 +130,7 @@ public class BalaEspecial extends Actor {
 
 		if (actor instanceof Volador || actor instanceof LanzaMisil || actor instanceof Caja
 				|| actor instanceof MaquinaFinal || actor instanceof MaquinaPared || actor instanceof Robot
-				|| actor instanceof Saltador || actor instanceof Misil || actor instanceof AntiAreo) {
+				|| actor instanceof Saltador || actor instanceof Misil || actor instanceof AntiAreo || actor instanceof BalaEnemigoDestruible) {
 			if (bala == BalaEspecial.BALA_B) {
 				explosion();
 			}

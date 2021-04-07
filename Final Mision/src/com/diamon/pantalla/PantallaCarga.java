@@ -405,6 +405,8 @@ public class PantallaCarga extends Pantalla {
 			juego.getRecurso().cargarImagen("explosionMisil3.png");
 
 			juego.getRecurso().cargarImagen("explosionMisil4.png");
+			
+			juego.getRecurso().cargarImagen("logo.png");
 
 			juego.getRecurso().cargarSonido("musica.wav");
 

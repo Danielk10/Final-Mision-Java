@@ -16,6 +16,10 @@ public class Jugador extends Actor {
 	private int x1 = 0;
 
 	private int y1 = 0;
+	
+	private int xDelta = 0;
+	
+	private int xDeltaReferencia = 0;
 
 	private int velocidadX;
 
@@ -752,32 +756,48 @@ public class Jugador extends Actor {
 		
 		
 		
-		//Izquierdo
+		if(pausado)
+		{
 		
-		lado = true;
+	     
+		
+		xDelta  = ev.getX();
 		
 		
-		//Derecho
+		if(xDelta >=xDeltaReferencia)
+		{
+			
+			//Derecho
 		
 		lado = false;
+			
+		}else
+		{
+			
+			//Izquierdo
+		
+		lado = true;
+			
+		}
+		
 
 		x1 = (int) ev.getX() - deltaXTactil;
 		y1 = (int) ev.getY() - deltaYTactil;
 
-		if (x1 <= 0) {
+		if (x1 <= 32) {
 
-			x1 = 0;
+			x1 = 32;
 		}
-		if (y1 >= Juego.ALTO_PANTALLA - tamano.height) {
-			y1 = Juego.ALTO_PANTALLA - tamano.height;
+		if (y1 >= (Juego.ALTO_PANTALLA-32) - tamano.height) {
+			y1 = (Juego.ALTO_PANTALLA-32) - tamano.height;
 		}
 
-		if (x1 >= Juego.ANCHO_PANTALLA - tamano.width) {
-			x1 = Juego.ANCHO_PANTALLA - tamano.width;
+		if (x1 >= (Juego.ANCHO_PANTALLA-32) - tamano.width) {
+			x1 = (Juego.ANCHO_PANTALLA-32) - tamano.width;
 		}
-		if (y1 <= 0) {
+		if (y1 <= 32) {
 
-			y1 = 0;
+			y1 = 32;
 		}
 
 		x = x1;
@@ -785,6 +805,8 @@ public class Jugador extends Actor {
 		y = y1;
 
 		dezplazamientoInicial = false;
+		
+		}
 
 	}
 
@@ -793,11 +815,18 @@ public class Jugador extends Actor {
 	}
 
 	public void ratonClick(MouseEvent ev) {
+		
+		
 
 	}
 
 	public void ratonPresionado(MouseEvent ev) {
 
+		
+		if(pausado)
+		{
+		xDeltaReferencia = x;
+		
 		disparar = true;
 
 		satelite1.setDisparar(true);
@@ -816,23 +845,25 @@ public class Jugador extends Actor {
 
 		deltaYTactil = (int) ev.getY() - y1;
 
-		if (x1 <= 0) {
-			x1 = 0;
+		if (x1 <= 32) {
+			x1 = 32;
 
 		}
 
-		if (y1 >= (Juego.ALTO_PANTALLA - tamano.height)) {
+		if (y1 >= ((Juego.ALTO_PANTALLA-32) - tamano.height)) {
 
-			y1 = Juego.ALTO_PANTALLA - tamano.height;
+			y1 = (Juego.ALTO_PANTALLA-32) - tamano.height;
 
 		}
-		if (x1 >= Juego.ANCHO_PANTALLA - tamano.width) {
-			x1 = Juego.ANCHO_PANTALLA - tamano.width;
+		if (x1 >= (Juego.ANCHO_PANTALLA-32) - tamano.width) {
+			x1 = (Juego.ANCHO_PANTALLA-32) - tamano.width;
 		}
 
-		if (y1 <= 0) {
-			y1 = 0;
+		if (y1 <= 32) {
+			y1 = 32;
 
+		}
+		
 		}
 
 	}
