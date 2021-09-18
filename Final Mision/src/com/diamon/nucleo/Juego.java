@@ -18,11 +18,11 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import com.diamon.dato.Configuraciones;
-import com.diamon.dato.DatosJuego;
 import com.diamon.utilidad.Recurso;
 
 public abstract class Juego extends Canvas implements Runnable, KeyListener, MouseMotionListener, MouseListener {
@@ -53,13 +53,13 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 
 	private Pantalla pantalla;
 
-	private Recurso recurso;
+	protected Recurso recurso;
 
-	private DatosJuego datos;
-
-	private Configuraciones configuracioin;
+	protected Configuraciones configuracion;
 
 	private GraphicsDevice dispositivo;
+
+	protected Camara2D camara;
 
 	public Juego() {
 
@@ -71,13 +71,15 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 
 		recurso = new Recurso();
 
-		configuracioin = new Configuraciones();
+		configuracion = new Configuraciones();
 
-		datos = new DatosJuego();
+		configuracion = configuracion.caragarConfiguraciones();
+
+		camara = new Camara2D();
 
 		BufferedImage cursor = recurso.createCompatible(10, 10, Transparency.BITMASK);
 
-     //  cursor.getGraphics().drawImage(recurso.cargarImagen("vida1.png"), 0, 0, 5, 5,this);
+		cursor.getGraphics().drawImage(recurso.cargarImagen("vida1.png"), 0, 0, 5, 5, this);
 
 		Toolkit t = Toolkit.getDefaultToolkit();
 
@@ -254,7 +256,10 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 	public void pausa() {
 		if (pantalla != null) {
 
+			pantalla.guardarDatos();
+
 			pantalla.pausa();
+
 			iniciar = false;
 			while (true) {
 				try {
@@ -273,13 +278,20 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 
 	public void liberarRecursos() {
 		if (pantalla != null) {
+
+			this.pantalla.guardarDatos();
+
+			this.pantalla.liberarRecursos();
+
 			pantalla.ocultar();
 		}
 	}
 
 	public void setPantalla(Pantalla pantalla) {
 		if (this.pantalla != null) {
-			this.pantalla.ocultar();
+
+			liberarRecursos();
+
 		}
 
 		this.pantalla = pantalla;
@@ -439,18 +451,6 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 
 		return (int) (1 / delta);
 
-	}
-
-	public DatosJuego getDatos() {
-		return datos;
-	}
-
-	public Recurso getRecurso() {
-		return recurso;
-	}
-
-	public Configuraciones getConfiguracioin() {
-		return configuracioin;
 	}
 
 	public void parar() {

@@ -54,10 +54,10 @@ public class BalaEnemigoDestruible extends Actor {
 
 		if (cicloExplosion % 30 == 0) {
 
-			for (int i = 0; i < pantalla.getActores().size(); i++) {
+			for (int i = 0; i < actores.size(); i++) {
 
-				if (pantalla.getActores().get(i) instanceof Explosion) {
-					Explosion e = (Explosion) pantalla.getActores().get(i);
+				if (actores.get(i) instanceof Explosion) {
+					Explosion e = (Explosion) actores.get(i);
 
 					e.remover();
 
@@ -77,16 +77,16 @@ public class BalaEnemigoDestruible extends Actor {
 
 		explosion.setPosicion(x - 32, y - 32);
 
-		explosion.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("explosion1.png"),
-				pantalla.getJuego().getRecurso().getImagen("explosion2.png"),
-				pantalla.getJuego().getRecurso().getImagen("explosion3.png"),
-				pantalla.getJuego().getRecurso().getImagen("explosion4.png") });
+		explosion.setImagenes(new BufferedImage[] { recurso.getImagen("explosion1.png"),
+				recurso.getImagen("explosion2.png"),
+				recurso.getImagen("explosion3.png"),
+				recurso.getImagen("explosion4.png") });
 
 		explosion.setCuadros(4);
 
 		if (explosion.getX() <= 640) {
 
-			pantalla.getActores().add(explosion);
+			actores.add(explosion);
 
 		}
 
@@ -97,7 +97,7 @@ public class BalaEnemigoDestruible extends Actor {
 
 		if (actor instanceof Jugador || actor instanceof Bala || actor instanceof BalaEspecial) {
 
-			pantalla.getJuego().getRecurso().playSonido("explosion.wav");
+			recurso.playSonido("explosion.wav");
 
 			explosion();
 

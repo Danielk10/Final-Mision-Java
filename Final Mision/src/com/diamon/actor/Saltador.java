@@ -54,10 +54,10 @@ public class Saltador extends Actor {
 
 		x--;
 
-		for (int i = 0; i < pantalla.getActores().size(); i++) {
+		for (int i = 0; i < actores.size(); i++) {
 
-			if (pantalla.getActores().get(i) instanceof Jugador) {
-				Jugador j = (Jugador) pantalla.getActores().get(i);
+			if (actores.get(i) instanceof Jugador) {
+				Jugador j = (Jugador) actores.get(i);
 
 				xJugador = j.getX();
 
@@ -67,10 +67,10 @@ public class Saltador extends Actor {
 
 		if (cicloExplosion % 30 == 0) {
 
-			for (int i = 0; i < pantalla.getActores().size(); i++) {
+			for (int i = 0; i < actores.size(); i++) {
 
-				if (pantalla.getActores().get(i) instanceof Explosion) {
-					Explosion e = (Explosion) pantalla.getActores().get(i);
+				if (actores.get(i) instanceof Explosion) {
+					Explosion e = (Explosion) actores.get(i);
 
 					e.remover();
 
@@ -140,16 +140,16 @@ public class Saltador extends Actor {
 
 		explosion.setPosicion(x - 32, y - 32);
 
-		explosion.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("explosion1.png"),
-				pantalla.getJuego().getRecurso().getImagen("explosion2.png"),
-				pantalla.getJuego().getRecurso().getImagen("explosion3.png"),
-				pantalla.getJuego().getRecurso().getImagen("explosion4.png") });
+		explosion.setImagenes(new BufferedImage[] { recurso.getImagen("explosion1.png"),
+				recurso.getImagen("explosion2.png"),
+				recurso.getImagen("explosion3.png"),
+				recurso.getImagen("explosion4.png") });
 
 		explosion.setCuadros(4);
 
 		if (explosion.getX() <= 640) {
 
-			pantalla.getActores().add(explosion);
+			actores.add(explosion);
 
 		}
 
@@ -163,14 +163,14 @@ public class Saltador extends Actor {
 
 		bala.setPosicion(x, y + 12);
 
-		bala.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("balaSaltador1.png"),
-				pantalla.getJuego().getRecurso().getImagen("balaSaltador2.png") });
+		bala.setImagenes(new BufferedImage[] { recurso.getImagen("balaSaltador1.png"),
+				recurso.getImagen("balaSaltador2.png") });
 
 		bala.setCuadros(5);
 
 		if (bala.getX() <= 640) {
 
-			pantalla.getActores().add(bala);
+			actores.add(bala);
 		}
 
 	}
@@ -184,13 +184,13 @@ public class Saltador extends Actor {
 
 			setCuadros(20);
 
-			setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("saltador2.png") });
+			setImagenes(new BufferedImage[] { recurso.getImagen("saltador2.png") });
 
 			if (preparado) {
 				setCuadros(20);
-				setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("saltador2.png"),
-						pantalla.getJuego().getRecurso().getImagen("saltador1.png"),
-						pantalla.getJuego().getRecurso().getImagen("saltador3.png") });
+				setImagenes(new BufferedImage[] { recurso.getImagen("saltador2.png"),
+						recurso.getImagen("saltador1.png"),
+						recurso.getImagen("saltador3.png") });
 
 			}
 
@@ -200,7 +200,7 @@ public class Saltador extends Actor {
 
 			setCuadros(1);
 
-			setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("saltador4.png") });
+			setImagenes(new BufferedImage[] { recurso.getImagen("saltador4.png") });
 
 		}
 
@@ -212,7 +212,7 @@ public class Saltador extends Actor {
 		if (actor instanceof Bala || actor instanceof Jugador || actor instanceof BalaEspecial
 				|| actor instanceof ExplosionB) {
 
-			pantalla.getJuego().getRecurso().playSonido("explosion.wav");
+			recurso.playSonido("explosion.wav");
 			explosion();
 			remover = true;
 		}

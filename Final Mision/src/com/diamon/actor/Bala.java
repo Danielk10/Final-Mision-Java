@@ -65,7 +65,7 @@ public class Bala extends Actor {
 
 		if (actor instanceof Volador || actor instanceof Caja || actor instanceof BalaEnemigoDestruible
 				|| actor instanceof MaquinaFinal || actor instanceof MaquinaPared || actor instanceof LanzaMisil
-				|| actor instanceof Misil || actor instanceof Robot || actor instanceof AntiAreo || actor instanceof Saltador) {
+				|| actor instanceof Misil || actor instanceof Robot || actor instanceof AntiAereo || actor instanceof Saltador) {
 
 			remover = true;
 

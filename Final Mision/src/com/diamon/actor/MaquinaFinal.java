@@ -74,10 +74,10 @@ public class MaquinaFinal extends Actor {
 
 			if (cicloExplosion % 30 == 0) {
 
-				for (int i = 0; i < pantalla.getActores().size(); i++) {
+				for (int i = 0; i < actores.size(); i++) {
 
-					if (pantalla.getActores().get(i) instanceof Explosion) {
-						Explosion e = (Explosion) pantalla.getActores().get(i);
+					if (actores.get(i) instanceof Explosion) {
+						Explosion e = (Explosion) actores.get(i);
 
 						e.remover();
 
@@ -134,16 +134,16 @@ public class MaquinaFinal extends Actor {
 
 		explosion.setPosicion(x - 32, y - 32);
 
-		explosion.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("explosion1.png"),
-				pantalla.getJuego().getRecurso().getImagen("explosion2.png"),
-				pantalla.getJuego().getRecurso().getImagen("explosion3.png"),
-				pantalla.getJuego().getRecurso().getImagen("explosion4.png") });
+		explosion.setImagenes(new BufferedImage[] { recurso.getImagen("explosion1.png"),
+				recurso.getImagen("explosion2.png"),
+				recurso.getImagen("explosion3.png"),
+				recurso.getImagen("explosion4.png") });
 
 		explosion.setCuadros(4);
 
 		if (explosion.getX() <= 640) {
 
-			pantalla.getActores().add(explosion);
+			actores.add(explosion);
 
 		}
 
@@ -159,11 +159,11 @@ public class MaquinaFinal extends Actor {
 
 		bala.setLado(BalaEnemigo.LADO_IZQUIERDO);
 
-		bala.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("balaParedI.png") });
+		bala.setImagenes(new BufferedImage[] { recurso.getImagen("balaParedI.png") });
 
 		if (bala.getX() <= 640) {
 
-			pantalla.getActores().add(bala);
+			actores.add(bala);
 		}
 
 	}
@@ -178,12 +178,12 @@ public class MaquinaFinal extends Actor {
 
 		bala1.setCuadros(20);
 
-		bala1.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("balaSaltador1.png"),
-				pantalla.getJuego().getRecurso().getImagen("balaSaltador2.png") });
+		bala1.setImagenes(new BufferedImage[] { recurso.getImagen("balaSaltador1.png"),
+				recurso.getImagen("balaSaltador2.png") });
 
 		if (bala1.getX() <= 640) {
 
-			pantalla.getActores().add(bala1);
+			actores.add(bala1);
 		}
 
 		BalaEnemigoDestruible bala2 = new BalaEnemigoDestruible(pantalla);
@@ -194,12 +194,12 @@ public class MaquinaFinal extends Actor {
 
 		bala2.setCuadros(20);
 
-		bala2.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("balaSaltador1.png"),
-				pantalla.getJuego().getRecurso().getImagen("balaSaltador2.png") });
+		bala2.setImagenes(new BufferedImage[] { recurso.getImagen("balaSaltador1.png"),
+				recurso.getImagen("balaSaltador2.png") });
 
 		if (bala2.getX() <= 640) {
 
-			pantalla.getActores().add(bala2);
+			actores.add(bala2);
 		}
 
 	}
@@ -210,7 +210,7 @@ public class MaquinaFinal extends Actor {
 		if (actor instanceof Bala || actor instanceof Jugador || actor instanceof BalaEspecial
 				|| actor instanceof ExplosionB) {
 
-			pantalla.getJuego().getRecurso().playSonido("explosion.wav");
+			recurso.playSonido("explosion.wav");
 			if (vida == 0) {
 
 				explosion();

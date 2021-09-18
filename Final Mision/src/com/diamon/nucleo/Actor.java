@@ -6,6 +6,10 @@ import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
+import java.util.ArrayList;
+
+import com.diamon.dato.Configuraciones;
+import com.diamon.utilidad.Recurso;
 
 public abstract class Actor implements ImageObserver {
 
@@ -27,11 +31,27 @@ public abstract class Actor implements ImageObserver {
 
 	protected Pantalla pantalla;
 
+	protected Recurso recurso;
+
+	protected Configuraciones configuracion;
+
+	protected ArrayList<Actor> actores;
+	
+	public Camara2D camara;
+
 	private boolean animar;
 
 	public Actor(Pantalla pantalla) {
 
 		this.pantalla = pantalla;
+
+		this.recurso = pantalla.recurso;
+
+		this.configuracion = pantalla.configuracion;
+
+		actores = pantalla.actores;
+		
+		this.camara = pantalla.camara;
 
 		x = 0;
 
@@ -65,7 +85,7 @@ public abstract class Actor implements ImageObserver {
 		animar = true;
 	}
 
-	public void setImagenes(BufferedImage[] imagenes) {
+	public void setImagenes(BufferedImage... imagenes) {
 
 		this.imagenes = imagenes;
 

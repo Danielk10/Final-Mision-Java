@@ -82,10 +82,10 @@ public class BalaEspecial extends Actor {
 
 		if (cicloExplosion % 5 == 0) {
 
-			for (int i = 0; i < pantalla.getActores().size(); i++) {
+			for (int i = 0; i < actores.size(); i++) {
 
-				if (pantalla.getActores().get(i) instanceof ExplosionB) {
-					ExplosionB e = (ExplosionB) pantalla.getActores().get(i);
+				if (actores.get(i) instanceof ExplosionB) {
+					ExplosionB e = (ExplosionB) actores.get(i);
 
 					e.remover();
 
@@ -106,16 +106,16 @@ public class BalaEspecial extends Actor {
 
 		explosion.setPosicion(x - 32, y - 32);
 
-		explosion.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("explosionB2.png"),
-				pantalla.getJuego().getRecurso().getImagen("explosionB3.png"),
-				pantalla.getJuego().getRecurso().getImagen("explosionB4.png"),
-				pantalla.getJuego().getRecurso().getImagen("explosionB5.png") });
+		explosion.setImagenes(new BufferedImage[] { recurso.getImagen("explosionB2.png"),
+				recurso.getImagen("explosionB3.png"),
+				recurso.getImagen("explosionB4.png"),
+				recurso.getImagen("explosionB5.png") });
 
 		explosion.setCuadros(2);
 
 		if (explosion.getX() <= 640) {
 
-			pantalla.getActores().add(explosion);
+			actores.add(explosion);
 
 		}
 
@@ -130,7 +130,7 @@ public class BalaEspecial extends Actor {
 
 		if (actor instanceof Volador || actor instanceof LanzaMisil || actor instanceof Caja
 				|| actor instanceof MaquinaFinal || actor instanceof MaquinaPared || actor instanceof Robot
-				|| actor instanceof Saltador || actor instanceof Misil || actor instanceof AntiAreo || actor instanceof BalaEnemigoDestruible) {
+				|| actor instanceof Saltador || actor instanceof Misil || actor instanceof AntiAereo || actor instanceof BalaEnemigoDestruible) {
 			if (bala == BalaEspecial.BALA_B) {
 				explosion();
 			}

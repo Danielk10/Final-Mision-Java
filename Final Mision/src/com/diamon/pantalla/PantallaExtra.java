@@ -4,12 +4,12 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
-import com.diamon.juego.FinalMision;
+import com.diamon.nucleo.Juego;
 import com.diamon.nucleo.Pantalla;
 
 public class PantallaExtra extends Pantalla {
 
-	public PantallaExtra(FinalMision juego) {
+	public PantallaExtra(Juego juego) {
 		super(juego);
 		// TODO Auto-generated constructor stub
 	}
@@ -108,6 +108,18 @@ public class PantallaExtra extends Pantalla {
 	public void ratonLevantado(MouseEvent ev) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void guardarDatos() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void liberarRecursos() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

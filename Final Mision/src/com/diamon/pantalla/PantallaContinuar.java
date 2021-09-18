@@ -5,7 +5,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
-import com.diamon.juego.FinalMision;
 import com.diamon.nucleo.Juego;
 import com.diamon.nucleo.Pantalla;
 
@@ -17,12 +16,12 @@ public class PantallaContinuar extends Pantalla {
 
 	private int posicionY;
 
-	public PantallaContinuar(FinalMision juego) {
+	public PantallaContinuar(Juego juego) {
 		super(juego);
 
-		fondo = juego.getRecurso().getImagen("continuar.png");
+		fondo = recurso.getImagen("continuar.png");
 
-		selector = juego.getRecurso().getImagen("selector2.png");
+		selector = recurso.getImagen("selector2.png");
 
 		posicionY = 288;
 	}
@@ -156,6 +155,18 @@ public class PantallaContinuar extends Pantalla {
 	public void ratonLevantado(MouseEvent ev) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void guardarDatos() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void liberarRecursos() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

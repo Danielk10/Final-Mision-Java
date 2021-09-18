@@ -5,7 +5,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
-import com.diamon.juego.FinalMision;
 import com.diamon.nucleo.Juego;
 import com.diamon.nucleo.Pantalla;
 
@@ -15,14 +14,14 @@ public class PantallaFinDeJuego extends Pantalla {
 
 	private BufferedImage fondo;
 
-	public PantallaFinDeJuego(FinalMision juego) {
+	public PantallaFinDeJuego(Juego juego) {
 		super(juego);
 
 		ciclo = 0;
 
-		fondo = juego.getRecurso().getImagen("finJuego.png");
+		fondo = recurso.getImagen("finJuego.png");
 
-		juego.getRecurso().playSonido("finDeJuego.wav");
+		recurso.playSonido("finDeJuego.wav");
 	}
 
 	@Override
@@ -44,7 +43,7 @@ public class PantallaFinDeJuego extends Pantalla {
 
 		if (ciclo % 340 == 0) {
 
-			juego.getRecurso().pararSonido(juego.getRecurso().getSonido("musica.wav"));
+			recurso.pararSonido(recurso.getSonido("musica.wav"));
 
 			juego.setPantalla(new PantallaContinuar(juego));
 
@@ -131,6 +130,18 @@ public class PantallaFinDeJuego extends Pantalla {
 	public void ratonLevantado(MouseEvent ev) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void guardarDatos() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void liberarRecursos() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

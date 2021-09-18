@@ -5,7 +5,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
-import com.diamon.juego.FinalMision;
 import com.diamon.nucleo.Juego;
 import com.diamon.nucleo.Pantalla;
 
@@ -27,16 +26,16 @@ public class PantallaFinal extends Pantalla {
 
 	private int ciclo;
 
-	public PantallaFinal(FinalMision juego) {
+	public PantallaFinal(Juego juego) {
 		super(juego);
 
-		fondo = juego.getRecurso().getImagen("finNivel.png");
+		fondo = recurso.getImagen("finNivel.png");
 
-		creditos = juego.getRecurso().getImagen("creditos.png");
+		creditos = recurso.getImagen("creditos.png");
 
-		menuFinal = juego.getRecurso().getImagen("menuFinal.png");
+		menuFinal = recurso.getImagen("menuFinal.png");
 
-		selector = juego.getRecurso().getImagen("selector2.png");
+		selector = recurso.getImagen("selector2.png");
 
 		posicionY = 288;
 
@@ -205,6 +204,18 @@ public class PantallaFinal extends Pantalla {
 	public void ratonLevantado(MouseEvent ev) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void guardarDatos() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void liberarRecursos() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -58,6 +58,8 @@ public class Jugador extends Actor {
 	private boolean inmune;
 
 	private boolean poder;
+	
+	private boolean nivelTerminado;
 
 	private int tipoPoder;
 
@@ -73,6 +75,9 @@ public class Jugador extends Actor {
 		velocidadX = 0;
 
 		velocidadY = 0;
+		
+		
+		nivelTerminado = false;
 
 		dezplazamientoInicial = true;
 
@@ -104,7 +109,7 @@ public class Jugador extends Actor {
 
 		for (int i = 0; i < imagenes1.length; i++) {
 
-			imagenes1[i] = pantalla.getJuego().getRecurso().getImagen("jugador1D" + contador1 + ".png");
+			imagenes1[i] = recurso.getImagen("jugador1D" + contador1 + ".png");
 
 			contador1++;
 
@@ -113,7 +118,7 @@ public class Jugador extends Actor {
 
 		for (int i = 0; i < imagenes2.length; i++) {
 
-			imagenes2[i] = pantalla.getJuego().getRecurso().getImagen("jugador1I" + contador2 + ".png");
+			imagenes2[i] = recurso.getImagen("jugador1I" + contador2 + ".png");
 
 			contador2++;
 
@@ -129,7 +134,7 @@ public class Jugador extends Actor {
 
 		satelite1.setCuadros(1);
 
-		satelite1.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("sateliteHD1.png") });
+		satelite1.setImagenes(new BufferedImage[] { recurso.getImagen("sateliteHD1.png") });
 
 		satelite2.setTamano(16, 16);
 
@@ -137,16 +142,34 @@ public class Jugador extends Actor {
 
 		satelite2.setCuadros(1);
 
-		satelite2.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("sateliteHD1.png") });
+		satelite2.setImagenes(new BufferedImage[] { recurso.getImagen("sateliteHD1.png") });
 
 		satelite1.setDisparar(false);
 
 		satelite2.setDisparar(false);
 
-		pantalla.getActores().add(satelite1);
+		
 
-		pantalla.getActores().add(satelite2);
+	}
+	
+	
+	public boolean isNivelTerminado() {
+		return nivelTerminado;
+	}
 
+
+	public void setNivelTerminado(boolean nivelTerminado) {
+		this.nivelTerminado = nivelTerminado;
+	}
+
+
+	public void anadirSatelite()
+	{
+		
+		actores.add(satelite1);
+
+		actores.add(satelite2);
+		
 	}
 
 	public int getVelocidad() {
@@ -309,13 +332,13 @@ public class Jugador extends Actor {
 			} else {
 
 				if (!lado) {
-					imagenes[0] = pantalla.getJuego().getRecurso().getImagen("jugador1D1.png");
+					imagenes[0] = recurso.getImagen("jugador1D1.png");
 
 					pincel.drawImage(imagenes[0], x, y, tamano.width, tamano.height, this);
 
 				} else {
 
-					imagenes[0] = pantalla.getJuego().getRecurso().getImagen("jugador1I1.png");
+					imagenes[0] = recurso.getImagen("jugador1I1.png");
 
 					pincel.drawImage(imagenes[0], x, y, tamano.width, tamano.height, this);
 				}
@@ -334,7 +357,7 @@ public class Jugador extends Actor {
 			if (actor instanceof BalaEnemigo || actor instanceof Volador || actor instanceof LanzaMisil
 					|| actor instanceof Caja || actor instanceof BalaEnemigoDestruible || actor instanceof MaquinaFinal
 					|| actor instanceof Misil || actor instanceof MaquinaPared || actor instanceof Saltador
-					|| actor instanceof AntiAreo || actor instanceof Robot) {
+					|| actor instanceof AntiAereo || actor instanceof Robot) {
 
 				poder = false;
 
@@ -356,7 +379,7 @@ public class Jugador extends Actor {
 
 			Poder p = (Poder) actor;
 
-			pantalla.getJuego().getRecurso().playSonido("poder.wav");
+			recurso.playSonido("poder.wav");
 
 			if (p.getPoder() != Caja.AGILIDAD_S) {
 
@@ -533,9 +556,9 @@ public class Jugador extends Actor {
 
 				bala.setLado(true);
 
-				bala.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("balaHD.png") });
+				bala.setImagenes(new BufferedImage[] { recurso.getImagen("balaHD.png") });
 
-				pantalla.getActores().add(bala);
+				actores.add(bala);
 
 			} else {
 				Bala bala = new Bala(pantalla);
@@ -546,15 +569,15 @@ public class Jugador extends Actor {
 
 				bala.setLado(false);
 
-				bala.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("balaHI.png") });
+				bala.setImagenes(new BufferedImage[] { recurso.getImagen("balaHI.png") });
 
-				pantalla.getActores().add(bala);
+				actores.add(bala);
 
 			}
 
 			cicloDisparo = 0;
 
-			pantalla.getJuego().getRecurso().playSonido("disparo.wav");
+			recurso.playSonido("disparo.wav");
 
 		}
 
@@ -581,13 +604,13 @@ public class Jugador extends Actor {
 
 					bala.setImagenes(new BufferedImage[] {
 
-							pantalla.getJuego().getRecurso().getImagen("balaWD1.png"),
-							pantalla.getJuego().getRecurso().getImagen("balaWD2.png"),
-							pantalla.getJuego().getRecurso().getImagen("balaWD3.png")
+							recurso.getImagen("balaWD1.png"),
+							recurso.getImagen("balaWD2.png"),
+							recurso.getImagen("balaWD3.png")
 
 					});
 
-					pantalla.getActores().add(bala);
+					actores.add(bala);
 
 				}
 
@@ -607,15 +630,15 @@ public class Jugador extends Actor {
 
 					bala.setImagenes(new BufferedImage[] {
 
-							pantalla.getJuego().getRecurso().getImagen("balaLD1.png"),
-							pantalla.getJuego().getRecurso().getImagen("balaLD2.png"),
-							pantalla.getJuego().getRecurso().getImagen("balaLD3.png")
+							recurso.getImagen("balaLD1.png"),
+							recurso.getImagen("balaLD2.png"),
+							recurso.getImagen("balaLD3.png")
 
 					});
 
-					pantalla.getJuego().getRecurso().playSonido("disparoL.wav");
+					recurso.playSonido("disparoL.wav");
 
-					pantalla.getActores().add(bala);
+					actores.add(bala);
 
 				}
 
@@ -641,13 +664,13 @@ public class Jugador extends Actor {
 
 					bala.setImagenes(new BufferedImage[] {
 
-							pantalla.getJuego().getRecurso().getImagen("balaBD.png")
+							recurso.getImagen("balaBD.png")
 
 					});
 
-					pantalla.getJuego().getRecurso().playSonido("disparo.wav");
+					recurso.playSonido("disparo.wav");
 
-					pantalla.getActores().add(bala);
+					actores.add(bala);
 
 				}
 
@@ -675,13 +698,13 @@ public class Jugador extends Actor {
 
 					bala.setImagenes(new BufferedImage[] {
 
-							pantalla.getJuego().getRecurso().getImagen("balaWI1.png"),
-							pantalla.getJuego().getRecurso().getImagen("balaWI2.png"),
-							pantalla.getJuego().getRecurso().getImagen("balaWI3.png")
+							recurso.getImagen("balaWI1.png"),
+							recurso.getImagen("balaWI2.png"),
+							recurso.getImagen("balaWI3.png")
 
 					});
 
-					pantalla.getActores().add(bala);
+					actores.add(bala);
 
 				}
 
@@ -701,15 +724,15 @@ public class Jugador extends Actor {
 
 					bala.setImagenes(new BufferedImage[] {
 
-							pantalla.getJuego().getRecurso().getImagen("balaLI1.png"),
-							pantalla.getJuego().getRecurso().getImagen("balaLI2.png"),
-							pantalla.getJuego().getRecurso().getImagen("balaLI3.png")
+							recurso.getImagen("balaLI1.png"),
+							recurso.getImagen("balaLI2.png"),
+							recurso.getImagen("balaLI3.png")
 
 					});
 
-					pantalla.getJuego().getRecurso().playSonido("disparoL.wav");
+					recurso.playSonido("disparoL.wav");
 
-					pantalla.getActores().add(bala);
+					actores.add(bala);
 
 				}
 
@@ -735,13 +758,13 @@ public class Jugador extends Actor {
 
 					bala.setImagenes(new BufferedImage[] {
 
-							pantalla.getJuego().getRecurso().getImagen("balaBI.png")
+							recurso.getImagen("balaBI.png")
 
 					});
 
-					pantalla.getJuego().getRecurso().playSonido("disparo.wav");
+					recurso.playSonido("disparo.wav");
 
-					pantalla.getActores().add(bala);
+					actores.add(bala);
 				}
 
 				cicloDisparoB = 0;

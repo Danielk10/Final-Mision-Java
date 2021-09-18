@@ -8,6 +8,8 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.Transparency;
 import java.awt.image.BufferedImage;
+import java.awt.image.CropImageFilter;
+import java.awt.image.FilteredImageSource;
 import java.awt.image.ImageObserver;
 import java.io.IOException;
 import java.net.URL;
@@ -22,7 +24,7 @@ public class Recurso implements ImageObserver {
 	private HashMap<String, AudioClip> sonidos;
 
 	public Recurso() {
-		
+
 		sonidos = new HashMap<String, AudioClip>();
 
 		imagenes = new HashMap<String, BufferedImage>();
@@ -126,6 +128,46 @@ public class Recurso implements ImageObserver {
 	@Override
 	public boolean imageUpdate(Image img, int infoflags, int x, int y, int w, int h) {
 		return (infoflags & (ALLBITS | ABORT)) == 0;
+	}
+
+	public BufferedImage[] getImagenes(BufferedImage img, int ancho, int alto) {
+
+		BufferedImage cell[] = new BufferedImage[(img.getWidth(null) / ancho) / 2 + (img.getHeight(null) / alto) / 2];
+		int iw, ih;
+		int tw, th;
+
+		int fila, columna;
+
+		fila = ((img.getWidth(null) / ancho) / 2) / 2;
+
+		columna = ((img.getHeight(null) / alto) / 2) / 2;
+
+		iw = img.getWidth(null);
+		ih = img.getHeight(null);
+
+		tw = (iw / ancho) * ((img.getWidth(null) / ancho) / 2);
+		th = (ih / alto) * ((img.getHeight(null) / alto) / 2);
+
+		CropImageFilter f;
+
+		FilteredImageSource fis;
+
+		for (int y = 0; y < fila; y++) {
+			for (int x = 0; x < columna; x++) {
+				f = new CropImageFilter(tw * x, th * y, tw, th);
+				fis = new FilteredImageSource(img.getSource(), f);
+				int i = y * columna + x;
+
+				BufferedImage fg = createCompatible(tw, th, Transparency.BITMASK);
+
+				fg.getGraphics().drawImage(new Applet().createImage(fis), 0, 0, null);
+
+				cell[i] = fg;
+
+			}
+		}
+
+		return cell;
 	}
 
 }

@@ -90,13 +90,13 @@ public class Satelite extends Actor {
 
 		if (!activar) {
 
-			this.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("sateliteHD1.png") });
+			this.setImagenes(new BufferedImage[] { recurso.getImagen("sateliteHD1.png") });
 
 		}
 
 		if (activar) {
 
-			this.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("sateliteHD2.png") });
+			this.setImagenes(new BufferedImage[] { recurso.getImagen("sateliteHD2.png") });
 
 		}
 		super.dibujar(pincel, delta);
@@ -112,9 +112,9 @@ public class Satelite extends Actor {
 
 		bala.setLado(true);
 
-		bala.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("balaSatelite.png") });
+		bala.setImagenes(new BufferedImage[] { recurso.getImagen("balaSatelite.png") });
 
-		pantalla.getActores().add(bala);
+		actores.add(bala);
 
 	}
 

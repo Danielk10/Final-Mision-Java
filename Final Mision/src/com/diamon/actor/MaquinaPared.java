@@ -69,10 +69,10 @@ public class MaquinaPared extends Actor {
 		// TODO Auto-generated method stub
 		super.actualizar(delta);
 
-		for (int i = 0; i < pantalla.getActores().size(); i++) {
+		for (int i = 0; i < actores.size(); i++) {
 
-			if (pantalla.getActores().get(i) instanceof Jugador) {
-				Jugador j = (Jugador) pantalla.getActores().get(i);
+			if (actores.get(i) instanceof Jugador) {
+				Jugador j = (Jugador) actores.get(i);
 
 				yJugador = j.getY();
 
@@ -88,10 +88,10 @@ public class MaquinaPared extends Actor {
 
 		if (cicloExplosion % 30 == 0) {
 
-			for (int i = 0; i < pantalla.getActores().size(); i++) {
+			for (int i = 0; i < actores.size(); i++) {
 
-				if (pantalla.getActores().get(i) instanceof Explosion) {
-					Explosion e = (Explosion) pantalla.getActores().get(i);
+				if (actores.get(i) instanceof Explosion) {
+					Explosion e = (Explosion) actores.get(i);
 
 					e.remover();
 
@@ -196,11 +196,11 @@ public class MaquinaPared extends Actor {
 
 			{
 
-				setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("maquinaParedI2.png") });
+				setImagenes(new BufferedImage[] { recurso.getImagen("maquinaParedI2.png") });
 
 			} else {
 
-				setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("maquinaParedI1.png") });
+				setImagenes(new BufferedImage[] { recurso.getImagen("maquinaParedI1.png") });
 
 			}
 
@@ -212,11 +212,11 @@ public class MaquinaPared extends Actor {
 
 			{
 
-				setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("maquinaParedD2.png") });
+				setImagenes(new BufferedImage[] { recurso.getImagen("maquinaParedD2.png") });
 
 			} else {
 
-				setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("maquinaParedD1.png") });
+				setImagenes(new BufferedImage[] { recurso.getImagen("maquinaParedD1.png") });
 
 			}
 
@@ -233,16 +233,16 @@ public class MaquinaPared extends Actor {
 
 		explosion.setPosicion(x - 32, y - 32);
 
-		explosion.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("explosion1.png"),
-				pantalla.getJuego().getRecurso().getImagen("explosion2.png"),
-				pantalla.getJuego().getRecurso().getImagen("explosion3.png"),
-				pantalla.getJuego().getRecurso().getImagen("explosion4.png") });
+		explosion.setImagenes(new BufferedImage[] { recurso.getImagen("explosion1.png"),
+				recurso.getImagen("explosion2.png"),
+				recurso.getImagen("explosion3.png"),
+				recurso.getImagen("explosion4.png") });
 
 		explosion.setCuadros(4);
 
 		if (explosion.getX() <= 640) {
 
-			pantalla.getActores().add(explosion);
+			actores.add(explosion);
 
 		}
 
@@ -264,11 +264,11 @@ public class MaquinaPared extends Actor {
 
 			bala.setVelocidadY(1);
 
-			bala.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("balaParedI.png") });
+			bala.setImagenes(new BufferedImage[] { recurso.getImagen("balaParedI.png") });
 
 			if (bala.getX() <= 640) {
 
-				pantalla.getActores().add(bala);
+				actores.add(bala);
 			}
 
 		}
@@ -287,11 +287,11 @@ public class MaquinaPared extends Actor {
 
 			bala.setVelocidadY(1);
 
-			bala.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("balaParedD.png") });
+			bala.setImagenes(new BufferedImage[] { recurso.getImagen("balaParedD.png") });
 
 			if (bala.getX() <= 640) {
 
-				pantalla.getActores().add(bala);
+				actores.add(bala);
 			}
 
 		}
@@ -304,7 +304,7 @@ public class MaquinaPared extends Actor {
 		if (actor instanceof Bala || actor instanceof Jugador || actor instanceof BalaEspecial
 				|| actor instanceof ExplosionB) {
 
-			pantalla.getJuego().getRecurso().playSonido("explosion.wav");
+			recurso.playSonido("explosion.wav");
 
 			choque = true;
 

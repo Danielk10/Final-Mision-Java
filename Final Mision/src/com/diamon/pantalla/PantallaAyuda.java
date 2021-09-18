@@ -5,7 +5,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
-import com.diamon.juego.FinalMision;
 import com.diamon.nucleo.Juego;
 import com.diamon.nucleo.Pantalla;
 
@@ -13,10 +12,10 @@ public class PantallaAyuda extends Pantalla {
 
 	private BufferedImage fondo;
 
-	public PantallaAyuda(FinalMision juego) {
+	public PantallaAyuda(Juego juego) {
 		super(juego);
 
-		fondo = juego.getRecurso().getImagen("ayuda.png");
+		fondo = recurso.getImagen("ayuda.png");
 	}
 
 	@Override
@@ -127,6 +126,18 @@ public class PantallaAyuda extends Pantalla {
 	public void ratonLevantado(MouseEvent ev) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void guardarDatos() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void liberarRecursos() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
