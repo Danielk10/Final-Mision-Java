@@ -242,7 +242,7 @@ public class PantallaJuego extends Pantalla {
 
 	private void moverFondo() {
 
-		if (fondo[4].getX() == 0 && fondo[4].getY() == 0) {
+		if (fondo[4].getX() <= 0 && fondo[4].getY() == 0) {
 
 			fondo[4].setPosicion(0, 0);
 
@@ -270,7 +270,7 @@ public class PantallaJuego extends Pantalla {
 
 		}
 
-		if (fondo[7].getX() == 0 && fondo[7].getY() == 0) {
+		if (fondo[7].getX() == 0 && fondo[7].getY() >= 0) {
 
 			fondo[7].setPosicion(0, 0);
 
@@ -298,7 +298,7 @@ public class PantallaJuego extends Pantalla {
 
 		}
 
-		if (fondo[10].getX() == 0 && fondo[10].getY() == 0) {
+		if (fondo[10].getX() <= 0 && fondo[10].getY() == 0) {
 
 			fondo[10].setPosicion(0, 0);
 
@@ -314,7 +314,7 @@ public class PantallaJuego extends Pantalla {
 
 		}
 
-		if (fondo[11].getX() == 0 && fondo[11].getY() == 0) {
+		if (fondo[11].getX() == 0 && fondo[11].getY() <= 0) {
 
 			fondo[11].setPosicion(0, 0);
 
@@ -336,7 +336,7 @@ public class PantallaJuego extends Pantalla {
 
 		}
 
-		if (fondo[13].getX() == 0 && fondo[13].getY() == 0) {
+		if (fondo[13].getX() <= 0 && fondo[13].getY() == 0) {
 
 			fondo[13].setPosicion(0, 0);
 
@@ -358,7 +358,7 @@ public class PantallaJuego extends Pantalla {
 
 		}
 
-		if (fondo[15].getX() == 0 && fondo[15].getY() == 0) {
+		if (fondo[15].getX() == 0 && fondo[15].getY() <= 0) {
 
 			fondo[15].setPosicion(0, 0);
 
@@ -400,7 +400,7 @@ public class PantallaJuego extends Pantalla {
 
 		if (!fondo[20].isParar()) {
 
-			if (fondo[20].getX() == 0 && fondo[20].getY() == 0) {
+			if (fondo[20].getX() <= 0 && fondo[20].getY() == 0) {
 
 				fondo[20].setParar(true);
 
