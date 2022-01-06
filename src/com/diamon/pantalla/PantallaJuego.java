@@ -227,6 +227,8 @@ public class PantallaJuego extends Pantalla {
 			juego.getRecurso().playSonido("comienzo1.wav");
 
 		}
+		
+		agregarMaquinaPared();
 
 	}
 

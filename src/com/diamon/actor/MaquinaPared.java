@@ -13,11 +13,7 @@ public class MaquinaPared extends Actor {
 
 	private int cicloDisparo;
 
-	private int yJugador;
-
 	private boolean disparar;
-
-	private boolean disparando;
 
 	private int velocidadY;
 
@@ -39,6 +35,8 @@ public class MaquinaPared extends Actor {
 
 	private int lado;
 
+	private Jugador jugador;
+
 	public MaquinaPared(Pantalla pantalla) {
 		super(pantalla);
 
@@ -50,17 +48,29 @@ public class MaquinaPared extends Actor {
 
 		cicloChoque = 0;
 
-		yJugador = 0;
-
 		velocidadY = 0;
 
 		disparar = false;
 
-		disparando = true;
-
 		choque = false;
 
 		vida = 4;
+
+		obtenerJugador();
+
+	}
+
+	private void obtenerJugador() {
+
+		for (int i = 0; i < pantalla.getActores().size(); i++) {
+
+			if (pantalla.getActores().get(i) instanceof Jugador) {
+
+				jugador = (Jugador) pantalla.getActores().get(i);
+
+			}
+
+		}
 
 	}
 
@@ -68,17 +78,6 @@ public class MaquinaPared extends Actor {
 	public void actualizar(float delta) {
 		// TODO Auto-generated method stub
 		super.actualizar(delta);
-
-		for (int i = 0; i < pantalla.getActores().size(); i++) {
-
-			if (pantalla.getActores().get(i) instanceof Jugador) {
-				Jugador j = (Jugador) pantalla.getActores().get(i);
-
-				yJugador = j.getY();
-
-			}
-
-		}
 
 		cicloExplosion++;
 
@@ -102,24 +101,29 @@ public class MaquinaPared extends Actor {
 
 		}
 
-		if (disparando) {
-			if (yJugador + 4 == y) {
+		if (jugador != null) {
 
-				disparando = false;
+			if (jugador.getY() <= y + tamano.height && jugador.getY() >= y && jugador.getX() <= x)
+
+			{
 
 				disparar = true;
+
+			} else {
+
+				disparar = false;
 
 			}
 
 		}
 
 		if (disparar) {
+
 			cicloDisparo++;
-			if (cicloDisparo % 20 == 0) {
+
+			if (cicloDisparo % 10 == 0) {
 
 				disparar();
-				disparar = false;
-				disparando = true;
 
 				cicloDisparo = 0;
 			}
