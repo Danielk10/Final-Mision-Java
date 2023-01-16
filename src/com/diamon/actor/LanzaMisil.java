@@ -9,15 +9,11 @@ public class LanzaMisil extends Actor {
 
 	public final static int VELOCIDAD_MAQUINA = 2;
 
-	private int cicloExplosion;
-
 	private int cicloDisparo;
 
 	public LanzaMisil(Pantalla pantalla) {
 
 		super(pantalla);
-
-		cicloExplosion = 0;
 
 		cicloDisparo = 0;
 
@@ -33,24 +29,6 @@ public class LanzaMisil extends Actor {
 		if (x <= -tamano.width) {
 
 			remover = true;
-
-		}
-
-		cicloExplosion++;
-
-		if (cicloExplosion % 30 == 0) {
-
-			for (int i = 0; i < pantalla.getActores().size(); i++) {
-
-				if (pantalla.getActores().get(i) instanceof Explosion) {
-					Explosion e = (Explosion) pantalla.getActores().get(i);
-
-					e.remover();
-
-				}
-			}
-
-			cicloExplosion = 0;
 
 		}
 
@@ -88,12 +66,14 @@ public class LanzaMisil extends Actor {
 
 		explosion.setPosicion(x - 32, y - 32);
 
+		explosion.setCuadros(4);
+
+		explosion.setDuracionExplosion(0.2f);
+
 		explosion.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("explosion1.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion2.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion3.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion4.png") });
-
-		explosion.setCuadros(4);
 
 		if (explosion.getX() <= 640) {
 

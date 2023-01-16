@@ -17,7 +17,7 @@ public abstract class Actor implements ImageObserver {
 
 	protected boolean remover;
 
-	private float cuadros;
+	protected float cuadros;
 
 	private float tiempo;
 
@@ -67,7 +67,6 @@ public abstract class Actor implements ImageObserver {
 
 		this.cuadros = cuadros;
 
-		
 	}
 
 	public void setImagenes(BufferedImage... imagenes) {

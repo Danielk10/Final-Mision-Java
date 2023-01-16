@@ -9,14 +9,10 @@ public class AntiAereo extends Actor {
 
 	private int cicloDisparo;
 
-	private int cicloExplosion;
-
 	public AntiAereo(Pantalla pantalla) {
 		super(pantalla);
 
 		cicloDisparo = 0;
-
-		cicloExplosion = 0;
 
 	}
 
@@ -35,23 +31,6 @@ public class AntiAereo extends Actor {
 
 		cicloDisparo++;
 
-		cicloExplosion++;
-
-		if (cicloExplosion % 30 == 0) {
-
-			for (int i = 0; i < pantalla.getActores().size(); i++) {
-
-				if (pantalla.getActores().get(i) instanceof Explosion) {
-					Explosion e = (Explosion) pantalla.getActores().get(i);
-
-					e.remover();
-
-				}
-			}
-
-			cicloExplosion = 0;
-
-		}
 		if (cicloDisparo % 10 == 0) {
 
 			if (Math.random() < 0.08f) {
@@ -78,12 +57,12 @@ public class AntiAereo extends Actor {
 
 		bala.setPosicion(x, y + 12);
 
+		bala.setCuadros(3);
+
 		bala.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("balaE1.png"),
 				pantalla.getJuego().getRecurso().getImagen("balaE2.png"),
 				pantalla.getJuego().getRecurso().getImagen("balaE3.png"),
 				pantalla.getJuego().getRecurso().getImagen("balaE4.png") });
-
-		bala.setCuadros(3);
 
 		bala.setLado(BalaEnemigo.LADO_IZQUIERDO);
 
@@ -102,18 +81,20 @@ public class AntiAereo extends Actor {
 
 		explosion.setPosicion(x - 32, y - 32);
 
+		explosion.setCuadros(4);
+
+		explosion.setDuracionExplosion(0.2f);
+
 		explosion.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("explosion1.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion2.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion3.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion4.png") });
 
-		explosion.setCuadros(4);
-
 		if (explosion.getX() <= 640) {
 
 			pantalla.getActores().add(explosion);
 
-		}  
+		}
 
 	}
 

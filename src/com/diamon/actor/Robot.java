@@ -10,8 +10,6 @@ public class Robot extends Actor {
 
 	private int cicloDisparo;
 
-	private int cicloExplosion;
-
 	public final static int LADO_IZQUIERDO = 1;
 
 	public final static int LADO_DERECHO = 2;
@@ -26,8 +24,6 @@ public class Robot extends Actor {
 		super(pantalla);
 
 		cicloDisparo = 0;
-
-		cicloExplosion = 0;
 
 		velocidad = 0;
 
@@ -98,23 +94,6 @@ public class Robot extends Actor {
 
 		cicloDisparo++;
 
-		cicloExplosion++;
-
-		if (cicloExplosion % 30 == 0) {
-
-			for (int i = 0; i < pantalla.getActores().size(); i++) {
-
-				if (pantalla.getActores().get(i) instanceof Explosion) {
-					Explosion e = (Explosion) pantalla.getActores().get(i);
-
-					e.remover();
-
-				}
-			}
-
-			cicloExplosion = 0;
-
-		}
 		if (cicloDisparo % 40 == 0) {
 
 			if (Math.random() < 0.08f) {
@@ -190,12 +169,14 @@ public class Robot extends Actor {
 
 		explosion.setPosicion(x - 32, y - 32);
 
+		explosion.setCuadros(4);
+
+		explosion.setDuracionExplosion(0.2f);
+
 		explosion.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("explosion1.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion2.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion3.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion4.png") });
-
-		explosion.setCuadros(4);
 
 		if (explosion.getX() <= 640) {
 

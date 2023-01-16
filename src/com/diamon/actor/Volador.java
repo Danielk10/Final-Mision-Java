@@ -14,12 +14,17 @@ public class Volador extends Actor {
 
 	private int velocidadY;
 
+	private float distanciaMovimientoY;
+
+	private float pocicionY;
+
+	private float tiemot;
+
 	public Volador(Pantalla pantalla) {
 
 		super(pantalla);
 
 		cicloDisparo = 0;
-;
 
 		velocidadY = 0;
 
@@ -29,10 +34,16 @@ public class Volador extends Actor {
 		this.velocidadY = velocidadY;
 	}
 
+	public void setDistanciaMovimientoY(float distanciaMovimientoY) {
+		this.distanciaMovimientoY = distanciaMovimientoY;
+	}
+
 	@Override
 	public void actualizar(float delta) {
 
 		super.actualizar(delta);
+
+		tiemot += delta;
 
 		x -= Volador.VELOCIDAD_MAQUINA;
 
@@ -44,12 +55,8 @@ public class Volador extends Actor {
 
 		cicloDisparo++;
 
-	
 		if (cicloDisparo % 40 == 0) {
 
-			
-			
-			
 			if (Math.random() < 0.08f) {
 				disparar();
 
@@ -58,15 +65,17 @@ public class Volador extends Actor {
 			cicloDisparo = 0;
 
 		}
+		//y = (int) (pocicionY + distanciaMovimientoY + (distanciaMovimientoY * Math.sin(tiemot * velocidadY)));
 
-		y += velocidadY;
-
-		if (y <= 0 || y >= Juego.ALTO_PANTALLA - tamano.height) {
-
-			velocidadY = -velocidadY;
-
-		}
-
+	
+		  y += velocidadY;
+		  
+		  if (y <= 0 || y >= Juego.ALTO_PANTALLA - tamano.height) {
+		  
+		  velocidadY = -velocidadY;
+		  
+		  }
+		 
 	}
 
 	public void disparar() {
@@ -82,13 +91,11 @@ public class Volador extends Actor {
 		bala.setImagenes(pantalla.getJuego().getRecurso().getImagen("balaE1.png"),
 				pantalla.getJuego().getRecurso().getImagen("balaE2.png"),
 				pantalla.getJuego().getRecurso().getImagen("balaE3.png"),
-				pantalla.getJuego().getRecurso().getImagen("balaE4.png") );
+				pantalla.getJuego().getRecurso().getImagen("balaE4.png"));
 
 		bala.setCuadros(3);
 
 		if (bala.getX() <= 640) {
-			
-			
 
 			pantalla.getActores().add(bala);
 		}
@@ -102,15 +109,15 @@ public class Volador extends Actor {
 		explosion.setTamano(64, 64);
 
 		explosion.setPosicion(x - 32, y - 32);
-	
+
 		explosion.setCuadros(4);
-	
+
+		explosion.setDuracionExplosion(0.2f);
+
 		explosion.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("explosion1.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion2.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion3.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion4.png") });
-
-             		
 
 		if (explosion.getX() <= 640) {
 
@@ -118,6 +125,12 @@ public class Volador extends Actor {
 
 		}
 
+	}
+
+	@Override
+	public void setPosicion(int x, int y) {
+		pocicionY = y;
+		super.setPosicion(x, y);
 	}
 
 	@Override

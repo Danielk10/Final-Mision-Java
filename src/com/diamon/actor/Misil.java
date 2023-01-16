@@ -8,8 +8,6 @@ import com.diamon.nucleo.Pantalla;
 
 public class Misil extends Actor {
 
-	private int cicloExplosion;
-
 	private int cicloDisparoHumo;
 
 	private int cicloHumo;
@@ -19,8 +17,6 @@ public class Misil extends Actor {
 	public Misil(Pantalla pantalla) {
 
 		super(pantalla);
-
-		cicloExplosion = 0;
 
 		cicloDisparoHumo = 0;
 
@@ -33,27 +29,9 @@ public class Misil extends Actor {
 
 		super.actualizar(delta);
 
-		cicloExplosion++;
-
 		cicloDisparoHumo++;
 
 		cicloHumo++;
-
-		if (cicloExplosion % 30 == 0) {
-
-			for (int i = 0; i < pantalla.getActores().size(); i++) {
-
-				if (pantalla.getActores().get(i) instanceof Explosion) {
-					Explosion e = (Explosion) pantalla.getActores().get(i);
-
-					e.remover();
-
-				}
-			}
-
-			cicloExplosion = 0;
-
-		}
 
 		x += Misil.VELOCIDAD_MAQUINA;
 
@@ -97,12 +75,14 @@ public class Misil extends Actor {
 
 		explosion.setPosicion(x, y);
 
+		explosion.setCuadros(4);
+
+		explosion.setDuracionExplosion(0.2f);
+
 		explosion.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("explosion1.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion2.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion3.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion4.png") });
-
-		explosion.setCuadros(4);
 
 		if (explosion.getX() <= 640) {
 

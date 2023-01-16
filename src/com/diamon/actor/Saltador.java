@@ -9,8 +9,6 @@ import com.diamon.nucleo.Pantalla;
 
 public class Saltador extends Actor {
 
-	private int cicloExplosion;
-
 	private int cicloDisparo;
 
 	private boolean preparado;
@@ -27,8 +25,6 @@ public class Saltador extends Actor {
 
 	public Saltador(Pantalla pantalla) {
 		super(pantalla);
-
-		cicloExplosion = 0;
 
 		cicloDisparo = 0;
 
@@ -48,8 +44,6 @@ public class Saltador extends Actor {
 		// TODO Auto-generated method stub
 		super.actualizar(delta);
 
-		cicloExplosion++;
-
 		cicloDisparo++;
 
 		x--;
@@ -62,22 +56,6 @@ public class Saltador extends Actor {
 				xJugador = j.getX();
 
 			}
-
-		}
-
-		if (cicloExplosion % 30 == 0) {
-
-			for (int i = 0; i < pantalla.getActores().size(); i++) {
-
-				if (pantalla.getActores().get(i) instanceof Explosion) {
-					Explosion e = (Explosion) pantalla.getActores().get(i);
-
-					e.remover();
-
-				}
-			}
-
-			cicloExplosion = 0;
 
 		}
 
@@ -140,12 +118,14 @@ public class Saltador extends Actor {
 
 		explosion.setPosicion(x - 32, y - 32);
 
+		explosion.setCuadros(4);
+
+		explosion.setDuracionExplosion(0.2f);
+
 		explosion.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("explosion1.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion2.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion3.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion4.png") });
-
-		explosion.setCuadros(4);
 
 		if (explosion.getX() <= 640) {
 

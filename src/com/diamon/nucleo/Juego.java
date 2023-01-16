@@ -50,9 +50,9 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 
 	private BufferStrategy bufer;
 
-	private JFrame ventana;
-
 	private Pantalla pantalla;
+
+	private JFrame ventana;
 
 	private Recurso recurso;
 
@@ -112,29 +112,7 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 
 		hilo = new Thread(this);
 
-		ventana = new JFrame(Juego.TITULO_JUEGO);
-
-		ventana.setBounds(0, 0, Juego.ANCHO_PANTALLA, Juego.ALTO_PANTALLA);
-
-		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		JPanel panel = (JPanel) ventana.getContentPane();
-
-		panel.setPreferredSize(new Dimension(Juego.ANCHO_PANTALLA / 2, Juego.ALTO_PANTALLA / 2));
-
-		panel.setLayout(null);
-
-		panel.add(this);
-
-		ventana.setUndecorated(true);
-
-		ventana.setResizable(false);
-
-		ventana.setIconImage(recurso.cargarImagen("logo.png"));
-
-		ventana.setVisible(true);
-
-		ventana.setLocationRelativeTo(null);
+		ventana = crearVentana(Juego.TITULO_JUEGO, Juego.ANCHO_PANTALLA, Juego.ALTO_PANTALLA, true);
 
 		GraphicsEnvironment graficosLocales = GraphicsEnvironment.getLocalGraphicsEnvironment();
 
@@ -173,6 +151,41 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 
 		pantalla = null;
 
+	}
+
+	private JFrame crearVentana(String titulo, int ancho, int alto, boolean decorado) {
+
+		if (ventana != null) {
+
+			ventana.dispose();
+
+		}
+
+		JFrame ventana = new JFrame(titulo);
+
+		ventana.setBounds(0, 0, ancho, alto);
+
+		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		JPanel panel = (JPanel) ventana.getContentPane();
+
+		panel.setPreferredSize(new Dimension(Juego.ANCHO_PANTALLA / 2, Juego.ALTO_PANTALLA / 2));
+
+		panel.setLayout(null);
+
+		panel.add(this);
+
+		ventana.setUndecorated(decorado);
+
+		ventana.setResizable(false);
+
+		ventana.setIconImage(recurso.cargarImagen("logo.png"));
+
+		ventana.setVisible(true);
+
+		ventana.setLocationRelativeTo(null);
+
+		return ventana;
 	}
 
 	@Override
@@ -322,6 +335,8 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 
 			dispositivo.setFullScreenWindow(null);
 
+			ventana = crearVentana(Juego.TITULO_JUEGO, Juego.ANCHO_PANTALLA, Juego.ALTO_PANTALLA, false);
+
 			break;
 
 		case KeyEvent.VK_W:
@@ -444,6 +459,8 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 	public void setPantallaCompleta() {
 
 		DisplayMode[] dis = dispositivo.getDisplayModes();
+
+		ventana = crearVentana(Juego.TITULO_JUEGO, Juego.ANCHO_PANTALLA, Juego.ALTO_PANTALLA, true);
 
 		dispositivo.setFullScreenWindow(ventana);
 

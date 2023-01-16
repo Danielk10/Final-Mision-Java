@@ -7,8 +7,6 @@ import com.diamon.nucleo.Pantalla;
 
 public class MaquinaFinal extends Actor {
 
-	private int cicloExplosion;
-
 	private int cicloDisparo;
 
 	private int cicloDisparoDestruible;
@@ -23,8 +21,6 @@ public class MaquinaFinal extends Actor {
 
 	public MaquinaFinal(Pantalla pantalla) {
 		super(pantalla);
-
-		cicloExplosion = 0;
 
 		cicloDisparo = 0;
 
@@ -70,24 +66,7 @@ public class MaquinaFinal extends Actor {
 
 			vida = 0;
 
-			cicloExplosion++;
-
-			if (cicloExplosion % 30 == 0) {
-
-				for (int i = 0; i < pantalla.getActores().size(); i++) {
-
-					if (pantalla.getActores().get(i) instanceof Explosion) {
-						Explosion e = (Explosion) pantalla.getActores().get(i);
-
-						e.remover();
-
-					}
-				}
-
-				cicloExplosion = 0;
-
-			}
-
+			explosion();
 		}
 
 		if (disparar) {
@@ -134,12 +113,14 @@ public class MaquinaFinal extends Actor {
 
 		explosion.setPosicion(x - 32, y - 32);
 
+		explosion.setCuadros(4);
+
+		explosion.setDuracionExplosion(0.2f);
+
 		explosion.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("explosion1.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion2.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion3.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion4.png") });
-
-		explosion.setCuadros(4);
 
 		if (explosion.getX() <= 640) {
 

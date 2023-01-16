@@ -5,9 +5,36 @@ import com.diamon.nucleo.Pantalla;
 
 public class ExplosionB extends Actor {
 
+	private float duracionExplosion;
+
+	private float tiemoExplosion;
+
 	public ExplosionB(Pantalla pantalla) {
 		super(pantalla);
-		// TODO Auto-generated constructor stub
+
+		duracionExplosion = 0;
+
+		tiemoExplosion = 0;
+	}
+
+	@Override
+	public void actualizar(float delta) {
+
+		super.actualizar(delta);
+
+		tiemoExplosion += delta;
+
+		if (tiemoExplosion / duracionExplosion >= 1) {
+
+			remover = true;
+
+			tiemoExplosion = 0;
+		}
+
+	}
+
+	public void setDuracionExplosion(float duracionExplosion) {
+		this.duracionExplosion = duracionExplosion;
 	}
 
 	@Override

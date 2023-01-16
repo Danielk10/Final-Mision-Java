@@ -12,22 +12,17 @@ public class BalaEnemigoDestruible extends Actor {
 
 	private int velocidad;
 
-	private int cicloExplosion;
-
 	public BalaEnemigoDestruible(Pantalla pantalla) {
 		super(pantalla);
 
 		velocidad = VELOCIDAD_BALA;
 
-		cicloExplosion = 0;
 	}
 
 	@Override
 	public void actualizar(float delta) {
 
 		super.actualizar(delta);
-
-		cicloExplosion++;
 
 		x -= velocidad;
 
@@ -52,21 +47,6 @@ public class BalaEnemigoDestruible extends Actor {
 			remover = true;
 		}
 
-		if (cicloExplosion % 30 == 0) {
-
-			for (int i = 0; i < pantalla.getActores().size(); i++) {
-
-				if (pantalla.getActores().get(i) instanceof Explosion) {
-					Explosion e = (Explosion) pantalla.getActores().get(i);
-
-					e.remover();
-
-				}
-			}
-
-			cicloExplosion = 0;
-
-		}
 	}
 
 	public void explosion() {
@@ -77,12 +57,14 @@ public class BalaEnemigoDestruible extends Actor {
 
 		explosion.setPosicion(x - 32, y - 32);
 
+		explosion.setCuadros(4);
+
+		explosion.setDuracionExplosion(0.2f);
+
 		explosion.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("explosion1.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion2.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion3.png"),
 				pantalla.getJuego().getRecurso().getImagen("explosion4.png") });
-
-		explosion.setCuadros(4);
 
 		if (explosion.getX() <= 640) {
 

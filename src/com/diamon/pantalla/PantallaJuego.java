@@ -146,6 +146,12 @@ public class PantallaJuego extends Pantalla {
 					juego.getRecurso().getImagen("voladorI2.png"), juego.getRecurso().getImagen("voladorI3.png") });
 
 			voladores[i].setVelocidadY((int) (Math.random() * 7 - 5));
+			
+			//voladores[i].setVelocidadY((int) (Math.random() * 5 - 5));
+			
+			//voladores[i].setDistanciaMovimientoY(200);
+			
+			
 
 			actores.add(voladores[i]);
 
@@ -738,6 +744,8 @@ public class PantallaJuego extends Pantalla {
 		maquinaPared.setLado(MaquinaPared.LADO_IZQUIERDO);
 
 		maquinaPared.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("maquinaParedD1.png") });
+
+		maquinaPared.setDuracionDisparo(1f);
 
 		actores.add(maquinaPared);
 
