@@ -15,9 +15,13 @@ public abstract class Pantalla implements ImageObserver {
 
 	protected ArrayList<Actor> actores = new ArrayList<Actor>();
 
+	protected Camara2D camara;
+
 	public Pantalla(FinalMision juego) {
 
 		this.juego = juego;
+
+		camara = new Camara2D(0, 0, Juego.ANCHO_PANTALLA, Juego.ALTO_PANTALLA);
 
 	}
 
@@ -47,13 +51,13 @@ public abstract class Pantalla implements ImageObserver {
 	public abstract void teclaLevantada(KeyEvent ev);
 
 	public abstract void teclaTipo(KeyEvent ev);
-	
+
 	public abstract void ratonDeslizando(MouseEvent ev);
-	
+
 	public abstract void ratonMoviendo(MouseEvent ev);
-	
+
 	public abstract void ratonClick(MouseEvent ev);
-	
+
 	public abstract void ratonPresionado(MouseEvent ev);
 
 	public abstract void ratonLevantado(MouseEvent ev);
@@ -64,6 +68,10 @@ public abstract class Pantalla implements ImageObserver {
 
 	public FinalMision getJuego() {
 		return juego;
+	}
+
+	public Camara2D getCamara() {
+		return camara;
 	}
 
 }

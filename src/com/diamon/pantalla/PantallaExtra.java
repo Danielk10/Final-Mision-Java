@@ -3,15 +3,22 @@ package com.diamon.pantalla;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-
 import com.diamon.juego.FinalMision;
 import com.diamon.nucleo.Pantalla;
+import com.diamon.utilidad.EditorDeNivel;
 
 public class PantallaExtra extends Pantalla {
 
+	private EditorDeNivel editor;
+
+	private boolean pausa;
+
 	public PantallaExtra(FinalMision juego) {
 		super(juego);
-		// TODO Auto-generated constructor stub
+
+		editor = new EditorDeNivel(this);
+
+		pausa = false;
 	}
 
 	@Override
@@ -28,19 +35,49 @@ public class PantallaExtra extends Pantalla {
 
 	@Override
 	public void actualizar(float delta) {
-		// TODO Auto-generated method stub
+
+		if (pausa) {
+
+			editor.actualizar(delta);
+
+		} else
+
+		{
+
+			for (int i = 0; i < actores.size(); i++) {
+
+				actores.get(i).actualizar(delta);
+
+			}
+
+		}
 
 	}
 
 	@Override
 	public void dibujar(Graphics2D pincel, float delta) {
-		// TODO Auto-generated method stub
+
+		if (pausa) {
+
+			editor.dibujar(pincel, delta);
+
+		} else
+
+		{
+			for (int i = 0; i < actores.size(); i++) {
+
+				actores.get(i).dibujar(pincel, delta);
+
+			}
+
+		}
 
 	}
 
 	@Override
 	public void colisiones() {
-		// TODO Auto-generated method stub
+
+		editor.colisiones();
 
 	}
 
@@ -58,55 +95,77 @@ public class PantallaExtra extends Pantalla {
 
 	@Override
 	public void reajustarPantalla(int ancho, int alto) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void teclaPresionada(KeyEvent ev) {
-		// TODO Auto-generated method stub
+
+		editor.teclaPresionada(ev);
+
+		switch (ev.getKeyCode()) {
+
+		case KeyEvent.VK_E:
+
+			pausa = true;
+
+			break;
+
+		case KeyEvent.VK_R:
+
+			pausa = false;
+
+			break;
+
+		default:
+
+			break;
+
+		}
 
 	}
 
 	@Override
 	public void teclaLevantada(KeyEvent ev) {
-		// TODO Auto-generated method stub
+		editor.teclaLevantada(ev);
 
 	}
 
 	@Override
 	public void teclaTipo(KeyEvent ev) {
-		// TODO Auto-generated method stub
+		editor.teclaTipo(ev);
 
 	}
 
 	@Override
 	public void ratonDeslizando(MouseEvent ev) {
-		// TODO Auto-generated method stub
+		editor.ratonDeslizando(ev);
 
 	}
 
 	@Override
 	public void ratonMoviendo(MouseEvent ev) {
-		// TODO Auto-generated method stub
+
+		editor.ratonMoviendo(ev);
 
 	}
 
 	@Override
 	public void ratonClick(MouseEvent ev) {
-		// TODO Auto-generated method stub
+		editor.ratonClick(ev);
 
 	}
 
 	@Override
 	public void ratonPresionado(MouseEvent ev) {
-		// TODO Auto-generated method stub
+
+		editor.ratonPresionado(ev);
 
 	}
 
 	@Override
 	public void ratonLevantado(MouseEvent ev) {
-		// TODO Auto-generated method stub
+		editor.ratonLevantado(ev);
 
 	}
 

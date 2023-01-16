@@ -65,17 +65,17 @@ public class Volador extends Actor {
 			cicloDisparo = 0;
 
 		}
-		//y = (int) (pocicionY + distanciaMovimientoY + (distanciaMovimientoY * Math.sin(tiemot * velocidadY)));
+		// y = (int) (pocicionY + distanciaMovimientoY + (distanciaMovimientoY *
+		// Math.sin(tiemot * velocidadY)));
 
-	
-		  y += velocidadY;
-		  
-		  if (y <= 0 || y >= Juego.ALTO_PANTALLA - tamano.height) {
-		  
-		  velocidadY = -velocidadY;
-		  
-		  }
-		 
+		y += velocidadY;
+
+		if (y <= 0 || y >= Juego.ALTO_PANTALLA - tamano.height) {
+
+			velocidadY = -velocidadY;
+
+		}
+
 	}
 
 	public void disparar() {

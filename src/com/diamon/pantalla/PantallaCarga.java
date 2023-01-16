@@ -405,7 +405,7 @@ public class PantallaCarga extends Pantalla {
 			juego.getRecurso().cargarImagen("explosionMisil3.png");
 
 			juego.getRecurso().cargarImagen("explosionMisil4.png");
-			
+
 			juego.getRecurso().cargarImagen("logo.png");
 
 			juego.getRecurso().cargarSonido("musica.wav");
@@ -432,7 +432,9 @@ public class PantallaCarga extends Pantalla {
 
 			juego.getRecurso().cargarSonido("pausa.wav");
 
-			juego.setPantalla(new PantallaMenu(juego));
+			 juego.setPantalla(new PantallaMenu(juego));
+
+			//juego.setPantalla(new PantallaExtra(juego));
 
 			ciclo = 0;
 		}

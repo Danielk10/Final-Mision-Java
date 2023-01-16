@@ -76,8 +76,7 @@ public class Configuraciones {
 				buferarchivoLeer = new BufferedReader(new InputStreamReader(datos.leerDato(DatosJuego.DATOS)));
 
 			}
-			
-			
+
 			sonido = Boolean.parseBoolean(buferarchivoLeer.readLine());
 
 			leerDatosInternos = Boolean.parseBoolean(buferarchivoLeer.readLine());

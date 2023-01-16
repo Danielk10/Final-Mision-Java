@@ -326,7 +326,7 @@ public class MaquinaPared extends Actor {
 
 			bala.setLado(BalaEnemigo.LADO_DERECHO);
 
-			// bala.setMover(BalaEnemigo.MOVER_ARRIBA);
+			bala.setMover(BalaEnemigo.MOVER_ARRIBA);
 
 			bala.setVelocidadY(1);
 

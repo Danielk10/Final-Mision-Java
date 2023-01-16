@@ -29,6 +29,8 @@ public abstract class Actor implements ImageObserver {
 
 	protected Animacion animacion;
 
+	protected Camara2D camara;
+
 	private boolean animar;
 
 	public Actor(Pantalla pantalla) {
@@ -54,6 +56,8 @@ public abstract class Actor implements ImageObserver {
 		animar = false;
 
 		animacion = null;
+
+		camara = pantalla.camara;
 
 	}
 

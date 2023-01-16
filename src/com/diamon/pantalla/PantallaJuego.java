@@ -23,6 +23,7 @@ import com.diamon.juego.FinalMision;
 import com.diamon.nucleo.Actor;
 import com.diamon.nucleo.Juego;
 import com.diamon.nucleo.Pantalla;
+import com.diamon.utilidad.EditorDeNivel;
 
 public class PantallaJuego extends Pantalla {
 
@@ -52,6 +53,8 @@ public class PantallaJuego extends Pantalla {
 
 	private boolean musicaIntro2;
 
+	private EditorDeNivel editor;
+
 	public PantallaJuego(FinalMision juego) {
 		super(juego);
 
@@ -76,11 +79,27 @@ public class PantallaJuego extends Pantalla {
 
 		cicloMuriendo = 0;
 
+		editor = new EditorDeNivel(this);
+
 		iniciar();
 
 	}
 
 	private void iniciar() {
+
+		fondo[20] = new Fondo(this);
+
+		fondo[20].setTamano(640, 480);
+
+		fondo[20].setPosicion(640, 0);
+
+		fondo[20].setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("fondo21MGF.png") });
+
+		fondo[20].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
+
+		fondo[20].setVelocidad(0);
+
+		actores.add(fondo[20]);
 
 		int contador = 1;
 
@@ -115,20 +134,6 @@ public class PantallaJuego extends Pantalla {
 
 		}
 
-		fondo[20] = new Fondo(this);
-
-		fondo[20].setTamano(640, 480);
-
-		fondo[20].setPosicion(640, 0);
-
-		fondo[20].setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("fondo21MGF.png") });
-
-		fondo[20].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
-
-		fondo[20].setVelocidad(0);
-
-		actores.add(fondo[20]);
-
 		Volador[] voladores = new Volador[300];
 
 		Random r = new Random();
@@ -146,12 +151,10 @@ public class PantallaJuego extends Pantalla {
 					juego.getRecurso().getImagen("voladorI2.png"), juego.getRecurso().getImagen("voladorI3.png") });
 
 			voladores[i].setVelocidadY((int) (Math.random() * 7 - 5));
-			
-			//voladores[i].setVelocidadY((int) (Math.random() * 5 - 5));
-			
-			//voladores[i].setDistanciaMovimientoY(200);
-			
-			
+
+			// voladores[i].setVelocidadY((int) (Math.random() * 5 - 5));
+
+			// voladores[i].setDistanciaMovimientoY(200);
 
 			actores.add(voladores[i]);
 
@@ -465,7 +468,6 @@ public class PantallaJuego extends Pantalla {
 				actores.get(i).actualizar(delta);
 
 			}
-
 			moverFondo();
 
 			if (cicloParaEnemigos <= 10100) {
@@ -474,6 +476,8 @@ public class PantallaJuego extends Pantalla {
 
 			}
 
+		} else {
+			editor.actualizar(delta);
 		}
 
 		// Colocando enemigos cada cierto Tiempo
@@ -921,6 +925,10 @@ public class PantallaJuego extends Pantalla {
 			break;
 
 		}
+		if (!pausa) {
+
+			editor.teclaPresionada(ev);
+		}
 
 	}
 
@@ -937,10 +945,19 @@ public class PantallaJuego extends Pantalla {
 			}
 		}
 
+		if (!pausa) {
+			editor.teclaLevantada(ev);
+		}
+
 	}
 
 	@Override
 	public void teclaTipo(KeyEvent ev) {
+
+		if (!pausa) {
+
+			editor.teclaTipo(ev);
+		}
 
 	}
 
@@ -948,6 +965,11 @@ public class PantallaJuego extends Pantalla {
 	public void ratonDeslizando(MouseEvent ev) {
 
 		jugador.ratonDeslizando(ev);
+
+		if (!pausa) {
+			editor.ratonDeslizando(ev);
+		}
+
 	}
 
 	@Override
@@ -955,11 +977,20 @@ public class PantallaJuego extends Pantalla {
 
 		jugador.ratonMoviendo(ev);
 
+		if (!pausa) {
+			editor.ratonMoviendo(ev);
+		}
+
 	}
 
 	@Override
 	public void ratonClick(MouseEvent ev) {
 		jugador.ratonClick(ev);
+
+		if (!pausa) {
+
+			editor.ratonClick(ev);
+		}
 
 	}
 
@@ -967,12 +998,22 @@ public class PantallaJuego extends Pantalla {
 	public void ratonPresionado(MouseEvent ev) {
 		jugador.ratonPresionado(ev);
 
+		if (!pausa) {
+			editor.ratonPresionado(ev);
+		}
+
 	}
 
 	@Override
 	public void ratonLevantado(MouseEvent ev) {
 
 		jugador.ratonLevantado(ev);
+
+		if (!pausa) {
+
+			editor.ratonLevantado(ev);
+
+		}
 
 	}
 
