@@ -134,31 +134,35 @@ public class PantallaJuego extends Pantalla {
 
 		}
 
-		Volador[] voladores = new Volador[300];
-
-		Random r = new Random();
-
-		for (int i = 0; i < voladores.length; i++) {
-			voladores[i] = new Volador(this);
-
-			voladores[i].setTamano(32, 32);
-
-			voladores[i].setCuadros(7);
-
-			voladores[i].setPosicion(r.nextInt(30000) + 640, r.nextInt(480));
-
-			voladores[i].setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("voladorI1.png"),
-					juego.getRecurso().getImagen("voladorI2.png"), juego.getRecurso().getImagen("voladorI3.png") });
-
-			voladores[i].setVelocidadY((int) (Math.random() * 7 - 5));
-
-			// voladores[i].setVelocidadY((int) (Math.random() * 5 - 5));
-
-			// voladores[i].setDistanciaMovimientoY(200);
-
-			actores.add(voladores[i]);
-
-		}
+		/*
+		 * Volador[] voladores = new Volador[300];
+		 * 
+		 * Random r = new Random();
+		 * 
+		 * for (int i = 0; i < voladores.length; i++) { voladores[i] = new
+		 * Volador(this);
+		 * 
+		 * voladores[i].setTamano(32, 32);
+		 * 
+		 * voladores[i].setCuadros(7);
+		 * 
+		 * voladores[i].setPosicion(r.nextInt(30000) + 640, r.nextInt(480));
+		 * 
+		 * voladores[i].setImagenes(new BufferedImage[] {
+		 * juego.getRecurso().getImagen("voladorI1.png"),
+		 * juego.getRecurso().getImagen("voladorI2.png"),
+		 * juego.getRecurso().getImagen("voladorI3.png") });
+		 * 
+		 * voladores[i].setVelocidadY((int) (Math.random() * 7 - 5));
+		 * 
+		 * // voladores[i].setVelocidadY((int) (Math.random() * 5 - 5));
+		 * 
+		 * // voladores[i].setDistanciaMovimientoY(200);
+		 * 
+		 * actores.add(voladores[i]);
+		 * 
+		 * }
+		 */
 
 		jugador = new Jugador(this);
 

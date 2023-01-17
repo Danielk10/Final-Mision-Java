@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import com.diamon.actor.Volador;
+import com.diamon.dato.InformacionDeNiveles;
 import com.diamon.nucleo.Actor;
 import com.diamon.nucleo.Camara2D;
 import com.diamon.nucleo.Juego;
@@ -24,6 +25,8 @@ public class EditorDeNivel {
 
 	private int xCamara;
 
+	private InformacionDeNiveles datos;
+
 	public EditorDeNivel(Pantalla pantalla) {
 
 		this.pantalla = pantalla;
@@ -35,21 +38,29 @@ public class EditorDeNivel {
 		this.camara = pantalla.getCamara();
 
 		xCamara = 0;
+
+		datos = new InformacionDeNiveles(InformacionDeNiveles.LOCAL,juego);
+
+		datos = datos.cargarConfiguraciones();
+		
+
 	}
 
 	public void actualizar(float delta) {
 
-		//System.out.println(actores.size());
+		// System.out.println(actores.size());
 
 	}
 
 	public void dibujar(Graphics2D pincel, float delta) {
 
-		/*for (int i = 0; i < actores.size(); i++) {
-
-			actores.get(i).dibujar(pincel, delta);
-
-		}*/
+		/*
+		 * for (int i = 0; i < actores.size(); i++) {
+		 * 
+		 * actores.get(i).dibujar(pincel, delta);
+		 * 
+		 * }
+		 */
 
 	}
 
@@ -122,6 +133,17 @@ public class EditorDeNivel {
 				}
 			}
 
+			break;
+			
+			
+		case KeyEvent.VK_G:
+			
+			datos.gurdarActores(actores, "com.diamon.actor.Volador", "Nivel 1"); 
+			
+			datos.guardarConfiguraciones();
+			
+			
+			
 			break;
 
 		default:

@@ -1,0 +1,662 @@
+true
+33
+com.diamon.actor.Volador
+325
+117
+Nivel 1
+com.diamon.actor.Volador
+508
+177
+Nivel 1
+com.diamon.actor.Volador
+359
+327
+Nivel 1
+com.diamon.actor.Volador
+241
+341
+Nivel 1
+com.diamon.actor.Volador
+158
+337
+Nivel 1
+com.diamon.actor.Volador
+117
+278
+Nivel 1
+com.diamon.actor.Volador
+111
+152
+Nivel 1
+com.diamon.actor.Volador
+162
+101
+Nivel 1
+com.diamon.actor.Volador
+277
+53
+Nivel 1
+com.diamon.actor.Volador
+394
+60
+Nivel 1
+com.diamon.actor.Volador
+436
+72
+Nivel 1
+com.diamon.actor.Volador
+463
+132
+Nivel 1
+com.diamon.actor.Volador
+463
+132
+Nivel 1
+com.diamon.actor.Volador
+394
+248
+Nivel 1
+com.diamon.actor.Volador
+396
+276
+Nivel 1
+com.diamon.actor.Volador
+380
+150
+Nivel 1
+com.diamon.actor.Volador
+390
+139
+Nivel 1
+com.diamon.actor.Volador
+496
+172
+Nivel 1
+com.diamon.actor.Volador
+514
+227
+Nivel 1
+com.diamon.actor.Volador
+371
+291
+Nivel 1
+com.diamon.actor.Volador
+316
+290
+Nivel 1
+com.diamon.actor.Volador
+251
+258
+Nivel 1
+com.diamon.actor.Volador
+220
+224
+Nivel 1
+com.diamon.actor.Volador
+188
+174
+Nivel 1
+com.diamon.actor.Volador
+195
+97
+Nivel 1
+com.diamon.actor.Volador
+345
+37
+Nivel 1
+com.diamon.actor.Volador
+434
+36
+Nivel 1
+com.diamon.actor.Volador
+509
+90
+Nivel 1
+com.diamon.actor.Volador
+509
+172
+Nivel 1
+com.diamon.actor.Volador
+481
+221
+Nivel 1
+com.diamon.actor.Volador
+463
+257
+Nivel 1
+com.diamon.actor.Volador
+458
+264
+Nivel 1
+com.diamon.actor.Volador
+458
+264
+Nivel 1
+com.diamon.actor.Volador
+325
+117
+Nivel 1
+com.diamon.actor.Volador
+508
+177
+Nivel 1
+com.diamon.actor.Volador
+359
+327
+Nivel 1
+com.diamon.actor.Volador
+241
+341
+Nivel 1
+com.diamon.actor.Volador
+158
+337
+Nivel 1
+com.diamon.actor.Volador
+117
+278
+Nivel 1
+com.diamon.actor.Volador
+111
+152
+Nivel 1
+com.diamon.actor.Volador
+162
+101
+Nivel 1
+com.diamon.actor.Volador
+277
+53
+Nivel 1
+com.diamon.actor.Volador
+394
+60
+Nivel 1
+com.diamon.actor.Volador
+436
+72
+Nivel 1
+com.diamon.actor.Volador
+463
+132
+Nivel 1
+com.diamon.actor.Volador
+463
+132
+Nivel 1
+com.diamon.actor.Volador
+394
+248
+Nivel 1
+com.diamon.actor.Volador
+396
+276
+Nivel 1
+com.diamon.actor.Volador
+380
+150
+Nivel 1
+com.diamon.actor.Volador
+390
+139
+Nivel 1
+com.diamon.actor.Volador
+496
+172
+Nivel 1
+com.diamon.actor.Volador
+514
+227
+Nivel 1
+com.diamon.actor.Volador
+371
+291
+Nivel 1
+com.diamon.actor.Volador
+316
+290
+Nivel 1
+com.diamon.actor.Volador
+251
+258
+Nivel 1
+com.diamon.actor.Volador
+220
+224
+Nivel 1
+com.diamon.actor.Volador
+188
+174
+Nivel 1
+com.diamon.actor.Volador
+195
+97
+Nivel 1
+com.diamon.actor.Volador
+345
+37
+Nivel 1
+com.diamon.actor.Volador
+434
+36
+Nivel 1
+com.diamon.actor.Volador
+509
+90
+Nivel 1
+com.diamon.actor.Volador
+509
+172
+Nivel 1
+com.diamon.actor.Volador
+481
+221
+Nivel 1
+com.diamon.actor.Volador
+463
+257
+Nivel 1
+com.diamon.actor.Volador
+458
+264
+Nivel 1
+com.diamon.actor.Volador
+458
+264
+Nivel 1
+com.diamon.actor.Volador
+325
+117
+Nivel 1
+com.diamon.actor.Volador
+508
+177
+Nivel 1
+com.diamon.actor.Volador
+359
+327
+Nivel 1
+com.diamon.actor.Volador
+241
+341
+Nivel 1
+com.diamon.actor.Volador
+158
+337
+Nivel 1
+com.diamon.actor.Volador
+117
+278
+Nivel 1
+com.diamon.actor.Volador
+111
+152
+Nivel 1
+com.diamon.actor.Volador
+162
+101
+Nivel 1
+com.diamon.actor.Volador
+277
+53
+Nivel 1
+com.diamon.actor.Volador
+394
+60
+Nivel 1
+com.diamon.actor.Volador
+436
+72
+Nivel 1
+com.diamon.actor.Volador
+463
+132
+Nivel 1
+com.diamon.actor.Volador
+463
+132
+Nivel 1
+com.diamon.actor.Volador
+394
+248
+Nivel 1
+com.diamon.actor.Volador
+396
+276
+Nivel 1
+com.diamon.actor.Volador
+380
+150
+Nivel 1
+com.diamon.actor.Volador
+390
+139
+Nivel 1
+com.diamon.actor.Volador
+496
+172
+Nivel 1
+com.diamon.actor.Volador
+514
+227
+Nivel 1
+com.diamon.actor.Volador
+371
+291
+Nivel 1
+com.diamon.actor.Volador
+316
+290
+Nivel 1
+com.diamon.actor.Volador
+251
+258
+Nivel 1
+com.diamon.actor.Volador
+220
+224
+Nivel 1
+com.diamon.actor.Volador
+188
+174
+Nivel 1
+com.diamon.actor.Volador
+195
+97
+Nivel 1
+com.diamon.actor.Volador
+345
+37
+Nivel 1
+com.diamon.actor.Volador
+434
+36
+Nivel 1
+com.diamon.actor.Volador
+509
+90
+Nivel 1
+com.diamon.actor.Volador
+509
+172
+Nivel 1
+com.diamon.actor.Volador
+481
+221
+Nivel 1
+com.diamon.actor.Volador
+463
+257
+Nivel 1
+com.diamon.actor.Volador
+458
+264
+Nivel 1
+com.diamon.actor.Volador
+458
+264
+Nivel 1
+com.diamon.actor.Volador
+325
+117
+Nivel 1
+com.diamon.actor.Volador
+508
+177
+Nivel 1
+com.diamon.actor.Volador
+359
+327
+Nivel 1
+com.diamon.actor.Volador
+241
+341
+Nivel 1
+com.diamon.actor.Volador
+158
+337
+Nivel 1
+com.diamon.actor.Volador
+117
+278
+Nivel 1
+com.diamon.actor.Volador
+111
+152
+Nivel 1
+com.diamon.actor.Volador
+162
+101
+Nivel 1
+com.diamon.actor.Volador
+277
+53
+Nivel 1
+com.diamon.actor.Volador
+394
+60
+Nivel 1
+com.diamon.actor.Volador
+436
+72
+Nivel 1
+com.diamon.actor.Volador
+463
+132
+Nivel 1
+com.diamon.actor.Volador
+463
+132
+Nivel 1
+com.diamon.actor.Volador
+394
+248
+Nivel 1
+com.diamon.actor.Volador
+396
+276
+Nivel 1
+com.diamon.actor.Volador
+380
+150
+Nivel 1
+com.diamon.actor.Volador
+390
+139
+Nivel 1
+com.diamon.actor.Volador
+496
+172
+Nivel 1
+com.diamon.actor.Volador
+514
+227
+Nivel 1
+com.diamon.actor.Volador
+371
+291
+Nivel 1
+com.diamon.actor.Volador
+316
+290
+Nivel 1
+com.diamon.actor.Volador
+251
+258
+Nivel 1
+com.diamon.actor.Volador
+220
+224
+Nivel 1
+com.diamon.actor.Volador
+188
+174
+Nivel 1
+com.diamon.actor.Volador
+195
+97
+Nivel 1
+com.diamon.actor.Volador
+345
+37
+Nivel 1
+com.diamon.actor.Volador
+434
+36
+Nivel 1
+com.diamon.actor.Volador
+509
+90
+Nivel 1
+com.diamon.actor.Volador
+509
+172
+Nivel 1
+com.diamon.actor.Volador
+481
+221
+Nivel 1
+com.diamon.actor.Volador
+463
+257
+Nivel 1
+com.diamon.actor.Volador
+458
+264
+Nivel 1
+com.diamon.actor.Volador
+458
+264
+Nivel 1
+com.diamon.actor.Volador
+325
+117
+Nivel 1
+com.diamon.actor.Volador
+508
+177
+Nivel 1
+com.diamon.actor.Volador
+359
+327
+Nivel 1
+com.diamon.actor.Volador
+241
+341
+Nivel 1
+com.diamon.actor.Volador
+158
+337
+Nivel 1
+com.diamon.actor.Volador
+117
+278
+Nivel 1
+com.diamon.actor.Volador
+111
+152
+Nivel 1
+com.diamon.actor.Volador
+162
+101
+Nivel 1
+com.diamon.actor.Volador
+277
+53
+Nivel 1
+com.diamon.actor.Volador
+394
+60
+Nivel 1
+com.diamon.actor.Volador
+436
+72
+Nivel 1
+com.diamon.actor.Volador
+463
+132
+Nivel 1
+com.diamon.actor.Volador
+463
+132
+Nivel 1
+com.diamon.actor.Volador
+394
+248
+Nivel 1
+com.diamon.actor.Volador
+396
+276
+Nivel 1
+com.diamon.actor.Volador
+380
+150
+Nivel 1
+com.diamon.actor.Volador
+390
+139
+Nivel 1
+com.diamon.actor.Volador
+496
+172
+Nivel 1
+com.diamon.actor.Volador
+514
+227
+Nivel 1
+com.diamon.actor.Volador
+371
+291
+Nivel 1
+com.diamon.actor.Volador
+316
+290
+Nivel 1
+com.diamon.actor.Volador
+251
+258
+Nivel 1
+com.diamon.actor.Volador
+220
+224
+Nivel 1
+com.diamon.actor.Volador
+188
+174
+Nivel 1
+com.diamon.actor.Volador
+195
+97
+Nivel 1
+com.diamon.actor.Volador
+345
+37
+Nivel 1
+com.diamon.actor.Volador
+434
+36
+Nivel 1
+com.diamon.actor.Volador
+509
+90
+Nivel 1
+com.diamon.actor.Volador
+509
+172
+Nivel 1
+com.diamon.actor.Volador
+481
+221
+Nivel 1
+com.diamon.actor.Volador
+463
+257
+Nivel 1
+com.diamon.actor.Volador
+458
+264
+Nivel 1
+com.diamon.actor.Volador
+458
+264
+Nivel 1
