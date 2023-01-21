@@ -43,8 +43,6 @@ public class EditorDeNiveles {
 
 	public void actualizar(float delta) {
 
-		System.out.println(camara.getX());
-
 		xCamara = camara.getX();
 
 		yCamara = camara.getY();

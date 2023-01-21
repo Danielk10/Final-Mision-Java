@@ -196,38 +196,36 @@ public class InformacionDeNiveles {
 
 				if (niveles.size() > 0) {
 
-					for (int k = 0; k < posicionActores.length; k++) {
-						if (niveles.get(k).equals(ni)) {
+					if (niveles.get(i).equals(ni)) {
 
-							for (int j = 0; j < actoresInternos.size(); j++) {
+						for (int j = 0; j < actoresInternos.size(); j++) {
 
-								if (actoresInternos.get(j).getClass().getName().toString()
-										.equals(actoresInternos.get(j).getClass().getName().toString())) {
+							if (actoresInternos.get(j).getClass().getName().toString()
+									.equals(actoresInternos.get(j).getClass().getName().toString())) {
 
-									posicionActores[i].add(
-											new Vector2D(actoresInternos.get(j).getX(), actoresInternos.get(j).getY()));
+								posicionActores[i].add(
+										new Vector2D(actoresInternos.get(j).getX(), actoresInternos.get(j).getY()));
 
-									buferarchivoEscribir.write(actoresInternos.get(j).getClass().getName().toString());
+								buferarchivoEscribir.write(actoresInternos.get(j).getClass().getName().toString());
 
-									buferarchivoEscribir.newLine();
+								buferarchivoEscribir.newLine();
 
-									buferarchivoEscribir.write(Integer.toString(actoresInternos.get(j).getX()));
+								buferarchivoEscribir.write(Integer.toString(actoresInternos.get(j).getX()));
 
-									buferarchivoEscribir.newLine();
+								buferarchivoEscribir.newLine();
 
-									buferarchivoEscribir.write(Integer.toString(actoresInternos.get(j).getY()));
+								buferarchivoEscribir.write(Integer.toString(actoresInternos.get(j).getY()));
 
-									buferarchivoEscribir.newLine();
+								buferarchivoEscribir.newLine();
 
-									buferarchivoEscribir.write(niveles.get(k));
+								buferarchivoEscribir.write(niveles.get(i));
 
-									buferarchivoEscribir.newLine();
-
-								}
+								buferarchivoEscribir.newLine();
 
 							}
 
 						}
+
 					}
 
 				}

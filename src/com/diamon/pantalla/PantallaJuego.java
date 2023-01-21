@@ -63,10 +63,8 @@ public class PantallaJuego extends Pantalla {
 
 	public PantallaJuego(FinalMision juego) {
 		super(juego);
-		
-		
-		
-		camara.setX(0); 
+
+		camara.setX(0);
 
 		pausa = true;
 
@@ -476,9 +474,6 @@ public class PantallaJuego extends Pantalla {
 			moverFondo();
 
 			this.camara.setX(xCamara++);
-			
-			
-			System.out.println(camara.getX());
 
 			if (cicloParaEnemigos <= 10100) {
 
