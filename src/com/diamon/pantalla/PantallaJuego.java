@@ -19,13 +19,17 @@ import com.diamon.actor.Robot;
 import com.diamon.actor.Saltador;
 import com.diamon.actor.Vida;
 import com.diamon.actor.Volador;
+import com.diamon.dato.InformacionDeNiveles;
 import com.diamon.juego.FinalMision;
 import com.diamon.nucleo.Actor;
 import com.diamon.nucleo.Juego;
 import com.diamon.nucleo.Pantalla;
-import com.diamon.utilidad.EditorDeNivel;
+import com.diamon.utilidad.EditorDeNiveles;
+import com.diamon.utilidad.Vector2D;
 
 public class PantallaJuego extends Pantalla {
+
+	private int xCamara;
 
 	private boolean pausa;
 
@@ -53,10 +57,16 @@ public class PantallaJuego extends Pantalla {
 
 	private boolean musicaIntro2;
 
-	private EditorDeNivel editor;
+	private EditorDeNiveles editor;
+
+	private InformacionDeNiveles datosNiveles;
 
 	public PantallaJuego(FinalMision juego) {
 		super(juego);
+		
+		
+		
+		camara.setX(0); 
 
 		pausa = true;
 
@@ -79,7 +89,9 @@ public class PantallaJuego extends Pantalla {
 
 		cicloMuriendo = 0;
 
-		editor = new EditorDeNivel(this);
+		editor = new EditorDeNiveles(this);
+
+		datosNiveles = juego.getDatosNiveles();
 
 		iniciar();
 
@@ -134,35 +146,24 @@ public class PantallaJuego extends Pantalla {
 
 		}
 
-		/*
-		 * Volador[] voladores = new Volador[300];
-		 * 
-		 * Random r = new Random();
-		 * 
-		 * for (int i = 0; i < voladores.length; i++) { voladores[i] = new
-		 * Volador(this);
-		 * 
-		 * voladores[i].setTamano(32, 32);
-		 * 
-		 * voladores[i].setCuadros(7);
-		 * 
-		 * voladores[i].setPosicion(r.nextInt(30000) + 640, r.nextInt(480));
-		 * 
-		 * voladores[i].setImagenes(new BufferedImage[] {
-		 * juego.getRecurso().getImagen("voladorI1.png"),
-		 * juego.getRecurso().getImagen("voladorI2.png"),
-		 * juego.getRecurso().getImagen("voladorI3.png") });
-		 * 
-		 * voladores[i].setVelocidadY((int) (Math.random() * 7 - 5));
-		 * 
-		 * // voladores[i].setVelocidadY((int) (Math.random() * 5 - 5));
-		 * 
-		 * // voladores[i].setDistanciaMovimientoY(200);
-		 * 
-		 * actores.add(voladores[i]);
-		 * 
-		 * }
-		 */
+		for (Vector2D coodenadas : datosNiveles.getPosicionActores("com.diamon.actor.Volador", "Nivel 1")) {
+
+			Volador volador = new Volador(this);
+
+			volador.setTamano(32, 32);
+
+			volador.setCuadros(7);
+
+			volador.setPosicion(coodenadas.getX(), coodenadas.getY());
+
+			volador.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("voladorI1.png"),
+					juego.getRecurso().getImagen("voladorI2.png"), juego.getRecurso().getImagen("voladorI3.png") });
+
+			volador.setVelocidadY((int) (Math.random() * 7 - 5));
+
+			actores.add(volador);
+
+		}
 
 		jugador = new Jugador(this);
 
@@ -473,6 +474,11 @@ public class PantallaJuego extends Pantalla {
 
 			}
 			moverFondo();
+
+			this.camara.setX(xCamara++);
+			
+			
+			System.out.println(camara.getX());
 
 			if (cicloParaEnemigos <= 10100) {
 

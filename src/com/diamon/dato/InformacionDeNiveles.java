@@ -193,39 +193,45 @@ public class InformacionDeNiveles {
 			for (int i = 0; i < posicionActores.length; i++) {
 
 				ni = "Nivel " + n;
-				for (int k = 0; k < posicionActores.length; k++) {
-					if (niveles.get(k).equals(ni)) {
 
-						for (int j = 0; j < actoresInternos.size(); j++) {
+				if (niveles.size() > 0) {
 
-							if (actoresInternos.get(j).getClass().getName().toString()
-									.equals(actoresInternos.get(j).getClass().getName().toString())) {
+					for (int k = 0; k < posicionActores.length; k++) {
+						if (niveles.get(k).equals(ni)) {
 
-								posicionActores[i].add(
-										new Vector2D(actoresInternos.get(j).getX(), actoresInternos.get(j).getY()));
+							for (int j = 0; j < actoresInternos.size(); j++) {
 
-								buferarchivoEscribir.write(actoresInternos.get(j).getClass().getName().toString());
+								if (actoresInternos.get(j).getClass().getName().toString()
+										.equals(actoresInternos.get(j).getClass().getName().toString())) {
 
-								buferarchivoEscribir.newLine();
+									posicionActores[i].add(
+											new Vector2D(actoresInternos.get(j).getX(), actoresInternos.get(j).getY()));
 
-								buferarchivoEscribir.write(Integer.toString(actoresInternos.get(j).getX()));
+									buferarchivoEscribir.write(actoresInternos.get(j).getClass().getName().toString());
 
-								buferarchivoEscribir.newLine();
+									buferarchivoEscribir.newLine();
 
-								buferarchivoEscribir.write(Integer.toString(actoresInternos.get(j).getY()));
+									buferarchivoEscribir.write(Integer.toString(actoresInternos.get(j).getX()));
 
-								buferarchivoEscribir.newLine();
+									buferarchivoEscribir.newLine();
 
-								buferarchivoEscribir.write(niveles.get(k));
+									buferarchivoEscribir.write(Integer.toString(actoresInternos.get(j).getY()));
 
-								buferarchivoEscribir.newLine();
+									buferarchivoEscribir.newLine();
+
+									buferarchivoEscribir.write(niveles.get(k));
+
+									buferarchivoEscribir.newLine();
+
+								}
 
 							}
 
 						}
-
 					}
+
 				}
+
 				n++;
 			}
 
@@ -270,6 +276,7 @@ public class InformacionDeNiveles {
 						actoresInternos.add(actores.get(j));////////
 
 						niveles.add(nivel);////
+
 					}
 
 				}

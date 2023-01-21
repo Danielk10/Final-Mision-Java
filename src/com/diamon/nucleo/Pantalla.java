@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.ImageObserver;
 import java.util.ArrayList;
 
+import com.diamon.dato.InformacionDeNiveles;
 import com.diamon.juego.FinalMision;
 
 public abstract class Pantalla implements ImageObserver {

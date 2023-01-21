@@ -13,7 +13,7 @@ import com.diamon.nucleo.Camara2D;
 import com.diamon.nucleo.Juego;
 import com.diamon.nucleo.Pantalla;
 
-public class EditorDeNivel {
+public class EditorDeNiveles {
 
 	private Pantalla pantalla;
 
@@ -23,11 +23,11 @@ public class EditorDeNivel {
 
 	private Camara2D camara;
 
-	private int xCamara;
+	private int xCamara, yCamara;
 
-	private InformacionDeNiveles datos;
+	private InformacionDeNiveles datosNiveles;
 
-	public EditorDeNivel(Pantalla pantalla) {
+	public EditorDeNiveles(Pantalla pantalla) {
 
 		this.pantalla = pantalla;
 
@@ -37,18 +37,21 @@ public class EditorDeNivel {
 
 		this.camara = pantalla.getCamara();
 
-		xCamara = 0;
-
-		datos = new InformacionDeNiveles(InformacionDeNiveles.LOCAL,juego);
-
-		datos = datos.cargarConfiguraciones();
-		
+		datosNiveles = juego.getDatosNiveles();
 
 	}
 
 	public void actualizar(float delta) {
 
-		// System.out.println(actores.size());
+		System.out.println(camara.getX());
+
+		xCamara = camara.getX();
+
+		yCamara = camara.getY();
+
+		camara.setX(xCamara);
+
+		camara.setY(yCamara);
 
 	}
 
@@ -74,7 +77,10 @@ public class EditorDeNivel {
 
 		case KeyEvent.VK_LEFT:
 
-			xCamara++;
+			xCamara -= 5;
+
+			camara.setX(xCamara);
+
 			if (actores.size() > 0) {
 
 				for (int i = 0; i < actores.size(); i++) {
@@ -91,7 +97,10 @@ public class EditorDeNivel {
 
 		case KeyEvent.VK_RIGHT:
 
-			xCamara--;
+			xCamara += 5;
+
+			camara.setX(xCamara);
+
 			if (actores.size() > 0) {
 
 				for (int i = 0; i < actores.size(); i++) {
@@ -106,6 +115,10 @@ public class EditorDeNivel {
 			break;
 
 		case KeyEvent.VK_UP:
+
+			yCamara += 5;
+
+			camara.setY(yCamara);
 
 			if (actores.size() > 0) {
 
@@ -122,6 +135,10 @@ public class EditorDeNivel {
 
 		case KeyEvent.VK_DOWN:
 
+			yCamara -= 5;
+
+			camara.setY(yCamara);
+
 			if (actores.size() > 0) {
 
 				for (int i = 0; i < actores.size(); i++) {
@@ -134,16 +151,13 @@ public class EditorDeNivel {
 			}
 
 			break;
-			
-			
+
 		case KeyEvent.VK_G:
-			
-			datos.gurdarActores(actores, "com.diamon.actor.Volador", "Nivel 1"); 
-			
-			datos.guardarConfiguraciones();
-			
-			
-			
+
+			datosNiveles.guardarConfiguraciones();
+
+			actores.clear();
+
 			break;
 
 		default:
@@ -177,7 +191,15 @@ public class EditorDeNivel {
 
 	}
 
-	private void agregarActor(int x, int y) {
+	private void agregarActor(ArrayList<Actor> actores) {
+
+		String nivel = "Nivel " + 1;
+
+		this.datosNiveles.gurdarActores(actores, "com.diamon.actor.Volador", nivel);
+
+	}
+
+	private void agregarActorTemporal(int x, int y) {
 
 		Volador volador = new Volador(pantalla);
 
@@ -196,6 +218,29 @@ public class EditorDeNivel {
 
 	}
 
+	private void agregarActor(int x, int y) {
+
+		ArrayList<Actor> actores = new ArrayList<Actor>();
+
+		Volador volador = new Volador(pantalla);
+
+		volador.setTamano(32, 32);
+
+		volador.setCuadros(7);
+
+		volador.setPosicion(camara.getX() + x, camara.getY() + y);
+
+		volador.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("voladorI1.png"),
+				juego.getRecurso().getImagen("voladorI2.png"), juego.getRecurso().getImagen("voladorI3.png") });
+
+		volador.setVelocidadY((int) (Math.random() * 7 - 5));
+
+		actores.add(volador);
+
+		agregarActor(actores); ///
+
+	}
+
 	public void ratonMoviendo(MouseEvent ev) {
 
 	}
@@ -206,21 +251,13 @@ public class EditorDeNivel {
 
 	public void ratonPresionado(MouseEvent ev) {
 
-		if (actores.size() == 0) {
-
-			agregarActor(ev.getX(), ev.getY());
-
-		}
+		agregarActorTemporal(ev.getX(), ev.getY());
 
 	}
 
 	public void ratonLevantado(MouseEvent ev) {
 
-		if (actores.size() > 0) {
-
-			agregarActor(ev.getX(), ev.getY());
-
-		}
+		agregarActor(ev.getX(), ev.getY());
 
 	}
 

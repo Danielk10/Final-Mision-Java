@@ -1,662 +1,722 @@
 true
-33
+36
 com.diamon.actor.Volador
-325
-117
+887
+293
 Nivel 1
 com.diamon.actor.Volador
-508
-177
+1017
+188
 Nivel 1
 com.diamon.actor.Volador
-359
-327
+748
+199
 Nivel 1
 com.diamon.actor.Volador
-241
-341
+728
+331
 Nivel 1
 com.diamon.actor.Volador
-158
-337
+1268
+196
 Nivel 1
 com.diamon.actor.Volador
-117
-278
+1229
+347
 Nivel 1
 com.diamon.actor.Volador
-111
+1271
+140
+Nivel 1
+com.diamon.actor.Volador
+1382
+245
+Nivel 1
+com.diamon.actor.Volador
+1494
 152
 Nivel 1
 com.diamon.actor.Volador
-162
-101
+1561
+274
 Nivel 1
 com.diamon.actor.Volador
-277
-53
+1682
+165
 Nivel 1
 com.diamon.actor.Volador
-394
-60
-Nivel 1
-com.diamon.actor.Volador
-436
-72
-Nivel 1
-com.diamon.actor.Volador
-463
-132
-Nivel 1
-com.diamon.actor.Volador
-463
-132
-Nivel 1
-com.diamon.actor.Volador
-394
-248
-Nivel 1
-com.diamon.actor.Volador
-396
-276
-Nivel 1
-com.diamon.actor.Volador
-380
-150
-Nivel 1
-com.diamon.actor.Volador
-390
-139
-Nivel 1
-com.diamon.actor.Volador
-496
-172
-Nivel 1
-com.diamon.actor.Volador
-514
-227
-Nivel 1
-com.diamon.actor.Volador
-371
+1757
 291
 Nivel 1
 com.diamon.actor.Volador
-316
-290
+1846
+162
 Nivel 1
 com.diamon.actor.Volador
-251
-258
+1893
+312
 Nivel 1
 com.diamon.actor.Volador
-220
-224
+1973
+170
 Nivel 1
 com.diamon.actor.Volador
-188
-174
-Nivel 1
-com.diamon.actor.Volador
-195
-97
-Nivel 1
-com.diamon.actor.Volador
-345
-37
-Nivel 1
-com.diamon.actor.Volador
-434
-36
-Nivel 1
-com.diamon.actor.Volador
-509
-90
-Nivel 1
-com.diamon.actor.Volador
-509
-172
-Nivel 1
-com.diamon.actor.Volador
-481
-221
-Nivel 1
-com.diamon.actor.Volador
-463
+2122
 257
 Nivel 1
 com.diamon.actor.Volador
-458
-264
+2195
+331
 Nivel 1
 com.diamon.actor.Volador
-458
-264
+2257
+170
 Nivel 1
 com.diamon.actor.Volador
-325
-117
+2334
+345
 Nivel 1
 com.diamon.actor.Volador
-508
-177
+2413
+197
 Nivel 1
 com.diamon.actor.Volador
-359
-327
+2473
+353
 Nivel 1
 com.diamon.actor.Volador
-241
-341
+2533
+178
 Nivel 1
 com.diamon.actor.Volador
-158
-337
+2573
+352
 Nivel 1
 com.diamon.actor.Volador
-117
-278
+2670
+188
 Nivel 1
 com.diamon.actor.Volador
-111
+2727
+335
+Nivel 1
+com.diamon.actor.Volador
+2818
+165
+Nivel 1
+com.diamon.actor.Volador
+2907
+363
+Nivel 1
+com.diamon.actor.Volador
+2950
+218
+Nivel 1
+com.diamon.actor.Volador
+3075
+381
+Nivel 1
+com.diamon.actor.Volador
+3103
+212
+Nivel 1
+com.diamon.actor.Volador
+2932
+201
+Nivel 1
+com.diamon.actor.Volador
+2928
+222
+Nivel 1
+com.diamon.actor.Volador
+3050
+252
+Nivel 1
+com.diamon.actor.Volador
+3129
+333
+Nivel 1
+com.diamon.actor.Volador
+2905
+387
+Nivel 1
+com.diamon.actor.Volador
+3179
+449
+Nivel 1
+com.diamon.actor.Volador
+887
+293
+Nivel 1
+com.diamon.actor.Volador
+1017
+188
+Nivel 1
+com.diamon.actor.Volador
+748
+199
+Nivel 1
+com.diamon.actor.Volador
+728
+331
+Nivel 1
+com.diamon.actor.Volador
+1268
+196
+Nivel 1
+com.diamon.actor.Volador
+1229
+347
+Nivel 1
+com.diamon.actor.Volador
+1271
+140
+Nivel 1
+com.diamon.actor.Volador
+1382
+245
+Nivel 1
+com.diamon.actor.Volador
+1494
 152
 Nivel 1
 com.diamon.actor.Volador
-162
-101
+1561
+274
 Nivel 1
 com.diamon.actor.Volador
-277
-53
+1682
+165
 Nivel 1
 com.diamon.actor.Volador
-394
-60
-Nivel 1
-com.diamon.actor.Volador
-436
-72
-Nivel 1
-com.diamon.actor.Volador
-463
-132
-Nivel 1
-com.diamon.actor.Volador
-463
-132
-Nivel 1
-com.diamon.actor.Volador
-394
-248
-Nivel 1
-com.diamon.actor.Volador
-396
-276
-Nivel 1
-com.diamon.actor.Volador
-380
-150
-Nivel 1
-com.diamon.actor.Volador
-390
-139
-Nivel 1
-com.diamon.actor.Volador
-496
-172
-Nivel 1
-com.diamon.actor.Volador
-514
-227
-Nivel 1
-com.diamon.actor.Volador
-371
+1757
 291
 Nivel 1
 com.diamon.actor.Volador
-316
-290
+1846
+162
 Nivel 1
 com.diamon.actor.Volador
-251
-258
+1893
+312
 Nivel 1
 com.diamon.actor.Volador
-220
-224
+1973
+170
 Nivel 1
 com.diamon.actor.Volador
-188
-174
-Nivel 1
-com.diamon.actor.Volador
-195
-97
-Nivel 1
-com.diamon.actor.Volador
-345
-37
-Nivel 1
-com.diamon.actor.Volador
-434
-36
-Nivel 1
-com.diamon.actor.Volador
-509
-90
-Nivel 1
-com.diamon.actor.Volador
-509
-172
-Nivel 1
-com.diamon.actor.Volador
-481
-221
-Nivel 1
-com.diamon.actor.Volador
-463
+2122
 257
 Nivel 1
 com.diamon.actor.Volador
-458
-264
+2195
+331
 Nivel 1
 com.diamon.actor.Volador
-458
-264
+2257
+170
 Nivel 1
 com.diamon.actor.Volador
-325
-117
+2334
+345
 Nivel 1
 com.diamon.actor.Volador
-508
-177
+2413
+197
 Nivel 1
 com.diamon.actor.Volador
-359
-327
+2473
+353
 Nivel 1
 com.diamon.actor.Volador
-241
-341
+2533
+178
 Nivel 1
 com.diamon.actor.Volador
-158
-337
+2573
+352
 Nivel 1
 com.diamon.actor.Volador
-117
-278
+2670
+188
 Nivel 1
 com.diamon.actor.Volador
-111
+2727
+335
+Nivel 1
+com.diamon.actor.Volador
+2818
+165
+Nivel 1
+com.diamon.actor.Volador
+2907
+363
+Nivel 1
+com.diamon.actor.Volador
+2950
+218
+Nivel 1
+com.diamon.actor.Volador
+3075
+381
+Nivel 1
+com.diamon.actor.Volador
+3103
+212
+Nivel 1
+com.diamon.actor.Volador
+2932
+201
+Nivel 1
+com.diamon.actor.Volador
+2928
+222
+Nivel 1
+com.diamon.actor.Volador
+3050
+252
+Nivel 1
+com.diamon.actor.Volador
+3129
+333
+Nivel 1
+com.diamon.actor.Volador
+2905
+387
+Nivel 1
+com.diamon.actor.Volador
+3179
+449
+Nivel 1
+com.diamon.actor.Volador
+887
+293
+Nivel 1
+com.diamon.actor.Volador
+1017
+188
+Nivel 1
+com.diamon.actor.Volador
+748
+199
+Nivel 1
+com.diamon.actor.Volador
+728
+331
+Nivel 1
+com.diamon.actor.Volador
+1268
+196
+Nivel 1
+com.diamon.actor.Volador
+1229
+347
+Nivel 1
+com.diamon.actor.Volador
+1271
+140
+Nivel 1
+com.diamon.actor.Volador
+1382
+245
+Nivel 1
+com.diamon.actor.Volador
+1494
 152
 Nivel 1
 com.diamon.actor.Volador
-162
-101
+1561
+274
 Nivel 1
 com.diamon.actor.Volador
-277
-53
+1682
+165
 Nivel 1
 com.diamon.actor.Volador
-394
-60
-Nivel 1
-com.diamon.actor.Volador
-436
-72
-Nivel 1
-com.diamon.actor.Volador
-463
-132
-Nivel 1
-com.diamon.actor.Volador
-463
-132
-Nivel 1
-com.diamon.actor.Volador
-394
-248
-Nivel 1
-com.diamon.actor.Volador
-396
-276
-Nivel 1
-com.diamon.actor.Volador
-380
-150
-Nivel 1
-com.diamon.actor.Volador
-390
-139
-Nivel 1
-com.diamon.actor.Volador
-496
-172
-Nivel 1
-com.diamon.actor.Volador
-514
-227
-Nivel 1
-com.diamon.actor.Volador
-371
+1757
 291
 Nivel 1
 com.diamon.actor.Volador
-316
-290
+1846
+162
 Nivel 1
 com.diamon.actor.Volador
-251
-258
+1893
+312
 Nivel 1
 com.diamon.actor.Volador
-220
-224
+1973
+170
 Nivel 1
 com.diamon.actor.Volador
-188
-174
-Nivel 1
-com.diamon.actor.Volador
-195
-97
-Nivel 1
-com.diamon.actor.Volador
-345
-37
-Nivel 1
-com.diamon.actor.Volador
-434
-36
-Nivel 1
-com.diamon.actor.Volador
-509
-90
-Nivel 1
-com.diamon.actor.Volador
-509
-172
-Nivel 1
-com.diamon.actor.Volador
-481
-221
-Nivel 1
-com.diamon.actor.Volador
-463
+2122
 257
 Nivel 1
 com.diamon.actor.Volador
-458
-264
+2195
+331
 Nivel 1
 com.diamon.actor.Volador
-458
-264
+2257
+170
 Nivel 1
 com.diamon.actor.Volador
-325
-117
+2334
+345
 Nivel 1
 com.diamon.actor.Volador
-508
-177
+2413
+197
 Nivel 1
 com.diamon.actor.Volador
-359
-327
+2473
+353
 Nivel 1
 com.diamon.actor.Volador
-241
-341
+2533
+178
 Nivel 1
 com.diamon.actor.Volador
-158
-337
+2573
+352
 Nivel 1
 com.diamon.actor.Volador
-117
-278
+2670
+188
 Nivel 1
 com.diamon.actor.Volador
-111
+2727
+335
+Nivel 1
+com.diamon.actor.Volador
+2818
+165
+Nivel 1
+com.diamon.actor.Volador
+2907
+363
+Nivel 1
+com.diamon.actor.Volador
+2950
+218
+Nivel 1
+com.diamon.actor.Volador
+3075
+381
+Nivel 1
+com.diamon.actor.Volador
+3103
+212
+Nivel 1
+com.diamon.actor.Volador
+2932
+201
+Nivel 1
+com.diamon.actor.Volador
+2928
+222
+Nivel 1
+com.diamon.actor.Volador
+3050
+252
+Nivel 1
+com.diamon.actor.Volador
+3129
+333
+Nivel 1
+com.diamon.actor.Volador
+2905
+387
+Nivel 1
+com.diamon.actor.Volador
+3179
+449
+Nivel 1
+com.diamon.actor.Volador
+887
+293
+Nivel 1
+com.diamon.actor.Volador
+1017
+188
+Nivel 1
+com.diamon.actor.Volador
+748
+199
+Nivel 1
+com.diamon.actor.Volador
+728
+331
+Nivel 1
+com.diamon.actor.Volador
+1268
+196
+Nivel 1
+com.diamon.actor.Volador
+1229
+347
+Nivel 1
+com.diamon.actor.Volador
+1271
+140
+Nivel 1
+com.diamon.actor.Volador
+1382
+245
+Nivel 1
+com.diamon.actor.Volador
+1494
 152
 Nivel 1
 com.diamon.actor.Volador
-162
-101
+1561
+274
 Nivel 1
 com.diamon.actor.Volador
-277
-53
+1682
+165
 Nivel 1
 com.diamon.actor.Volador
-394
-60
-Nivel 1
-com.diamon.actor.Volador
-436
-72
-Nivel 1
-com.diamon.actor.Volador
-463
-132
-Nivel 1
-com.diamon.actor.Volador
-463
-132
-Nivel 1
-com.diamon.actor.Volador
-394
-248
-Nivel 1
-com.diamon.actor.Volador
-396
-276
-Nivel 1
-com.diamon.actor.Volador
-380
-150
-Nivel 1
-com.diamon.actor.Volador
-390
-139
-Nivel 1
-com.diamon.actor.Volador
-496
-172
-Nivel 1
-com.diamon.actor.Volador
-514
-227
-Nivel 1
-com.diamon.actor.Volador
-371
+1757
 291
 Nivel 1
 com.diamon.actor.Volador
-316
-290
+1846
+162
 Nivel 1
 com.diamon.actor.Volador
-251
-258
+1893
+312
 Nivel 1
 com.diamon.actor.Volador
-220
-224
+1973
+170
 Nivel 1
 com.diamon.actor.Volador
-188
-174
-Nivel 1
-com.diamon.actor.Volador
-195
-97
-Nivel 1
-com.diamon.actor.Volador
-345
-37
-Nivel 1
-com.diamon.actor.Volador
-434
-36
-Nivel 1
-com.diamon.actor.Volador
-509
-90
-Nivel 1
-com.diamon.actor.Volador
-509
-172
-Nivel 1
-com.diamon.actor.Volador
-481
-221
-Nivel 1
-com.diamon.actor.Volador
-463
+2122
 257
 Nivel 1
 com.diamon.actor.Volador
-458
-264
+2195
+331
 Nivel 1
 com.diamon.actor.Volador
-458
-264
+2257
+170
 Nivel 1
 com.diamon.actor.Volador
-325
-117
+2334
+345
 Nivel 1
 com.diamon.actor.Volador
-508
-177
+2413
+197
 Nivel 1
 com.diamon.actor.Volador
-359
-327
+2473
+353
 Nivel 1
 com.diamon.actor.Volador
-241
-341
+2533
+178
 Nivel 1
 com.diamon.actor.Volador
-158
-337
+2573
+352
 Nivel 1
 com.diamon.actor.Volador
-117
-278
+2670
+188
 Nivel 1
 com.diamon.actor.Volador
-111
+2727
+335
+Nivel 1
+com.diamon.actor.Volador
+2818
+165
+Nivel 1
+com.diamon.actor.Volador
+2907
+363
+Nivel 1
+com.diamon.actor.Volador
+2950
+218
+Nivel 1
+com.diamon.actor.Volador
+3075
+381
+Nivel 1
+com.diamon.actor.Volador
+3103
+212
+Nivel 1
+com.diamon.actor.Volador
+2932
+201
+Nivel 1
+com.diamon.actor.Volador
+2928
+222
+Nivel 1
+com.diamon.actor.Volador
+3050
+252
+Nivel 1
+com.diamon.actor.Volador
+3129
+333
+Nivel 1
+com.diamon.actor.Volador
+2905
+387
+Nivel 1
+com.diamon.actor.Volador
+3179
+449
+Nivel 1
+com.diamon.actor.Volador
+887
+293
+Nivel 1
+com.diamon.actor.Volador
+1017
+188
+Nivel 1
+com.diamon.actor.Volador
+748
+199
+Nivel 1
+com.diamon.actor.Volador
+728
+331
+Nivel 1
+com.diamon.actor.Volador
+1268
+196
+Nivel 1
+com.diamon.actor.Volador
+1229
+347
+Nivel 1
+com.diamon.actor.Volador
+1271
+140
+Nivel 1
+com.diamon.actor.Volador
+1382
+245
+Nivel 1
+com.diamon.actor.Volador
+1494
 152
 Nivel 1
 com.diamon.actor.Volador
-162
-101
+1561
+274
 Nivel 1
 com.diamon.actor.Volador
-277
-53
+1682
+165
 Nivel 1
 com.diamon.actor.Volador
-394
-60
-Nivel 1
-com.diamon.actor.Volador
-436
-72
-Nivel 1
-com.diamon.actor.Volador
-463
-132
-Nivel 1
-com.diamon.actor.Volador
-463
-132
-Nivel 1
-com.diamon.actor.Volador
-394
-248
-Nivel 1
-com.diamon.actor.Volador
-396
-276
-Nivel 1
-com.diamon.actor.Volador
-380
-150
-Nivel 1
-com.diamon.actor.Volador
-390
-139
-Nivel 1
-com.diamon.actor.Volador
-496
-172
-Nivel 1
-com.diamon.actor.Volador
-514
-227
-Nivel 1
-com.diamon.actor.Volador
-371
+1757
 291
 Nivel 1
 com.diamon.actor.Volador
-316
-290
+1846
+162
 Nivel 1
 com.diamon.actor.Volador
-251
-258
+1893
+312
 Nivel 1
 com.diamon.actor.Volador
-220
-224
+1973
+170
 Nivel 1
 com.diamon.actor.Volador
-188
-174
-Nivel 1
-com.diamon.actor.Volador
-195
-97
-Nivel 1
-com.diamon.actor.Volador
-345
-37
-Nivel 1
-com.diamon.actor.Volador
-434
-36
-Nivel 1
-com.diamon.actor.Volador
-509
-90
-Nivel 1
-com.diamon.actor.Volador
-509
-172
-Nivel 1
-com.diamon.actor.Volador
-481
-221
-Nivel 1
-com.diamon.actor.Volador
-463
+2122
 257
 Nivel 1
 com.diamon.actor.Volador
-458
-264
+2195
+331
 Nivel 1
 com.diamon.actor.Volador
-458
-264
+2257
+170
+Nivel 1
+com.diamon.actor.Volador
+2334
+345
+Nivel 1
+com.diamon.actor.Volador
+2413
+197
+Nivel 1
+com.diamon.actor.Volador
+2473
+353
+Nivel 1
+com.diamon.actor.Volador
+2533
+178
+Nivel 1
+com.diamon.actor.Volador
+2573
+352
+Nivel 1
+com.diamon.actor.Volador
+2670
+188
+Nivel 1
+com.diamon.actor.Volador
+2727
+335
+Nivel 1
+com.diamon.actor.Volador
+2818
+165
+Nivel 1
+com.diamon.actor.Volador
+2907
+363
+Nivel 1
+com.diamon.actor.Volador
+2950
+218
+Nivel 1
+com.diamon.actor.Volador
+3075
+381
+Nivel 1
+com.diamon.actor.Volador
+3103
+212
+Nivel 1
+com.diamon.actor.Volador
+2932
+201
+Nivel 1
+com.diamon.actor.Volador
+2928
+222
+Nivel 1
+com.diamon.actor.Volador
+3050
+252
+Nivel 1
+com.diamon.actor.Volador
+3129
+333
+Nivel 1
+com.diamon.actor.Volador
+2905
+387
+Nivel 1
+com.diamon.actor.Volador
+3179
+449
 Nivel 1

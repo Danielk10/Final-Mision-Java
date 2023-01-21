@@ -22,6 +22,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import com.diamon.dato.Configuraciones;
+import com.diamon.dato.InformacionDeNiveles;
 import com.diamon.utilidad.Recurso;
 
 public abstract class Juego extends Canvas implements Runnable, KeyListener, MouseMotionListener, MouseListener {
@@ -63,6 +64,8 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 	private BufferedImage cursor;
 
 	private Cursor c;
+
+	private InformacionDeNiveles datosNiveles;
 
 	public Juego() {
 
@@ -315,6 +318,26 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 			this.pantalla.reajustarPantalla(getWidth(), getHeight());
 
 		}
+
+		datosNiveles = new InformacionDeNiveles(InformacionDeNiveles.LOCAL, this);
+
+		datosNiveles = datosNiveles.cargarConfiguraciones();
+		
+		
+		datosNiveles.guardarConfiguraciones(); ///
+
+		if (datosNiveles.isLeerDatosInternos()) {
+
+			// InformacionDeNiveles datosNivelesInternos = new
+			// InformacionDeNiveles(InformacionDeNiveles.INTERNO, this);
+
+			// datosNiveles = datosNivelesInternos.cargarConfiguraciones();
+
+			// datosNiveles.setLeerDatosInternos(false);
+
+			// datosNiveles.guardarConfiguraciones();
+
+		}
 	}
 
 	public Pantalla getPantalla() {
@@ -503,6 +526,10 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 
 	public void parar() {
 		iniciar = false;
+	}
+
+	public InformacionDeNiveles getDatosNiveles() {
+		return datosNiveles;
 	}
 
 }

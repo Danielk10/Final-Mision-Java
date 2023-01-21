@@ -5,18 +5,18 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import com.diamon.juego.FinalMision;
 import com.diamon.nucleo.Pantalla;
-import com.diamon.utilidad.EditorDeNivel;
+import com.diamon.utilidad.EditorDeNiveles;
 
 public class PantallaExtra extends Pantalla {
 
-	private EditorDeNivel editor;
+	private EditorDeNiveles editor;
 
 	private boolean pausa;
 
 	public PantallaExtra(FinalMision juego) {
 		super(juego);
 
-		editor = new EditorDeNivel(this);
+		editor = new EditorDeNiveles(this);
 
 		pausa = false;
 	}
