@@ -323,8 +323,6 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 
 		datosNiveles = datosNiveles.cargarConfiguraciones();
 
-		datosNiveles.guardarConfiguraciones();
-
 		if (datosNiveles.isLeerDatosInternos()) {
 
 			InformacionDeNiveles datosNivelesInternos = new InformacionDeNiveles(InformacionDeNiveles.INTERNO, this);
