@@ -55,14 +55,6 @@ public class EditorDeNiveles {
 
 	public void dibujar(Graphics2D pincel, float delta) {
 
-		/*
-		 * for (int i = 0; i < actores.size(); i++) {
-		 * 
-		 * actores.get(i).dibujar(pincel, delta);
-		 * 
-		 * }
-		 */
-
 	}
 
 	public void colisiones() {
@@ -154,7 +146,7 @@ public class EditorDeNiveles {
 
 			datosNiveles.guardarConfiguraciones();
 
-			actores.clear();
+		//	actores.clear();
 
 			break;
 

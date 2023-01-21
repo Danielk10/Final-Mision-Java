@@ -1,5 +1,5 @@
 false
-13
+23
 com.diamon.actor.Volador
 892
 147
@@ -51,4 +51,44 @@ Nivel 1
 com.diamon.actor.Volador
 1747
 167
+Nivel 1
+com.diamon.actor.Volador
+746
+256
+Nivel 1
+com.diamon.actor.Volador
+612
+266
+Nivel 1
+com.diamon.actor.Volador
+742
+121
+Nivel 1
+com.diamon.actor.Volador
+437
+199
+Nivel 1
+com.diamon.actor.Volador
+632
+144
+Nivel 1
+com.diamon.actor.Volador
+663
+317
+Nivel 1
+com.diamon.actor.Volador
+497
+182
+Nivel 1
+com.diamon.actor.Volador
+527
+73
+Nivel 1
+com.diamon.actor.Volador
+750
+83
+Nivel 1
+com.diamon.actor.Volador
+866
+329
 Nivel 1

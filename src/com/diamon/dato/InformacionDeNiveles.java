@@ -271,9 +271,9 @@ public class InformacionDeNiveles {
 
 						tipoActores[i].add(actores.get(j).getClass().getName().toString());
 
-						actoresInternos.add(actores.get(j));////////
+						actoresInternos.add(actores.get(j));
 
-						niveles.add(nivel);////
+						niveles.add(nivel);
 
 					}
 
