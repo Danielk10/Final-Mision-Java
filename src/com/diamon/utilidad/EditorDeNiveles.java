@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 import com.diamon.actor.AntiAereo;
 import com.diamon.actor.Caja;
-import com.diamon.actor.Jugador;
-import com.diamon.actor.Satelite;
+import com.diamon.actor.MaquinaPared;
+import com.diamon.actor.Vida;
 import com.diamon.actor.Volador;
 import com.diamon.dato.InformacionDeNiveles;
 import com.diamon.nucleo.Actor;
@@ -85,7 +85,7 @@ public class EditorDeNiveles {
 
 					int x = actores.get(i).getX() + 5;
 
-					if (!(actores.get(i) instanceof Jugador || actores.get(i) instanceof Satelite)) {
+					if (!(actores.get(i) instanceof Vida)) {
 
 						actores.get(i).setX(x);
 					}
@@ -108,7 +108,11 @@ public class EditorDeNiveles {
 
 					int x = actores.get(i).getX() - 5;
 
-					actores.get(i).setX(x);
+					if (!(actores.get(i) instanceof Vida)) {
+
+						actores.get(i).setX(x);
+
+					}
 
 				}
 			}
@@ -156,8 +160,6 @@ public class EditorDeNiveles {
 		case KeyEvent.VK_G:
 
 			datosNiveles.guardarConfiguraciones();
-
-			// actores.clear();
 
 			break;
 
@@ -251,6 +253,28 @@ public class EditorDeNiveles {
 
 		}
 
+		if (tipo.equals(InformacionDeNiveles.MAQUINA_PARED)) {
+
+			MaquinaPared maquinaPared = new MaquinaPared(pantalla);
+
+			maquinaPared.setTamano(32, 32);
+
+			maquinaPared.setPosicion(x, y);
+
+			maquinaPared.setVelocidadY(1);
+
+			maquinaPared.setMover(MaquinaPared.MOVER_ABAJO);
+
+			maquinaPared.setLado(MaquinaPared.LADO_IZQUIERDO);
+
+			maquinaPared.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("maquinaParedI1.png") });
+
+			maquinaPared.setDuracionDisparo(1f);
+
+			actores.add(maquinaPared);
+
+		}
+
 	}
 
 	private void agregarActor(int x, int y) {
@@ -288,6 +312,18 @@ public class EditorDeNiveles {
 			antiAreo.setPosicion(camara.getX() + x, camara.getY() + y);
 
 			actores.add(antiAreo);
+
+			agregarActor(actores);
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.MAQUINA_PARED)) {
+
+			MaquinaPared maquinaPared = new MaquinaPared(pantalla);
+
+			maquinaPared.setPosicion(camara.getX() + x, camara.getY() + y);
+
+			actores.add(maquinaPared);
 
 			agregarActor(actores);
 

@@ -142,7 +142,7 @@ public class Nivel extends Mundo {
 
 			maquinaPared.setLado(MaquinaPared.LADO_IZQUIERDO);
 
-			maquinaPared.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("maquinaParedD1.png") });
+			maquinaPared.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("maquinaParedI1.png") });
 
 			maquinaPared.setDuracionDisparo(1f);
 
