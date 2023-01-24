@@ -3,13 +3,13 @@ package com.diamon.actor;
 import com.diamon.nucleo.Actor;
 import com.diamon.nucleo.Pantalla;
 
-public class Explosion extends Actor {
+public class ExplocionB extends Actor {
 
 	private float duracionExplosion;
 
 	private float tiemoExplosion;
 
-	public Explosion(Pantalla pantalla) {
+	public ExplocionB(Pantalla pantalla) {
 		super(pantalla);
 
 		duracionExplosion = 0;

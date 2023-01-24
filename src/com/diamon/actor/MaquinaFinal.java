@@ -107,7 +107,7 @@ public class MaquinaFinal extends Actor {
 
 	public void explosion() {
 
-		Explosion explosion = new Explosion(pantalla);
+		Explocion explosion = new Explocion(pantalla);
 
 		explosion.setTamano(64, 64);
 
@@ -189,7 +189,7 @@ public class MaquinaFinal extends Actor {
 	public void colision(Actor actor) {
 
 		if (actor instanceof Bala || actor instanceof Jugador || actor instanceof BalaEspecial
-				|| actor instanceof ExplosionB) {
+				|| actor instanceof ExplocionB) {
 
 			pantalla.getJuego().getRecurso().playSonido("explosion.wav");
 			if (vida == 0) {

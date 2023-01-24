@@ -112,7 +112,7 @@ public class Saltador extends Actor {
 
 	public void explosion() {
 
-		Explosion explosion = new Explosion(pantalla);
+		Explocion explosion = new Explocion(pantalla);
 
 		explosion.setTamano(64, 64);
 
@@ -143,10 +143,10 @@ public class Saltador extends Actor {
 
 		bala.setPosicion(x, y + 12);
 
+		bala.setCuadros(5);
+
 		bala.setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("balaSaltador1.png"),
 				pantalla.getJuego().getRecurso().getImagen("balaSaltador2.png") });
-
-		bala.setCuadros(5);
 
 		if (bala.getX() <= 640) {
 
@@ -190,7 +190,7 @@ public class Saltador extends Actor {
 	public void colision(Actor actor) {
 
 		if (actor instanceof Bala || actor instanceof Jugador || actor instanceof BalaEspecial
-				|| actor instanceof ExplosionB) {
+				|| actor instanceof ExplocionB) {
 
 			pantalla.getJuego().getRecurso().playSonido("explosion.wav");
 			explosion();

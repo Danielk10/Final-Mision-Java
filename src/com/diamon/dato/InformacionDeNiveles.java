@@ -7,12 +7,58 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
+import com.diamon.actor.AntiAereo;
+import com.diamon.actor.Bala;
+import com.diamon.actor.BalaEnemigo;
+import com.diamon.actor.BalaEnemigoDestruible;
+import com.diamon.actor.BalaEspecial;
+import com.diamon.actor.Caja;
+import com.diamon.actor.Explocion;
+import com.diamon.actor.ExplocionB;
+import com.diamon.actor.Fondo;
+import com.diamon.actor.Humo;
+import com.diamon.actor.Jugador;
+import com.diamon.actor.JugadorMuriendo;
+import com.diamon.actor.LanzaMisil;
+import com.diamon.actor.MaquinaFinal;
+import com.diamon.actor.MaquinaPared;
+import com.diamon.actor.Misil;
+import com.diamon.actor.Piso;
+import com.diamon.actor.Poder;
+import com.diamon.actor.Robot;
+import com.diamon.actor.Saltador;
+import com.diamon.actor.Satelite;
+import com.diamon.actor.Vida;
 import com.diamon.actor.Volador;
 import com.diamon.nucleo.Actor;
 import com.diamon.nucleo.Juego;
 import com.diamon.utilidad.Vector2D;
 
 public class InformacionDeNiveles {
+
+	public final static String BALA = "com.diamon.actor.Bala";
+	public final static String ANTI_AEREO = "com.diamon.actor.AntiAereo";
+	public final static String BALA_ENEMIGO = "com.diamon.actor.BalaEnemigo";
+	public final static String BALA_ENEMIGO_DESTRUIBLE = "com.diamon.actor.BalaEnemigoDestruible";
+	public final static String BALA_EPECIAL = "com.diamon.actor.BalaEspecial";
+	public final static String CAJA = "com.diamon.actor.Caja";
+	public final static String EXPLOCION = "com.diamon.actor.Explocion";
+	public final static String EXPLOCION_B = "com.diamon.actor.ExplocionB";
+	public final static String FONDO = "com.diamon.actor.Fondo";
+	public final static String HUMO = "com.diamon.actor.Humo";
+	public final static String JUGADOR = "com.diamon.actor.Jugador";
+	public final static String JUGADOR_MURIENDO = "com.diamon.actor.JuagadorMueriendo";
+	public final static String LANZA_MISIL = "com.diamon.actor.LanzaMisil";
+	public final static String MISIL = "com.diamon.actor.Misil";
+	public final static String MAQUINA_FINAL = "com.diamon.actor.MaquinaFinal";
+	public final static String MAQUINA_PARED = "com.diamon.actor.MaquinaPared";
+	public final static String PISO = "com.diamon.actor.Piso";
+	public final static String PODER = "com.diamon.actor.Poder";
+	public final static String ROBOT = "com.diamon.actor.Robot";
+	public final static String SALTADOR = "com.diamon.actor.Saltador";
+	public final static String SATELITE = "com.diamon.actor.Satelite";
+	public final static String VIDA = "com.diamon.actor.Vida";
+	public final static String VOLADOR = "com.diamon.actor.Volador";
 
 	private DatosDeNiveles datos;
 
@@ -38,6 +84,9 @@ public class InformacionDeNiveles {
 
 	private int numeroActores;
 
+	private int numeroNivel;
+
+	@SuppressWarnings("unchecked")
 	public InformacionDeNiveles(int tipo, final Juego juego) {
 
 		datos = new DatosDeNiveles();
@@ -47,6 +96,8 @@ public class InformacionDeNiveles {
 		this.tipo = tipo;
 
 		numeroActores = 0;
+
+		numeroNivel = 1;
 
 		leerDatosInternos = true;
 
@@ -69,6 +120,14 @@ public class InformacionDeNiveles {
 			tipoActores[i] = new ArrayList<String>();
 
 		}
+	}
+
+	public int getNumeroNivel() {
+		return numeroNivel;
+	}
+
+	public void setNumeroNivel(int numeroNivel) {
+		this.numeroNivel = numeroNivel;
 	}
 
 	public boolean isLeerDatosInternos() {
@@ -102,9 +161,14 @@ public class InformacionDeNiveles {
 
 			numeroActores = Integer.parseInt(buferarchivoLeer.readLine());
 
-			String paquete = "";
+			numeroNivel = Integer.parseInt(buferarchivoLeer.readLine());
+
+			String tioActor = "";
+
 			int x = 0;
+
 			int y = 0;
+
 			String nivel = "";
 
 			for (int i = 0; i < numeroActores; i++) {
@@ -113,7 +177,7 @@ public class InformacionDeNiveles {
 
 					if (j == 0) {
 
-						paquete = buferarchivoLeer.readLine();
+						tioActor = buferarchivoLeer.readLine();
 					}
 
 					if (j == 1) {
@@ -131,7 +195,7 @@ public class InformacionDeNiveles {
 
 						nivel = buferarchivoLeer.readLine();
 
-						Volador actor = new Volador(juego.getPantalla());
+						Actor actor = getTipoDeActor(tioActor);
 
 						actor.setX(x);
 
@@ -141,7 +205,7 @@ public class InformacionDeNiveles {
 
 						actores.add(actor);
 
-						gurdarActores(actores, paquete, nivel);
+						gurdarActores(actores, tioActor, nivel);
 
 					}
 
@@ -168,6 +232,151 @@ public class InformacionDeNiveles {
 
 	}
 
+	private Actor getTipoDeActor(String tipo) {
+
+		Actor actor = null;
+
+		if (tipo.equals(InformacionDeNiveles.VOLADOR)) {
+
+			actor = new Volador(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.FONDO)) {
+
+			actor = new Fondo(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.BALA)) {
+
+			actor = new Bala(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.ANTI_AEREO)) {
+
+			actor = new AntiAereo(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.BALA_ENEMIGO)) {
+
+			actor = new BalaEnemigo(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.BALA_ENEMIGO_DESTRUIBLE)) {
+
+			actor = new BalaEnemigoDestruible(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.BALA_EPECIAL)) {
+
+			actor = new BalaEspecial(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.CAJA)) {
+
+			actor = new Caja(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.EXPLOCION)) {
+
+			actor = new Explocion(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.EXPLOCION_B)) {
+
+			actor = new ExplocionB(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.HUMO)) {
+
+			actor = new Humo(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.JUGADOR)) {
+
+			actor = new Jugador(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.JUGADOR_MURIENDO)) {
+
+			actor = new JugadorMuriendo(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.LANZA_MISIL)) {
+
+			actor = new LanzaMisil(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.MAQUINA_FINAL)) {
+
+			actor = new MaquinaFinal(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.MAQUINA_PARED)) {
+
+			actor = new MaquinaPared(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.MISIL)) {
+
+			actor = new Misil(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.PISO)) {
+
+			actor = new Piso(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.PODER)) {
+
+			actor = new Poder(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.ROBOT)) {
+
+			actor = new Robot(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.SALTADOR)) {
+
+			actor = new Saltador(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.SATELITE)) {
+
+			actor = new Satelite(juego.getPantalla());
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.VIDA)) {
+
+			actor = new Vida(juego.getPantalla());
+
+		}
+
+		return actor;
+	}
+
 	public void guardarConfiguraciones() {
 
 		numeroActores = actoresInternos.size();
@@ -183,6 +392,10 @@ public class InformacionDeNiveles {
 			buferarchivoEscribir.newLine();
 
 			buferarchivoEscribir.write(Integer.toString(numeroActores));
+
+			buferarchivoEscribir.newLine();
+
+			buferarchivoEscribir.write(Integer.toString(numeroNivel));
 
 			buferarchivoEscribir.newLine();
 
@@ -365,6 +578,10 @@ public class InformacionDeNiveles {
 
 				tipoActores[i].clear();
 
+				actoresInternos.clear();//
+
+				niveles.clear();//
+
 			}
 
 			numeroNivel++;
@@ -394,6 +611,10 @@ public class InformacionDeNiveles {
 							posicionActores[i].remove(j);
 
 							tipoActores[i].remove(j);
+
+							actoresInternos.remove(j);///
+
+							niveles.remove(j); ///
 
 						}
 

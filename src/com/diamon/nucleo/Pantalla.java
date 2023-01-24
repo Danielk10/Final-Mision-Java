@@ -23,6 +23,8 @@ public abstract class Pantalla implements ImageObserver {
 		this.juego = juego;
 
 		camara = new Camara2D(0, 0, Juego.ANCHO_PANTALLA, Juego.ALTO_PANTALLA);
+		
+		camara.setVolocidad(1);
 
 	}
 

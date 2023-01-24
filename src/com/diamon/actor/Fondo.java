@@ -22,7 +22,7 @@ public class Fondo extends Actor {
 
 	private int velocidad;
 
-	private int  nombre;
+	private int nombre;
 
 	public Fondo(Pantalla pantalla) {
 
@@ -41,8 +41,6 @@ public class Fondo extends Actor {
 	public int getVelocidad() {
 		return velocidad;
 	}
-
-	
 
 	public int getNombre() {
 		return nombre;
@@ -72,6 +70,7 @@ public class Fondo extends Actor {
 		if (direccion == Fondo.HORIZONTAL_IZQUIERDA) {
 
 			if (!parar) {
+
 				x -= velocidad;
 
 			}
@@ -89,6 +88,7 @@ public class Fondo extends Actor {
 			if (!parar) {
 
 				y += velocidad;
+
 			}
 
 			if (y >= Juego.ALTO_PANTALLA) {

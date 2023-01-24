@@ -16,9 +16,9 @@ public class Jugador extends Actor {
 	private int x1 = 0;
 
 	private int y1 = 0;
-	
+
 	private int xDelta = 0;
-	
+
 	private int xDeltaReferencia = 0;
 
 	private int velocidadX;
@@ -118,6 +118,12 @@ public class Jugador extends Actor {
 			contador2++;
 
 		}
+
+		agregarSatelites();
+
+	}
+
+	public void agregarSatelites() {
 
 		satelite1 = new Satelite(pantalla);
 
@@ -753,59 +759,50 @@ public class Jugador extends Actor {
 	}
 
 	public void ratonDeslizando(MouseEvent ev) {
-		
-		
-		
-		if(pausado)
-		{
-		
-	     
-		
-		xDelta  = ev.getX();
-		
-		
-		if(xDelta >=xDeltaReferencia)
-		{
-			
-			//Derecho
-		
-		lado = false;
-			
-		}else
-		{
-			
-			//Izquierdo
-		
-		lado = true;
-			
-		}
-		
 
-		x1 = (int) ev.getX() - deltaXTactil;
-		y1 = (int) ev.getY() - deltaYTactil;
+		if (pausado) {
 
-		if (x1 <= 32) {
+			xDelta = ev.getX();
 
-			x1 = 32;
-		}
-		if (y1 >= (Juego.ALTO_PANTALLA-32) - tamano.height) {
-			y1 = (Juego.ALTO_PANTALLA-32) - tamano.height;
-		}
+			if (xDelta >= xDeltaReferencia) {
 
-		if (x1 >= (Juego.ANCHO_PANTALLA-32) - tamano.width) {
-			x1 = (Juego.ANCHO_PANTALLA-32) - tamano.width;
-		}
-		if (y1 <= 32) {
+				// Derecho
 
-			y1 = 32;
-		}
+				lado = false;
 
-		x = x1;
+			} else {
 
-		y = y1;
+				// Izquierdo
 
-		dezplazamientoInicial = false;
-		
+				lado = true;
+
+			}
+
+			x1 = (int) ev.getX() - deltaXTactil;
+			y1 = (int) ev.getY() - deltaYTactil;
+
+			if (x1 <= 32) {
+
+				x1 = 32;
+			}
+			if (y1 >= (Juego.ALTO_PANTALLA - 32) - tamano.height) {
+				y1 = (Juego.ALTO_PANTALLA - 32) - tamano.height;
+			}
+
+			if (x1 >= (Juego.ANCHO_PANTALLA - 32) - tamano.width) {
+				x1 = (Juego.ANCHO_PANTALLA - 32) - tamano.width;
+			}
+			if (y1 <= 32) {
+
+				y1 = 32;
+			}
+
+			x = x1;
+
+			y = y1;
+
+			dezplazamientoInicial = false;
+
 		}
 
 	}
@@ -815,55 +812,51 @@ public class Jugador extends Actor {
 	}
 
 	public void ratonClick(MouseEvent ev) {
-		
-		
 
 	}
 
 	public void ratonPresionado(MouseEvent ev) {
 
-		
-		if(pausado)
-		{
-		xDeltaReferencia = x;
-		
-		disparar = true;
+		if (pausado) {
+			xDeltaReferencia = x;
 
-		satelite1.setDisparar(true);
+			disparar = true;
 
-		satelite2.setDisparar(true);
+			satelite1.setDisparar(true);
 
-		x1 = x;
+			satelite2.setDisparar(true);
 
-		y1 = y;
+			x1 = x;
 
-		x = x1;
+			y1 = y;
 
-		y = y1;
+			x = x1;
 
-		deltaXTactil = (int) ev.getX() - x1;
+			y = y1;
 
-		deltaYTactil = (int) ev.getY() - y1;
+			deltaXTactil = (int) ev.getX() - x1;
 
-		if (x1 <= 32) {
-			x1 = 32;
+			deltaYTactil = (int) ev.getY() - y1;
 
-		}
+			if (x1 <= 32) {
+				x1 = 32;
 
-		if (y1 >= ((Juego.ALTO_PANTALLA-32) - tamano.height)) {
+			}
 
-			y1 = (Juego.ALTO_PANTALLA-32) - tamano.height;
+			if (y1 >= ((Juego.ALTO_PANTALLA - 32) - tamano.height)) {
 
-		}
-		if (x1 >= (Juego.ANCHO_PANTALLA-32) - tamano.width) {
-			x1 = (Juego.ANCHO_PANTALLA-32) - tamano.width;
-		}
+				y1 = (Juego.ALTO_PANTALLA - 32) - tamano.height;
 
-		if (y1 <= 32) {
-			y1 = 32;
+			}
+			if (x1 >= (Juego.ANCHO_PANTALLA - 32) - tamano.width) {
+				x1 = (Juego.ANCHO_PANTALLA - 32) - tamano.width;
+			}
 
-		}
-		
+			if (y1 <= 32) {
+				y1 = 32;
+
+			}
+
 		}
 
 	}

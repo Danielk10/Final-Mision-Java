@@ -41,38 +41,42 @@ public class Volador extends Actor {
 	@Override
 	public void actualizar(float delta) {
 
-		super.actualizar(delta);
+		if (x <= camara.getX() + camara.getAncho()) {
 
-		tiemot += delta;
+			super.actualizar(delta);
 
-		x -= Volador.VELOCIDAD_MAQUINA;
+			tiemot += delta;
 
-		if (x <= -tamano.width) {
+			x -= Volador.VELOCIDAD_MAQUINA;
 
-			remover = true;
+			if (x <= -tamano.width) {
 
-		}
-
-		cicloDisparo++;
-
-		if (cicloDisparo % 40 == 0) {
-
-			if (Math.random() < 0.08f) {
-				disparar();
+				remover = true;
 
 			}
 
-			cicloDisparo = 0;
+			cicloDisparo++;
 
-		}
-		// y = (int) (pocicionY + distanciaMovimientoY + (distanciaMovimientoY *
-		// Math.sin(tiemot * velocidadY)));
+			if (cicloDisparo % 40 == 0) {
 
-		y += velocidadY;
+				if (Math.random() < 0.08f) {
+					disparar();
 
-		if (y <= 0 || y >= Juego.ALTO_PANTALLA - tamano.height) {
+				}
 
-			velocidadY = -velocidadY;
+				cicloDisparo = 0;
+
+			}
+			// y = (int) (pocicionY + distanciaMovimientoY + (distanciaMovimientoY *
+			// Math.sin(tiemot * velocidadY)));
+
+			y += velocidadY;
+
+			if (y <= 0 || y >= Juego.ALTO_PANTALLA - tamano.height) {
+
+				velocidadY = -velocidadY;
+
+			}
 
 		}
 
@@ -88,12 +92,12 @@ public class Volador extends Actor {
 
 		bala.setLado(BalaEnemigo.LADO_IZQUIERDO);
 
+		bala.setCuadros(3);
+
 		bala.setImagenes(pantalla.getJuego().getRecurso().getImagen("balaE1.png"),
 				pantalla.getJuego().getRecurso().getImagen("balaE2.png"),
 				pantalla.getJuego().getRecurso().getImagen("balaE3.png"),
 				pantalla.getJuego().getRecurso().getImagen("balaE4.png"));
-
-		bala.setCuadros(3);
 
 		if (bala.getX() <= 640) {
 
@@ -104,7 +108,7 @@ public class Volador extends Actor {
 
 	public void explosion() {
 
-		Explosion explosion = new Explosion(pantalla);
+		Explocion explosion = new Explocion(pantalla);
 
 		explosion.setTamano(64, 64);
 
@@ -137,7 +141,7 @@ public class Volador extends Actor {
 	public void colision(Actor actor) {
 
 		if (actor instanceof Bala || actor instanceof Jugador || actor instanceof BalaEspecial
-				|| actor instanceof ExplosionB) {
+				|| actor instanceof ExplocionB) {
 
 			pantalla.getJuego().getRecurso().playSonido("explosion.wav");
 

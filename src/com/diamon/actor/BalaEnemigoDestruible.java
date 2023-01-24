@@ -51,7 +51,7 @@ public class BalaEnemigoDestruible extends Actor {
 
 	public void explosion() {
 
-		Explosion explosion = new Explosion(pantalla);
+		Explocion explosion = new Explocion(pantalla);
 
 		explosion.setTamano(64, 64);
 

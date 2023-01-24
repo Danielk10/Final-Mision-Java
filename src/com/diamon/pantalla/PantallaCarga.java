@@ -432,9 +432,9 @@ public class PantallaCarga extends Pantalla {
 
 			juego.getRecurso().cargarSonido("pausa.wav");
 
-			 juego.setPantalla(new PantallaMenu(juego));
+			juego.setPantalla(new PantallaMenu(juego));
 
-			//juego.setPantalla(new PantallaExtra(juego));
+			// juego.setPantalla(new PantallaExtra(juego));
 
 			ciclo = 0;
 		}

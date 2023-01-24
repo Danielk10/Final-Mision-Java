@@ -281,9 +281,11 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 	}
 
 	public void pausa() {
+
 		if (pantalla != null) {
 
 			pantalla.pausa();
+
 			iniciar = false;
 			while (true) {
 				try {

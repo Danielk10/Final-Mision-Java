@@ -78,7 +78,7 @@ public class BalaEspecial extends Actor {
 
 	public void explosion() {
 
-		ExplosionB explosion = new ExplosionB(pantalla);
+		ExplocionB explosion = new ExplocionB(pantalla);
 
 		explosion.setTamano(64, 64);
 

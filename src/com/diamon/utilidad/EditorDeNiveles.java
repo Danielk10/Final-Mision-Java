@@ -6,6 +6,10 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import com.diamon.actor.AntiAereo;
+import com.diamon.actor.Caja;
+import com.diamon.actor.Jugador;
+import com.diamon.actor.Satelite;
 import com.diamon.actor.Volador;
 import com.diamon.dato.InformacionDeNiveles;
 import com.diamon.nucleo.Actor;
@@ -27,6 +31,8 @@ public class EditorDeNiveles {
 
 	private InformacionDeNiveles datosNiveles;
 
+	private String tipo;
+
 	public EditorDeNiveles(Pantalla pantalla) {
 
 		this.pantalla = pantalla;
@@ -38,6 +44,8 @@ public class EditorDeNiveles {
 		this.camara = pantalla.getCamara();
 
 		datosNiveles = juego.getDatosNiveles();
+
+		this.tipo = InformacionDeNiveles.VOLADOR;
 
 	}
 
@@ -77,7 +85,10 @@ public class EditorDeNiveles {
 
 					int x = actores.get(i).getX() + 5;
 
-					actores.get(i).setX(x);
+					if (!(actores.get(i) instanceof Jugador || actores.get(i) instanceof Satelite)) {
+
+						actores.get(i).setX(x);
+					}
 
 				}
 
@@ -146,7 +157,7 @@ public class EditorDeNiveles {
 
 			datosNiveles.guardarConfiguraciones();
 
-		//	actores.clear();
+			// actores.clear();
 
 			break;
 
@@ -170,12 +181,9 @@ public class EditorDeNiveles {
 
 		if (actores.size() > 0) {
 
-			if (actores.get(actores.size() - 1) instanceof Volador) {
+			actores.get(actores.size() - 1).setX(ev.getX());
 
-				actores.get(actores.size() - 1).setX(ev.getX());
-
-				actores.get(actores.size() - 1).setY(ev.getY());
-			}
+			actores.get(actores.size() - 1).setY(ev.getY());
 
 		}
 
@@ -183,28 +191,65 @@ public class EditorDeNiveles {
 
 	private void agregarActor(ArrayList<Actor> actores) {
 
-		String nivel = "Nivel " + 1;
+		String nivel = "Nivel " + datosNiveles.getNumeroNivel();
 
-		this.datosNiveles.gurdarActores(actores, "com.diamon.actor.Volador", nivel);
-
+		this.datosNiveles.gurdarActores(actores, tipo, nivel);
 	}
 
 	private void agregarActorTemporal(int x, int y) {
 
-		Volador volador = new Volador(pantalla);
+		if (tipo.equals(InformacionDeNiveles.VOLADOR)) {
 
-		volador.setTamano(32, 32);
+			Volador volador = new Volador(pantalla);
 
-		volador.setCuadros(7);
+			volador.setTamano(32, 32);
 
-		volador.setPosicion(x, y);
+			volador.setCuadros(7);
 
-		volador.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("voladorI1.png"),
-				juego.getRecurso().getImagen("voladorI2.png"), juego.getRecurso().getImagen("voladorI3.png") });
+			volador.setPosicion(x, y);
 
-		volador.setVelocidadY((int) (Math.random() * 7 - 5));
+			volador.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("voladorI1.png"),
+					juego.getRecurso().getImagen("voladorI2.png"), juego.getRecurso().getImagen("voladorI3.png") });
 
-		actores.add(volador);
+			volador.setVelocidadY((int) (Math.random() * 7 - 5));
+
+			actores.add(volador);
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.CAJA)) {
+
+			Caja caja = new Caja(pantalla);
+
+			caja.setTamano(32, 32);
+
+			caja.setPosicion(x, y);
+
+			caja.setCuadros(10);
+
+			caja.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("cajaPoder1.png"),
+					juego.getRecurso().getImagen("cajaPoder2.png"), juego.getRecurso().getImagen("cajaPoder3.png"),
+					juego.getRecurso().getImagen("cajaPoder4.png") });
+
+			caja.setPoderBala(Caja.PODER_B);
+
+			actores.add(caja);
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.ANTI_AEREO)) {
+
+			AntiAereo antiAreo = new AntiAereo(pantalla);
+
+			antiAreo.setTamano(32, 32);
+
+			antiAreo.setPosicion(x, y);
+
+			antiAreo.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("antiAreoH1.png") });
+
+			actores.add(antiAreo);
+
+		}
 
 	}
 
@@ -212,22 +257,41 @@ public class EditorDeNiveles {
 
 		ArrayList<Actor> actores = new ArrayList<Actor>();
 
-		Volador volador = new Volador(pantalla);
+		if (tipo.equals(InformacionDeNiveles.VOLADOR)) {
 
-		volador.setTamano(32, 32);
+			Volador volador = new Volador(pantalla);
 
-		volador.setCuadros(7);
+			volador.setPosicion(camara.getX() + x, camara.getY() + y);
 
-		volador.setPosicion(camara.getX() + x, camara.getY() + y);
+			actores.add(volador);
 
-		volador.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("voladorI1.png"),
-				juego.getRecurso().getImagen("voladorI2.png"), juego.getRecurso().getImagen("voladorI3.png") });
+			agregarActor(actores);
 
-		volador.setVelocidadY((int) (Math.random() * 7 - 5));
+		}
 
-		actores.add(volador);
+		if (tipo.equals(InformacionDeNiveles.CAJA)) {
 
-		agregarActor(actores); ///
+			Caja caja = new Caja(pantalla);
+
+			caja.setPosicion(camara.getX() + x, camara.getY() + y);
+
+			actores.add(caja);
+
+			agregarActor(actores);
+
+		}
+
+		if (tipo.equals(InformacionDeNiveles.ANTI_AEREO)) {
+
+			AntiAereo antiAreo = new AntiAereo(pantalla);
+
+			antiAreo.setPosicion(camara.getX() + x, camara.getY() + y);
+
+			actores.add(antiAreo);
+
+			agregarActor(actores);
+
+		}
 
 	}
 

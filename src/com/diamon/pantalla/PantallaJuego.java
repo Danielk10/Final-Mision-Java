@@ -5,27 +5,15 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.util.Random;
 
-import com.diamon.actor.AntiAereo;
-import com.diamon.actor.Caja;
-import com.diamon.actor.Fondo;
 import com.diamon.actor.Jugador;
 import com.diamon.actor.JugadorMuriendo;
-import com.diamon.actor.LanzaMisil;
-import com.diamon.actor.MaquinaFinal;
-import com.diamon.actor.MaquinaPared;
-import com.diamon.actor.Robot;
-import com.diamon.actor.Saltador;
-import com.diamon.actor.Vida;
-import com.diamon.actor.Volador;
-import com.diamon.dato.InformacionDeNiveles;
 import com.diamon.juego.FinalMision;
+import com.diamon.nivel.Nivel;
 import com.diamon.nucleo.Actor;
 import com.diamon.nucleo.Juego;
 import com.diamon.nucleo.Pantalla;
 import com.diamon.utilidad.EditorDeNiveles;
-import com.diamon.utilidad.Vector2D;
 
 public class PantallaJuego extends Pantalla {
 
@@ -33,17 +21,11 @@ public class PantallaJuego extends Pantalla {
 
 	private boolean pausa;
 
-	private Vida[] vidas;
-
 	private int ciclo;
 
 	private int cicloIntro;
 
-	private Fondo[] fondo;
-
 	private Jugador jugador;
-
-	private MaquinaFinal maquina;
 
 	private boolean musicaMuriendo1;
 
@@ -51,15 +33,13 @@ public class PantallaJuego extends Pantalla {
 
 	private int cicloMuriendo;
 
-	private int cicloParaEnemigos;
-
 	private boolean musicaIntro1;
 
 	private boolean musicaIntro2;
 
 	private EditorDeNiveles editor;
 
-	private InformacionDeNiveles datosNiveles;
+	private Nivel mundo;
 
 	public PantallaJuego(FinalMision juego) {
 		super(juego);
@@ -68,15 +48,9 @@ public class PantallaJuego extends Pantalla {
 
 		pausa = true;
 
-		fondo = new Fondo[21];
-
-		vidas = new Vida[4];
-
 		ciclo = 0;
 
 		cicloIntro = 0;
-
-		cicloParaEnemigos = 0;
 
 		musicaMuriendo1 = false;
 
@@ -89,79 +63,13 @@ public class PantallaJuego extends Pantalla {
 
 		editor = new EditorDeNiveles(this);
 
-		datosNiveles = juego.getDatosNiveles();
-
 		iniciar();
+
+		mundo = new Nivel(this, jugador);
 
 	}
 
 	private void iniciar() {
-
-		fondo[20] = new Fondo(this);
-
-		fondo[20].setTamano(640, 480);
-
-		fondo[20].setPosicion(640, 0);
-
-		fondo[20].setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("fondo21MGF.png") });
-
-		fondo[20].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
-
-		fondo[20].setVelocidad(0);
-
-		actores.add(fondo[20]);
-
-		int contador = 1;
-
-		int posicion = 0;
-
-		int velocidad = 2560;
-
-		for (int i = 0; i < fondo.length - 1; i++) {
-
-			fondo[i] = new Fondo(this);
-
-			fondo[i].setTamano(640, 480);
-
-			fondo[i].setPosicion(posicion, 0);
-
-			fondo[i].setVelocidad(1);
-
-			if (posicion > velocidad) {
-				fondo[i].setVelocidad(0);
-
-			}
-
-			fondo[i].setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("fondo" + contador + ".png") });
-
-			fondo[i].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
-
-			contador += 1;
-
-			posicion += 640;
-
-			actores.add(fondo[i]);
-
-		}
-
-		for (Vector2D coodenadas : datosNiveles.getPosicionActores("com.diamon.actor.Volador", "Nivel 1")) {
-
-			Volador volador = new Volador(this);
-
-			volador.setTamano(32, 32);
-
-			volador.setCuadros(7);
-
-			volador.setPosicion(coodenadas.getX(), coodenadas.getY());
-
-			volador.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("voladorI1.png"),
-					juego.getRecurso().getImagen("voladorI2.png"), juego.getRecurso().getImagen("voladorI3.png") });
-
-			volador.setVelocidadY((int) (Math.random() * 7 - 5));
-
-			actores.add(volador);
-
-		}
 
 		jugador = new Jugador(this);
 
@@ -172,67 +80,6 @@ public class PantallaJuego extends Pantalla {
 		jugador.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("jugador1D1.png") });
 
 		actores.add(jugador);
-
-		int posicionCaja = 64;
-
-		Caja[] cajas = new Caja[4];
-
-		for (int i = 0; i < cajas.length; i++) {
-			cajas[i] = new Caja(this);
-
-			cajas[i].setTamano(32, 32);
-
-			cajas[i].setPosicion(1920, posicionCaja);
-
-			cajas[i].setCuadros(10);
-
-			cajas[i].setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("cajaPoder1.png"),
-					juego.getRecurso().getImagen("cajaPoder2.png"), juego.getRecurso().getImagen("cajaPoder3.png"),
-					juego.getRecurso().getImagen("cajaPoder4.png") });
-
-			posicionCaja += 96;
-
-		}
-
-		cajas[0].setAgilidad(Caja.AGILIDAD_S);
-		cajas[1].setPoderBala(Caja.PODER_B);
-		cajas[2].setPoderBala(Caja.PODER_W);
-		cajas[3].setPoderBala(Caja.PODER_L);
-
-		actores.add(cajas[0]);
-		actores.add(cajas[1]);
-		actores.add(cajas[2]);
-		actores.add(cajas[3]);
-
-		maquina = new MaquinaFinal(this);
-
-		maquina.setTamano(64, 64);
-
-		maquina.setPosicion(0, 480);
-
-		maquina.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("maquinaFinal.png") });
-
-		maquina.setCuadros(20);
-
-		actores.add(maquina);
-
-		int pocicionVida = 32;
-
-		for (int i = 0; i < vidas.length; i++) {
-
-			vidas[i] = new Vida(this);
-
-			vidas[i].setTamano(16, 32);
-
-			vidas[i].setPosicion(pocicionVida, 32);
-
-			vidas[i].setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("vida1.png") });
-
-			pocicionVida += 32;
-
-			actores.add(vidas[i]);
-
-		}
 
 		if (juego.getConfiguracion().isSonido()) {
 
@@ -249,180 +96,6 @@ public class PantallaJuego extends Pantalla {
 
 	@Override
 	public void resume() {
-
-	}
-
-	private void moverFondo() {
-
-		if (fondo[4].getX() <= 0 && fondo[4].getY() == 0) {
-
-			fondo[4].setPosicion(0, 0);
-
-			fondo[4].setVelocidad(1);
-
-			fondo[4].setDireccion(Fondo.VERTICAL_ABAJO);
-
-			fondo[5].setPosicion(0, -480);
-
-			fondo[5].setVelocidad(1);
-
-			fondo[5].setDireccion(Fondo.VERTICAL_ABAJO);
-
-			fondo[6].setPosicion(0, -960);
-
-			fondo[6].setVelocidad(1);
-
-			fondo[6].setDireccion(Fondo.VERTICAL_ABAJO);
-
-			fondo[7].setPosicion(0, -1380);
-
-			fondo[7].setVelocidad(1);
-
-			fondo[7].setDireccion(Fondo.VERTICAL_ABAJO);
-
-		}
-
-		if (fondo[7].getX() == 0 && fondo[7].getY() >= 0) {
-
-			fondo[7].setPosicion(0, 0);
-
-			fondo[7].setVelocidad(1);
-
-			fondo[7].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
-
-			fondo[8].setPosicion(640, 0);
-
-			fondo[8].setVelocidad(1);
-
-			fondo[8].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
-
-			fondo[9].setPosicion(1280, 0);
-
-			fondo[9].setVelocidad(1);
-
-			fondo[9].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
-
-			fondo[10].setPosicion(1920, 0);
-
-			fondo[10].setVelocidad(1);
-
-			fondo[10].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
-
-		}
-
-		if (fondo[10].getX() <= 0 && fondo[10].getY() == 0) {
-
-			fondo[10].setPosicion(0, 0);
-
-			fondo[10].setVelocidad(1);
-
-			fondo[10].setDireccion(Fondo.VERTICAL_ARRIBA);
-
-			fondo[11].setPosicion(0, 480);
-
-			fondo[11].setVelocidad(1);
-
-			fondo[11].setDireccion(Fondo.VERTICAL_ARRIBA);
-
-		}
-
-		if (fondo[11].getX() == 0 && fondo[11].getY() <= 0) {
-
-			fondo[11].setPosicion(0, 0);
-
-			fondo[11].setVelocidad(1);
-
-			fondo[11].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
-
-			fondo[12].setPosicion(640, 0);
-
-			fondo[12].setVelocidad(1);
-
-			fondo[12].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
-
-			fondo[13].setPosicion(1280, 0);
-
-			fondo[13].setVelocidad(1);
-
-			fondo[13].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
-
-		}
-
-		if (fondo[13].getX() <= 0 && fondo[13].getY() == 0) {
-
-			fondo[13].setPosicion(0, 0);
-
-			fondo[13].setVelocidad(1);
-
-			fondo[13].setDireccion(Fondo.VERTICAL_ARRIBA);
-
-			fondo[14].setPosicion(0, 480);
-
-			fondo[14].setVelocidad(1);
-
-			fondo[14].setDireccion(Fondo.VERTICAL_ARRIBA);
-
-			fondo[15].setPosicion(0, 960);
-
-			fondo[15].setVelocidad(1);
-
-			fondo[15].setDireccion(Fondo.VERTICAL_ARRIBA);
-
-		}
-
-		if (fondo[15].getX() == 0 && fondo[15].getY() <= 0) {
-
-			fondo[15].setPosicion(0, 0);
-
-			fondo[15].setVelocidad(1);
-
-			fondo[15].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
-
-			fondo[16].setPosicion(640, 0);
-
-			fondo[16].setVelocidad(1);
-
-			fondo[16].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
-
-			fondo[17].setPosicion(1280, 0);
-
-			fondo[17].setVelocidad(1);
-
-			fondo[17].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
-
-			fondo[18].setPosicion(1920, 0);
-
-			fondo[18].setVelocidad(1);
-
-			fondo[18].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
-
-			fondo[19].setPosicion(2560, 0);
-
-			fondo[19].setVelocidad(1);
-
-			fondo[19].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
-
-			fondo[20].setPosicion(3200, 0);
-
-			fondo[20].setVelocidad(1);
-
-			fondo[20].setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
-
-		}
-
-		if (!fondo[20].isParar()) {
-
-			if (fondo[20].getX() <= 0 && fondo[20].getY() == 0) {
-
-				fondo[20].setParar(true);
-
-				maquina.setPosicion(512, 176);
-
-				maquina.setDisparar(true);
-
-			}
-
-		}
 
 	}
 
@@ -443,53 +116,24 @@ public class PantallaJuego extends Pantalla {
 
 	}
 
-	private void anadirFondo() {
-
-		Fondo fondo = new Fondo(this);
-
-		fondo.setTamano(640, 480);
-
-		fondo.setPosicion(640, 0);
-
-		fondo.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("fondo1.png") });
-
-		fondo.setDireccion(Fondo.HORIZONTAL_IZQUIERDA);
-
-		fondo.setVelocidad(1);
-
-		actores.add(0, fondo);
-
-	}
-
 	@Override
 	public void actualizar(float delta) {
 
 		if (pausa) {
 
-			for (int i = 0; i < actores.size(); i++) {
+			if (mundo != null) {
 
-				actores.get(i).actualizar(delta);
+				xCamara++;
 
-			}
-			moverFondo();
+				camara.setX(xCamara);
 
-			this.camara.setX(xCamara++);
-
-			if (cicloParaEnemigos <= 10100) {
-
-				cicloParaEnemigos++;
+				mundo.actualizar(delta);
 
 			}
 
 		} else {
 			editor.actualizar(delta);
 		}
-
-		// Colocando enemigos cada cierto Tiempo
-
-		colocarEnemigos();
-
-		////////////////////////////////
 
 		if (musicaIntro2) {
 
@@ -527,7 +171,7 @@ public class PantallaJuego extends Pantalla {
 
 		}
 
-		if (maquina.getVida() == 0) {
+		if (mundo.getMaquina().getVida() == 0) {
 
 			ciclo++;
 
@@ -584,235 +228,12 @@ public class PantallaJuego extends Pantalla {
 
 	}
 
-	private void colocarEnemigos() {
-
-		if (cicloParaEnemigos % 600 == 0) {
-
-			if (600 == cicloParaEnemigos) {
-
-				agregarMaquinaAntiAreo();
-
-				agregarVolador();
-			}
-
-		}
-
-		if (cicloParaEnemigos % 800 == 0) {
-
-			if (800 == cicloParaEnemigos) {
-
-				agregarSaltador();
-
-			}
-
-		}
-
-		if (cicloParaEnemigos % 2500 == 0) {
-
-			agregarRobot();
-
-			agregarLanzaMisil();
-
-		}
-		if (cicloParaEnemigos % 2750 == 0) {
-
-			if (2750 == cicloParaEnemigos) {
-
-				agregarMaquinaPared();
-			}
-
-		}
-
-		if (cicloParaEnemigos % 3000 == 0) {
-
-			if (3000 == cicloParaEnemigos) {
-
-				agregarMaquinaPared();
-			}
-
-		}
-
-		if (cicloParaEnemigos % 3200 == 0) {
-
-			if (3200 == cicloParaEnemigos) {
-
-				agregarMaquinaPared();
-			}
-
-		}
-
-		if (cicloParaEnemigos % 7000 == 0) {
-
-			if (7000 == cicloParaEnemigos) {
-
-				agregarPoder();
-			}
-
-		}
-
-		if (cicloParaEnemigos % 10000 == 0) {
-
-			cicloParaEnemigos = 10100;
-
-		}
-
-	}
-
-	private void agregarLanzaMisil() {
-
-		LanzaMisil lanzaMisil = new LanzaMisil(this);
-
-		lanzaMisil.setTamano(48, 32);
-
-		lanzaMisil.setPosicion(640, 100);
-
-		lanzaMisil.setCuadros(20);
-
-		lanzaMisil.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("lanzaMisilI1.png"),
-				juego.getRecurso().getImagen("lanzaMisilI2.png"), juego.getRecurso().getImagen("lanzaMisilI3.png") });
-
-		actores.add(lanzaMisil);
-	}
-
-	private void agregarVolador() {
-
-		Random r = new Random();
-
-		Volador volador = new Volador(this);
-
-		volador.setTamano(32, 32);
-
-		volador.setCuadros(7);
-
-		volador.setPosicion(r.nextInt(640) + 640, r.nextInt(480) - 32);
-
-		volador.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("voladorI1.png"),
-				juego.getRecurso().getImagen("voladorI2.png"), juego.getRecurso().getImagen("voladorI3.png") });
-
-		volador.setVelocidadY((int) (Math.random() * 7 - 5));
-
-		actores.add(volador);
-
-	}
-
-	private void agregarSaltador() {
-
-		Saltador saltador = new Saltador(this);
-
-		saltador.setTamano(48, 64);
-
-		saltador.setPosicion(640, 320);
-
-		saltador.setCuadros(20);
-
-		saltador.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("saltador2.png") });
-
-		actores.add(saltador);
-
-	}
-
-	private void agregarRobot() {
-
-		Robot robot1 = new Robot(this);
-
-		robot1.setTamano(64, 64);
-
-		robot1.setPosicion(639, 0);
-
-		robot1.setLado(Robot.LADO_IZQUIERDO);
-
-		robot1.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("robotI.png") });
-
-		actores.add(robot1);
-
-		Robot robot2 = new Robot(this);
-
-		robot2.setTamano(64, 64);
-
-		robot2.setPosicion(0, 0);
-
-		robot2.setLado(Robot.LADO_DERECHO);
-
-		robot2.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("robotD.png") });
-
-		actores.add(robot2);
-	}
-
-	private void agregarMaquinaPared() {
-
-		MaquinaPared maquinaPared = new MaquinaPared(this);
-
-		maquinaPared.setTamano(32, 32);
-
-		maquinaPared.setPosicion(532, 0);
-
-		maquinaPared.setVelocidadY(1);
-
-		maquinaPared.setMover(MaquinaPared.MOVER_ABAJO);
-
-		maquinaPared.setLado(MaquinaPared.LADO_IZQUIERDO);
-
-		maquinaPared.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("maquinaParedD1.png") });
-
-		maquinaPared.setDuracionDisparo(1f);
-
-		actores.add(maquinaPared);
-
-	}
-
-	private void agregarMaquinaAntiAreo() {
-
-		AntiAereo antiAreo = new AntiAereo(this);
-
-		antiAreo.setTamano(32, 32);
-
-		antiAreo.setPosicion(640, 352);
-
-		antiAreo.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("antiAreoH1.png") });
-
-		actores.add(antiAreo);
-
-	}
-
-	private void agregarPoder() {
-		int posicionCaja = 64;
-
-		Caja[] cajas = new Caja[4];
-
-		for (int i = 0; i < cajas.length; i++) {
-			cajas[i] = new Caja(this);
-
-			cajas[i].setTamano(32, 32);
-
-			cajas[i].setPosicion(1920, posicionCaja);
-
-			cajas[i].setCuadros(10);
-
-			cajas[i].setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("cajaPoder1.png"),
-					juego.getRecurso().getImagen("cajaPoder2.png"), juego.getRecurso().getImagen("cajaPoder3.png"),
-					juego.getRecurso().getImagen("cajaPoder4.png") });
-
-			posicionCaja += 96;
-
-		}
-
-		cajas[0].setAgilidad(Caja.AGILIDAD_S);
-		cajas[1].setPoderBala(Caja.PODER_B);
-		cajas[2].setPoderBala(Caja.PODER_W);
-		cajas[3].setPoderBala(Caja.PODER_L);
-
-		actores.add(cajas[0]);
-		actores.add(cajas[1]);
-		actores.add(cajas[2]);
-		actores.add(cajas[3]);
-	}
-
 	@Override
 	public void dibujar(Graphics2D pincel, float delta) {
 
-		for (int i = 0; i < actores.size(); i++) {
+		if (mundo != null) {
 
-			actores.get(i).dibujar(pincel, delta);
+			mundo.dibujar(pincel, delta);
 
 		}
 
@@ -854,9 +275,19 @@ public class PantallaJuego extends Pantalla {
 
 	private void removerVida() {
 
-		if (jugador.getVida() >= 0) {
+		if (jugador.getVida() == 0) {
 
-			vidas[jugador.getVida()].remover();
+			mundo.getVidas()[jugador.getVida()].remover();
+		}
+
+		if (jugador.getVida() == 1) {
+
+			mundo.getVidas()[jugador.getVida()].remover();
+		}
+
+		if (jugador.getVida() == 2) {
+
+			mundo.getVidas()[jugador.getVida()].remover();
 		}
 
 	}
@@ -880,15 +311,7 @@ public class PantallaJuego extends Pantalla {
 	@Override
 	public void teclaPresionada(KeyEvent ev) {
 
-		for (int i = 0; i < actores.size(); i++) {
-
-			if (actores.get(i) instanceof Jugador) {
-				Jugador a = (Jugador) actores.get(i);
-
-				a.teclaPresionada(ev);
-
-			}
-		}
+		jugador.teclaPresionada(ev);
 
 		switch (ev.getKeyCode()) {
 
@@ -905,23 +328,9 @@ public class PantallaJuego extends Pantalla {
 
 				pausa = !pausa;
 
-				for (int i = 0; i < actores.size(); i++) {
-
-					if (actores.get(i) instanceof Jugador) {
-						Jugador a = (Jugador) actores.get(i);
-
-						a.setPausado(pausa);
-
-					}
-				}
+				jugador.setPausado(pausa);
 
 			}
-
-			break;
-
-		case KeyEvent.VK_J:
-
-			anadirFondo();
 
 			break;
 
@@ -940,15 +349,7 @@ public class PantallaJuego extends Pantalla {
 	@Override
 	public void teclaLevantada(KeyEvent ev) {
 
-		for (int i = 0; i < actores.size(); i++) {
-
-			if (actores.get(i) instanceof Jugador) {
-				Jugador a = (Jugador) actores.get(i);
-
-				a.teclaLevantada(ev);
-
-			}
-		}
+		jugador.teclaLevantada(ev);
 
 		if (!pausa) {
 			editor.teclaLevantada(ev);
