@@ -60,6 +60,10 @@ public class Nivel extends Mundo {
 
 		numeroNivel = "Nivel " + datosNiveles.getNumeroNivel();
 
+		jugador.agregarSatelites();
+
+		actores.add(jugador);
+
 		for (Vector2D coodenadas : datosNiveles.getPosicionActores(InformacionDeNiveles.FONDO, numeroNivel)) {
 
 			Fondo fondo = new Fondo(pantalla);
@@ -156,6 +160,8 @@ public class Nivel extends Mundo {
 
 			antiAreo.setTamano(32, 32);
 
+			antiAreo.setDuracionDisparo(1);
+
 			antiAreo.setPosicion(coodenadas.getX(), coodenadas.getY());
 
 			antiAreo.setImagenes(new BufferedImage[] { juego.getRecurso().getImagen("antiAreoH1.png") });
@@ -202,9 +208,6 @@ public class Nivel extends Mundo {
 
 		}
 
-		jugador.agregarSatelites();
-
-		actores.add(jugador);
 	}
 
 	public MaquinaFinal getMaquina() {

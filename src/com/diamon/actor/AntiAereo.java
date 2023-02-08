@@ -3,16 +3,62 @@ package com.diamon.actor;
 import java.awt.image.BufferedImage;
 
 import com.diamon.nucleo.Actor;
+import com.diamon.nucleo.Animacion;
+import com.diamon.nucleo.Juego;
 import com.diamon.nucleo.Pantalla;
 
 public class AntiAereo extends Actor {
 
-	private int cicloDisparo;
+	private float tiempoCuadro;
+
+	private float duracionDisparo;
+
+	private Jugador jugador;
+
+	private Animacion animacion1;
+
+	private Animacion animacion2;
+
+	private Animacion animacion3;
+
+	private Animacion animacion4;
+
+	private Animacion animacion5;
 
 	public AntiAereo(Pantalla pantalla) {
 		super(pantalla);
 
-		cicloDisparo = 0;
+		duracionDisparo = 0;
+
+		setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("antiAreoH1.png") });
+
+		animacion1 = new Animacion(cuadros / Juego.FPS, imagenes[0]);
+
+		animacion1.setModo(Animacion.NORMAL);
+
+		animacion = animacion1;
+
+		animacion2 = new Animacion(cuadros / Juego.FPS, imagenes[0]);
+
+		animacion2.setModo(Animacion.NORMAL);
+
+		animacion = animacion2;
+
+		obtenerJugador();
+
+	}
+
+	private void obtenerJugador() {
+
+		for (int i = 0; i < pantalla.getActores().size(); i++) {
+
+			if (pantalla.getActores().get(i) instanceof Jugador) {
+
+				jugador = (Jugador) pantalla.getActores().get(i);
+
+			}
+
+		}
 
 	}
 
@@ -29,16 +75,30 @@ public class AntiAereo extends Actor {
 
 		x--;
 
-		cicloDisparo++;
+		if (jugador != null) {
 
-		if (cicloDisparo % 10 == 0) {
+			if (jugador.getY() <= y + tamano.height && jugador.getY() + jugador.getTamano().height >= y
+					&& jugador.getX() <= x)
 
-			if (Math.random() < 0.08f) {
-				disparar();
+			{
+
+				if (tiempoCuadro == 0)
+
+				{
+
+					disparar();
+				}
+
+				tiempoCuadro += delta;
+
+				if (tiempoCuadro / duracionDisparo >= 1) {
+
+					disparar();
+
+					tiempoCuadro = 0;
+				}
 
 			}
-
-			cicloDisparo = 0;
 
 		}
 
@@ -47,6 +107,10 @@ public class AntiAereo extends Actor {
 			remover = true;
 		}
 
+	}
+
+	public void setDuracionDisparo(float duracionDisparo) {
+		this.duracionDisparo = duracionDisparo;
 	}
 
 	public void disparar() {

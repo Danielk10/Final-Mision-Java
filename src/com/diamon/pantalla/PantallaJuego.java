@@ -11,13 +11,12 @@ import com.diamon.actor.JugadorMuriendo;
 import com.diamon.juego.FinalMision;
 import com.diamon.nivel.Nivel;
 import com.diamon.nucleo.Actor;
+import com.diamon.nucleo.Camara2D;
 import com.diamon.nucleo.Juego;
 import com.diamon.nucleo.Pantalla;
 import com.diamon.utilidad.EditorDeNiveles;
 
 public class PantallaJuego extends Pantalla {
-
-	private int xCamara;
 
 	private boolean pausa;
 
@@ -44,7 +43,7 @@ public class PantallaJuego extends Pantalla {
 	public PantallaJuego(FinalMision juego) {
 		super(juego);
 
-		camara.setX(0);
+		camara.setOrientacion(Camara2D.HORIZONTAL, Camara2D.DERECHA);
 
 		pausa = true;
 
@@ -66,6 +65,17 @@ public class PantallaJuego extends Pantalla {
 		iniciar();
 
 		mundo = new Nivel(this, jugador);
+
+	}
+
+	private void moverCamara() {
+
+		if (camara.getX() <= 2559) {
+
+		} else {
+
+			camara.setOrientacion(Camara2D.VERTICAL, Camara2D.ARRIBA);
+		}
 
 	}
 
@@ -123,9 +133,9 @@ public class PantallaJuego extends Pantalla {
 
 			if (mundo != null) {
 
-				xCamara++;
+				camara.actualizar(delta);
 
-				camara.setX(xCamara);
+				moverCamara();
 
 				mundo.actualizar(delta);
 
@@ -227,6 +237,8 @@ public class PantallaJuego extends Pantalla {
 		}
 
 	}
+
+	int x, y;
 
 	@Override
 	public void dibujar(Graphics2D pincel, float delta) {

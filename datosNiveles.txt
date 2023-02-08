@@ -1,163 +1,199 @@
 false
-40
+49
 1
-com.diamon.actor.Caja
-547
-307
-Nivel 1
-com.diamon.actor.Caja
-546
-209
-Nivel 1
-com.diamon.actor.Caja
-549
-110
-Nivel 1
-com.diamon.actor.Caja
-963
-233
-Nivel 1
-com.diamon.actor.Caja
-966
-131
-Nivel 1
-com.diamon.actor.Caja
-962
-50
+com.diamon.actor.AntiAereo
+928
+287
 Nivel 1
 com.diamon.actor.AntiAereo
-709
-317
+1001
+287
 Nivel 1
 com.diamon.actor.AntiAereo
-1166
-350
-Nivel 1
-com.diamon.actor.AntiAereo
-1582
+1592
 320
 Nivel 1
 com.diamon.actor.AntiAereo
-2025
-317
+1747
+352
 Nivel 1
 com.diamon.actor.AntiAereo
-2304
-320
+2029
+321
 Nivel 1
 com.diamon.actor.AntiAereo
-2708
-320
+2298
+319
 Nivel 1
-com.diamon.actor.Volador
-799
-233
+com.diamon.actor.AntiAereo
+2699
+322
 Nivel 1
-com.diamon.actor.Volador
-875
-107
-Nivel 1
-com.diamon.actor.Volador
-862
-271
-Nivel 1
-com.diamon.actor.Volador
-1496
-132
-Nivel 1
-com.diamon.actor.Volador
-1487
-297
-Nivel 1
-com.diamon.actor.Volador
-1583
-154
-Nivel 1
-com.diamon.actor.Volador
-1640
-250
-Nivel 1
-com.diamon.actor.Volador
-1893
-184
-Nivel 1
-com.diamon.actor.Volador
-1957
-276
-Nivel 1
-com.diamon.actor.Volador
-2049
-157
-Nivel 1
-com.diamon.actor.Volador
-2163
-234
-Nivel 1
-com.diamon.actor.Volador
-2199
-126
-Nivel 1
-com.diamon.actor.Volador
-2547
+com.diamon.actor.AntiAereo
+3088
 127
 Nivel 1
-com.diamon.actor.Volador
-2594
-189
+com.diamon.actor.AntiAereo
+2931
+-153
 Nivel 1
-com.diamon.actor.Volador
-2692
-102
+com.diamon.actor.AntiAereo
+3019
+-358
 Nivel 1
-com.diamon.actor.Volador
-2749
-237
+com.diamon.actor.AntiAereo
+2917
+-472
 Nivel 1
-com.diamon.actor.Volador
-2827
-142
+com.diamon.actor.AntiAereo
+3013
+-551
 Nivel 1
-com.diamon.actor.Volador
-2888
-248
+com.diamon.actor.AntiAereo
+2890
+-628
 Nivel 1
-com.diamon.actor.Volador
-2940
-141
+com.diamon.actor.AntiAereo
+3037
+-657
 Nivel 1
-com.diamon.actor.Volador
-3121
-271
+com.diamon.actor.AntiAereo
+2945
+-726
 Nivel 1
-com.diamon.actor.Volador
-2937
+com.diamon.actor.AntiAereo
+2994
+-765
+Nivel 1
+com.diamon.actor.AntiAereo
+989
+150
+Nivel 1
+com.diamon.actor.AntiAereo
+922
+257
+Nivel 1
+com.diamon.actor.AntiAereo
+1019
+316
+Nivel 1
+com.diamon.actor.AntiAereo
+1270
+192
+Nivel 1
+com.diamon.actor.AntiAereo
+1244
+87
+Nivel 1
+com.diamon.actor.AntiAereo
+849
+64
+Nivel 1
+com.diamon.actor.AntiAereo
+761
+214
+Nivel 1
+com.diamon.actor.AntiAereo
+1103
+233
+Nivel 1
+com.diamon.actor.AntiAereo
+1184
+214
+Nivel 1
+com.diamon.actor.AntiAereo
+1115
 100
 Nivel 1
-com.diamon.actor.MaquinaPared
-674
-84
+com.diamon.actor.AntiAereo
+1025
+98
+Nivel 1
+com.diamon.actor.AntiAereo
+1018
+128
+Nivel 1
+com.diamon.actor.AntiAereo
+1054
+220
+Nivel 1
+com.diamon.actor.AntiAereo
+1062
+268
+Nivel 1
+com.diamon.actor.AntiAereo
+1054
+283
+Nivel 1
+com.diamon.actor.AntiAereo
+1051
+283
+Nivel 1
+com.diamon.actor.AntiAereo
+564
+137
+Nivel 1
+com.diamon.actor.AntiAereo
+568
+241
+Nivel 1
+com.diamon.actor.AntiAereo
+534
+109
+Nivel 1
+com.diamon.actor.AntiAereo
+409
+85
+Nivel 1
+com.diamon.actor.AntiAereo
+311
+165
+Nivel 1
+com.diamon.actor.AntiAereo
+355
+349
+Nivel 1
+com.diamon.actor.AntiAereo
+764
+151
+Nivel 1
+com.diamon.actor.AntiAereo
+731
+353
+Nivel 1
+com.diamon.actor.AntiAereo
+699
+76
+Nivel 1
+com.diamon.actor.AntiAereo
+682
+245
 Nivel 1
 com.diamon.actor.MaquinaPared
-671
-191
+543
+266
 Nivel 1
 com.diamon.actor.MaquinaPared
-668
-267
+535
+91
 Nivel 1
 com.diamon.actor.MaquinaPared
-672
-365
+489
+193
 Nivel 1
 com.diamon.actor.MaquinaPared
-3301
-269
+484
+308
 Nivel 1
 com.diamon.actor.MaquinaPared
-3300
-61
+502
+396
 Nivel 1
 com.diamon.actor.MaquinaPared
-3301
-426
+626
+282
+Nivel 1
+com.diamon.actor.MaquinaPared
+622
+52
 Nivel 1

@@ -3,11 +3,30 @@ package com.diamon.nucleo;
 public class Camara2D {
 
 	private int x;
+
 	private int y;
+
 	private int ancho;
+
 	private int alto;
-	private int volocidad;
-	private boolean mover;
+
+	private int velocidad;
+
+	private int orientacion;
+
+	private int lado;
+
+	public final static int HORIZONTAL = 0;
+
+	public final static int VERTICAL = 1;
+
+	public final static int ARRIBA = 2;
+
+	public final static int ABAJO = 3;
+
+	public final static int IZQUIERDA = 4;
+
+	public final static int DERECHA = 5;
 
 	public Camara2D(int x, int y, int ancho, int alto) {
 
@@ -20,11 +39,44 @@ public class Camara2D {
 		this.alto = alto;
 	}
 
+	public int getOrientacion() {
+		return orientacion;
+	}
+
+	public void setOrientacion(int orientacion, int lado) {
+
+		this.orientacion = orientacion;
+
+		this.lado = lado;
+	}
+
 	public void actualizar(float delta) {
 
-		if (mover) {
+		if (orientacion == Camara2D.HORIZONTAL) {
 
-			x += volocidad;
+			if (lado == Camara2D.DERECHA) {
+
+				x += velocidad;
+			}
+
+			if (lado == Camara2D.IZQUIERDA) {
+				x -= velocidad;
+
+			}
+
+		}
+
+		if (orientacion == Camara2D.VERTICAL) {
+
+			if (lado == Camara2D.ARRIBA) {
+
+				y -= velocidad;
+			}
+
+			if (lado == Camara2D.ABAJO) {
+				y += velocidad;
+
+			}
 		}
 
 	}
@@ -61,20 +113,14 @@ public class Camara2D {
 		this.alto = alto;
 	}
 
-	public int getVolocidad() {
-		return volocidad;
+	public int getVelocidad() {
+		return velocidad;
 	}
 
-	public void setVolocidad(int volocidad) {
+	public void setVelocidad(int velocidad) {
 
-		this.volocidad = volocidad;
+		this.velocidad = velocidad;
 
-		if (this.volocidad == 0) {
-
-			mover = false;
-		} else {
-			mover = true;
-		}
 	}
 
 }

@@ -41,7 +41,7 @@ public class Volador extends Actor {
 	@Override
 	public void actualizar(float delta) {
 
-		if (x <= camara.getX() + camara.getAncho()) {
+		if (x <= camara.getX() + camara.getAncho() && y >= camara.getY()) {
 
 			super.actualizar(delta);
 

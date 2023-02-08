@@ -45,7 +45,7 @@ public class EditorDeNiveles {
 
 		datosNiveles = juego.getDatosNiveles();
 
-		this.tipo = InformacionDeNiveles.VOLADOR;
+		this.tipo = InformacionDeNiveles.ANTI_AEREO;
 
 	}
 
@@ -121,7 +121,7 @@ public class EditorDeNiveles {
 
 		case KeyEvent.VK_UP:
 
-			yCamara += 5;
+			yCamara -= 5;
 
 			camara.setY(yCamara);
 
@@ -140,7 +140,7 @@ public class EditorDeNiveles {
 
 		case KeyEvent.VK_DOWN:
 
-			yCamara -= 5;
+			yCamara += 5;
 
 			camara.setY(yCamara);
 
