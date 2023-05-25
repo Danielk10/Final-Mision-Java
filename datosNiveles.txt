@@ -1,5 +1,5 @@
 false
-49
+59
 1
 com.diamon.actor.AntiAereo
 928
@@ -196,4 +196,44 @@ Nivel 1
 com.diamon.actor.MaquinaPared
 622
 52
+Nivel 1
+com.diamon.actor.AntiAereo
+1571
+213
+Nivel 1
+com.diamon.actor.AntiAereo
+1791
+124
+Nivel 1
+com.diamon.actor.AntiAereo
+1804
+175
+Nivel 1
+com.diamon.actor.AntiAereo
+1607
+252
+Nivel 1
+com.diamon.actor.AntiAereo
+1495
+331
+Nivel 1
+com.diamon.actor.AntiAereo
+1625
+99
+Nivel 1
+com.diamon.actor.AntiAereo
+1753
+152
+Nivel 1
+com.diamon.actor.AntiAereo
+1755
+254
+Nivel 1
+com.diamon.actor.AntiAereo
+1743
+272
+Nivel 1
+com.diamon.actor.AntiAereo
+1743
+273
 Nivel 1

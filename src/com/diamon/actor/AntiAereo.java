@@ -30,7 +30,7 @@ public class AntiAereo extends Actor {
 
 		duracionDisparo = 0;
 
-		setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("antiAreoH1.png") });
+		/*setImagenes(new BufferedImage[] { pantalla.getJuego().getRecurso().getImagen("antiAreoH1.png") });
 
 		animacion1 = new Animacion(cuadros / Juego.FPS, imagenes[0]);
 
@@ -42,7 +42,7 @@ public class AntiAereo extends Actor {
 
 		animacion2.setModo(Animacion.NORMAL);
 
-		animacion = animacion2;
+		animacion = animacion2;*/
 
 		obtenerJugador();
 

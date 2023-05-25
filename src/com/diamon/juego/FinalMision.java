@@ -10,7 +10,7 @@ public class FinalMision extends Juego {
 	public FinalMision() {
 		super();
 
-		setPantalla(new PantallaPrecentacion(this)); 
+		setPantalla(new PantallaPrecentacion(this));
 
 	}
 

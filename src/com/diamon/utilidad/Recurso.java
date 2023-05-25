@@ -28,54 +28,102 @@ public class Recurso implements ImageObserver {
 		sonidos = new HashMap<String, AudioClip>();
 
 		imagenes = new HashMap<String, BufferedImage>();
+
 	}
 
 	public BufferedImage cargarImagen(String nombre) {
-		URL rutaImagen = getClass().getClassLoader().getResource("res/" + nombre);
 
-		BufferedImage imagen;
-		try {
-			imagen = ImageIO.read(rutaImagen);
+		if (imagenes.keySet().size() <= 0) {
 
-			BufferedImage compatible = createCompatible(imagen.getWidth(), imagen.getHeight(), Transparency.BITMASK);
-			Graphics2D g = (Graphics2D) compatible.getGraphics();
-			g.drawImage(imagen, 0, 0, this);
+			try {
 
-			imagenes.put(nombre, compatible);
+				final URL rutaImagen = getClass().getClassLoader().getResource("res/" + nombre);
 
-			return imagenes.get(nombre);
+				final BufferedImage imagen = ImageIO.read(rutaImagen);
 
-		} catch (IOException e) {
-			return null;
+				final BufferedImage compatible = createCompatible(imagen.getWidth(), imagen.getHeight(),
+						Transparency.BITMASK);
+
+				final Graphics2D g = (Graphics2D) compatible.getGraphics();
+
+				g.drawImage(imagen, 0, 0, this);
+
+				imagenes.put(nombre, compatible);
+
+				return imagenes.get(nombre);
+
+			} catch (IOException e) {
+
+				return null;
+			}
+
 		}
+
+		for (String nombreGuardado : imagenes.keySet()) {
+
+			if (nombre.equals(nombreGuardado)) {
+
+				return null;
+
+			} else {
+				try {
+
+					final URL rutaImagen = getClass().getClassLoader().getResource("res/" + nombre);
+
+					final BufferedImage imagen = ImageIO.read(rutaImagen);
+
+					final BufferedImage compatible = createCompatible(imagen.getWidth(), imagen.getHeight(),
+							Transparency.BITMASK);
+
+					final Graphics2D g = (Graphics2D) compatible.getGraphics();
+
+					g.drawImage(imagen, 0, 0, this);
+
+					imagenes.put(nombre, compatible);
+
+					return imagenes.get(nombre);
+
+				} catch (IOException e) {
+
+					return null;
+				}
+
+			}
+
+		}
+		return null;
 
 	}
 
 	public AudioClip cargarSonido(String nombre) {
-		URL rutaSonido = getClass().getClassLoader().getResource("res/" + nombre);
-		AudioClip sonido;
+
 		try {
-			sonido = Applet.newAudioClip(rutaSonido);
+
+			final URL rutaSonido = getClass().getClassLoader().getResource("res/" + nombre);
+
+			final AudioClip sonido = Applet.newAudioClip(rutaSonido);
 
 			sonidos.put(nombre, sonido);
 
 			return sonidos.get(nombre);
 
 		} catch (Exception e) {
+
 			return null;
 		}
 
 	}
 
 	public AudioClip getSonido(String nombre) {
-		AudioClip sonido;
-		sonido = (AudioClip) sonidos.get(nombre);
+
+		AudioClip sonido = (AudioClip) sonidos.get(nombre);
 
 		if (sonido == null) {
 
 			sonido = cargarSonido(nombre);
 
 			sonidos.put(nombre, sonido);
+
 		}
 
 		return sonido;
@@ -105,14 +153,15 @@ public class Recurso implements ImageObserver {
 	}
 
 	public BufferedImage getImagen(String nombre) {
-		BufferedImage imagen;
-		imagen = (BufferedImage) imagenes.get(nombre);
+
+		BufferedImage imagen = (BufferedImage) imagenes.get(nombre);
 
 		if (imagen == null) {
 
 			imagen = cargarImagen(nombre);
 
 			imagenes.put(nombre, imagen);
+
 		}
 
 		return imagen;
@@ -134,7 +183,9 @@ public class Recurso implements ImageObserver {
 	public BufferedImage[] getImagenes(BufferedImage img, int ancho, int alto) {
 
 		BufferedImage cell[] = new BufferedImage[(img.getWidth(null) / ancho) / 2 + (img.getHeight(null) / alto) / 2];
+
 		int iw, ih;
+
 		int tw, th;
 
 		int fila, columna;
@@ -144,9 +195,11 @@ public class Recurso implements ImageObserver {
 		columna = ((img.getHeight(null) / alto) / 2) / 2;
 
 		iw = img.getWidth(null);
+
 		ih = img.getHeight(null);
 
 		tw = (iw / ancho) * ((img.getWidth(null) / ancho) / 2);
+
 		th = (ih / alto) * ((img.getHeight(null) / alto) / 2);
 
 		CropImageFilter f;
@@ -154,9 +207,13 @@ public class Recurso implements ImageObserver {
 		FilteredImageSource fis;
 
 		for (int y = 0; y < fila; y++) {
+
 			for (int x = 0; x < columna; x++) {
+
 				f = new CropImageFilter(tw * x, th * y, tw, th);
+
 				fis = new FilteredImageSource(img.getSource(), f);
+
 				int i = y * columna + x;
 
 				BufferedImage fg = createCompatible(tw, th, Transparency.BITMASK);

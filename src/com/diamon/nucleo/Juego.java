@@ -310,6 +310,7 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 
 	public void setPantalla(Pantalla pantalla) {
 		if (this.pantalla != null) {
+
 			this.pantalla.ocultar();
 		}
 
@@ -336,6 +337,7 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 			datosNiveles.guardarConfiguraciones();
 
 		}
+
 	}
 
 	public Pantalla getPantalla() {
