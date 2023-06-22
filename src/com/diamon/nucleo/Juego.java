@@ -308,6 +308,10 @@ public abstract class Juego extends Canvas implements Runnable, KeyListener, Mou
 		}
 	}
 
+	public JFrame getVentana() {
+		return ventana;
+	}
+
 	public void setPantalla(Pantalla pantalla) {
 		if (this.pantalla != null) {
 
